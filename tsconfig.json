@@ -19,6 +19,13 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/hooks/useDarkSide.js",
+    "src/hooks/Switcher.js",
+    "src/hooks/Switcher.js"
+  ],
   "exclude": ["node_modules"]
 }
