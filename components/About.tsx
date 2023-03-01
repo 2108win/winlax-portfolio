@@ -52,6 +52,7 @@ export default function About({}: Props) {
           })}
         </Swiper>
       </motion.div>
+      <div></div>
     </div>
   );
 }

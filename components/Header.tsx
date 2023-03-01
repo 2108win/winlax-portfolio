@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { SocialIcon } from "react-social-icons";
-import Switcher from "../src/hooks/Switcher";
+import ThemeToggler from "../src/hooks/ThemeToggler";
 type Props = {};
 
 export default function Header({}: Props) {
@@ -28,6 +28,7 @@ export default function Header({}: Props) {
         <Link href="#hero" className="mr-3">
           <Image src="/images/logo.png" width={50} height={50} alt="logo" />
         </Link>
+        <ThemeToggler />
         {/* Social Icon */}
         {/* <SocialIcon url="https://www.facebook.com/2108win/" fgColor="gray" bgColor="transparent" />
         <SocialIcon url="https://www.instagram.com/win_lax/" fgColor="gray" bgColor="transparent" />
