@@ -66,7 +66,7 @@ export default function About({}: Props) {
         }}
         className=""
       >
-        <p className="text-xl text-[#242424] dark:text-[#f5f6f1]">
+        <p className="text-lg md:text-xl text-[#242424] dark:text-[#f5f6f1]">
           Mình là sinh viên sắp tốt nghiệp, có 4 năm học công nghệ thông tin với định hướng công
           nghệ web. Rất thích những giao diện website đẹp. Sự tỉ mỉ, hoàn thiện trong từng chi tiết
           là điều tôi hướng đến để đạt được mong muốn trở thành một front-end developer và hơn thế
