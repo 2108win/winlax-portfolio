@@ -12,7 +12,7 @@ const ImageLinks = ["/images/About-1.jpg", "/images/About-2.jpg", "/images/About
 export default function About({}: Props) {
   return (
     <div className="relative flex flex-col items-center justify-center h-screen gap-8 px-10 mx-auto text-center md:text-left md:flex-row max-w-7xl">
-      <h3 className="absolute tracking-[20px] uppercase top-25 text-gray-500 text-2xl">About</h3>
+      <h3 className="absolute tracking-[20px] uppercase top-24 text-gray-500 text-2xl">About</h3>
       <motion.div
         initial={{
           opacity: 0,
