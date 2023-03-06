@@ -36,7 +36,7 @@ export default function Experience({}: Props) {
         {timelines.map((item) => {
           return (
             <>
-              <div className="flex items-start gap-4 min-h-[100px]">
+              <div className="flex items-start gap-4 md:min-h-[100px]">
                 <span className="min-w-[52px] leading-none text-lg md:text-xl">{item.year}</span>
                 <div className="z-10 dot"></div>
                 <ul className="space-y-2 text-base text-left md:text-lg">
