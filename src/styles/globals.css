@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @layer components {
   html {
-    font-family: "Poppins", sans-serif;
+    font-family: inherit;
   }
   *,
   *:before,
@@ -14,7 +14,7 @@
   * {
     margin: 0;
     padding: 0;
-    font: inherit;
+    font-family: "Roboto", sans-serif;
   }
   img,
   picture,
@@ -31,5 +31,11 @@
   }
   .heroButton {
     @apply px-6 py-2 uppercase border border-[#f5f6f180] rounded-full tracking-widest text-[#242424] dark:text-[#f5f6f180] transition-all dark:hover:text-[#f5f6f1] hover:text-[#fff] hover:bg-no-repeat hover:bg-gradient-to-r hover:bg-blend-normal  hover:from-[#d3d3d3] hover:to-[#f7ab0a] hover:border-[#f7ab0a];
+  }
+  .dot {
+    @apply min-w-[20px] w-[20px] h-[20px] rounded-full  border border-[#f7ab0a] bg-no-repeat bg-gradient-to-r from-[#f7ab0a] to-[#d3d3d3] bg-blend-normal;
+  }
+  .timelines {
+    @apply after:content-[''] after:absolute after:top-0 after:left-[75px] after:w-[5px] after:h-full after:bg-[#ffab0a] after:z-[1];
   }
 }

@@ -11,8 +11,10 @@ type Props = {};
 const ImageLinks = ["/images/About-1.jpg", "/images/About-2.jpg", "/images/About-3.jpg"];
 export default function About({}: Props) {
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen gap-8 px-10 mx-auto text-center md:text-left md:flex-row max-w-7xl">
-      <h3 className="absolute tracking-[20px] uppercase top-24 text-gray-500 text-2xl">About</h3>
+    <div className="relative flex flex-col items-center justify-center h-screen gap-8 px-5 mx-auto text-center md:flex-row max-w-7xl md:text-left ">
+      <h3 className="absolute tracking-[20px] translate-x-[10px] uppercase top-24 text-gray-500 text-2xl">
+        About
+      </h3>
       <motion.div
         initial={{
           opacity: 0,
@@ -28,7 +30,7 @@ export default function About({}: Props) {
         className=""
       >
         <Swiper
-          spaceBetween={30}
+          spaceBetween={20}
           centeredSlides={true}
           autoplay={{
             delay: 9000,
@@ -39,7 +41,7 @@ export default function About({}: Props) {
             clickable: true,
           }}
           modules={[Autoplay, Pagination]}
-          className="w-[350px] h-[250px] md:w-[400px] md:h-[300px] xl:w-[500px] xl:h-[375px] rounded-2xl border dark:border-[#f5f6f120] shadow-xl overflow-hidden"
+          className="w-[320px] h-[240px] md:w-[400px] md:h-[300px] xl:w-[500px] xl:h-[375px] rounded-2xl border dark:border-[#f5f6f120] shadow-xl overflow-hidden"
         >
           {ImageLinks.map((link) => {
             return (
