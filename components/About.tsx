@@ -8,7 +8,13 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { motion } from "framer-motion";
 type Props = {};
-const ImageLinks = ["/images/About-1.jpg", "/images/About-2.jpg", "/images/About-3.jpg"];
+const ImageLinks = [
+  "/images/About-1.jpg",
+  "/images/About-2.jpg",
+  "/images/About-3.jpg",
+  "/images/About-4.jpg",
+  "/images/About-5.jpg",
+];
 export default function About({}: Props) {
   return (
     <div className="relative flex flex-col items-center justify-center h-screen gap-8 px-5 mx-auto text-center md:flex-row max-w-7xl md:text-left ">
