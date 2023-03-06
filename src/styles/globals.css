@@ -33,9 +33,15 @@
     @apply px-6 py-2 uppercase border border-[#f5f6f180] rounded-full tracking-widest text-[#242424] dark:text-[#f5f6f180] transition-all dark:hover:text-[#f5f6f1] hover:text-[#fff] hover:bg-no-repeat hover:bg-gradient-to-r hover:bg-blend-normal  hover:from-[#d3d3d3] hover:to-[#f7ab0a] hover:border-[#f7ab0a];
   }
   .dot {
-    @apply min-w-[20px] w-[20px] h-[20px] rounded-full  border border-[#f7ab0a] bg-no-repeat bg-gradient-to-r from-[#f7ab0a] to-[#d3d3d3] bg-blend-normal;
+    @apply min-w-[20px] w-[20px] h-[20px] rounded-full  border border-[#f7ab0a] bg-no-repeat bg-gradient-to-r from-[#fff] to-[#d3d3d3] bg-blend-normal transition-all duration-500;
+  }
+  .timeline:hover > .dot {
+    @apply from-[#f7ab0a] to-[#fff];
+  }
+  .timeline:hover > .timeline-time {
+    @apply text-[#f7ab0a];
   }
   .timelines {
-    @apply after:content-[''] after:absolute after:top-0 after:left-[75px] after:w-[5px] after:h-full after:bg-[#ffab0a] after:z-[1];
+    @apply after:content-[''] after:absolute after:top-0 after:lg:top-[52px] after:lg:left-0 after:left-[75px] after:w-[5px] after:lg:w-full after:h-full after:lg:h-[5px] after:bg-[#ffab0a] after:z-[1];
   }
 }

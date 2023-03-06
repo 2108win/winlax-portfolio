@@ -32,16 +32,16 @@ export default function Hero({}: Props) {
         </h1>
         <div className="grid grid-cols-2 gap-4 mt-5 md:grid-cols-4">
           <Link href="#about">
-            <button className="heroButton">About</button>
+            <button className="w-full heroButton">About</button>
           </Link>
           <Link href="#experience">
-            <button className="heroButton">Experience</button>
+            <button className="w-full heroButton">Experience</button>
           </Link>
           <Link href="#projects">
-            <button className="heroButton">Projects</button>
+            <button className="w-full heroButton">Projects</button>
           </Link>
           <Link href="#skills">
-            <button className="heroButton">Skills</button>
+            <button className="w-full heroButton">Skills</button>
           </Link>
         </div>
       </div>

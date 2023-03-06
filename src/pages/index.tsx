@@ -9,7 +9,7 @@ import Projects from "components/Projects";
 import Contact from "components/Contact";
 const Home: NextPage = () => {
   return (
-    <div className="bg-[#f5f6f1] dark:bg-[#242424] text-white h-screen min-h-screen snap-y snap-mandatory z-0 overflow-scroll">
+    <div className="bg-[#f5f6f1] dark:bg-[#242424] text-white h-screen min-h-screen snap-y z-0 overflow-scroll overflow-x-hidden">
       <Head>
         <title>WinLax Portfolio</title>
         <meta name="description" content="Hi!! Welcome to WinLax Portfolio" />
@@ -32,11 +32,11 @@ const Home: NextPage = () => {
         <About />
       </section>
       {/* Experience */}
-      <section id="experience" className="snap-start">
+      <section id="experience" className="lg:snap-start">
         <Experience />
       </section>
       {/* Projects */}
-      <section id="projects" className="snap-start">
+      <section id="projects" className="lg:snap-start">
         <Projects />
       </section>
       {/* Skills */}
