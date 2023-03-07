@@ -37,7 +37,7 @@ export default function Header({}: Props) {
         {/* <Switcher /> */}
       </motion.div>
 
-      <motion.button
+      <motion.a
         initial={{
           x: 500,
           opacity: 0,
@@ -51,10 +51,12 @@ export default function Header({}: Props) {
         transition={{
           duration: 1,
         }}
-        className="buttonMain "
+        className="buttonMain"
+        href="/images/LaMaiWin_CV.pdf"
+        download
       >
-        Download CV
-      </motion.button>
+        <span className="text-[#242424] dark:text-[#f5f6f1]">Download CV</span>
+      </motion.a>
     </header>
   );
 }
