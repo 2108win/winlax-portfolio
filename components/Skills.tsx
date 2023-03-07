@@ -8,6 +8,9 @@ export default function Skills({}: Props) {
       <h3 className="tracking-[20px] translate-x-[10px] uppercase   text-gray-500 text-2xl">
         Skills
       </h3>
+      <h1 className="absolute top-0 md:right-10 -translate-y-1/2 text-5xl md:text-7xl font-extrabold italic text-[#24242415] dark:text-[#f5f6f115] rotate-[20deg] tracking-[8px] cursor-default ">
+        ##skills
+      </h1>
     </div>
   );
 }

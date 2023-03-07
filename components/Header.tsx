@@ -25,7 +25,7 @@ export default function Header({}: Props) {
         }}
         className="flex flex-row items-center"
       >
-        <Link to="hero" className="mr-3">
+        <Link to="hero" className="relative mr-3 overflow-hidden linkLogo">
           <Image src="/images/logo.png" width={50} height={50} alt="logo" />
         </Link>
         <ThemeToggler />
@@ -55,7 +55,7 @@ export default function Header({}: Props) {
         href="/images/LaMaiWin_CV.pdf"
         download
       >
-        <span className="text-[#242424] dark:text-[#f5f6f1]">Download CV</span>
+        Download CV
       </motion.a>
     </header>
   );

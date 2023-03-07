@@ -49,6 +49,9 @@ export default function Experience({}: Props) {
       <h3 className="tracking-[20px] translate-x-[10px] uppercase   text-gray-500 text-2xl">
         Experience
       </h3>
+      <h1 className="absolute top-0 md:right-10 -translate-y-1/2 text-5xl md:text-7xl font-extrabold italic text-[#24242415] dark:text-[#f5f6f115] rotate-[20deg] tracking-[8px] cursor-default ">
+        ##experience
+      </h1>
       {/* timelines */}
       <div className="timelines relative flex flex-col lg:flex-row gap-4 text-[#242424] dark:text-[#f5f6f1] h-fit">
         {timelines.map((item) => {

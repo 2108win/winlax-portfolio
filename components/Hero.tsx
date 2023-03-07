@@ -27,7 +27,7 @@ export default function Hero({}: Props) {
       />
       <div className="absolute z-20 top-[60%] text-gray-800 dark:text-white">
         <h1 className="text-4xl font-semibold md:text-5xl lg:text-6xl">
-          <span className="mr-1">{text}</span>
+          <span className="mr-1 transition-all">{text}</span>
           <Cursor cursorColor="#f7ab0a" />
         </h1>
         <div className="grid grid-cols-2 gap-4 mt-5 md:grid-cols-4">
