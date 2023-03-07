@@ -7,9 +7,10 @@ import Experience from "components/Experience";
 import Skills from "components/Skills";
 import Projects from "components/Projects";
 import Contact from "components/Contact";
+import ScrollToTop from "components/ScrollToTop";
 const Home: NextPage = () => {
   return (
-    <div className="bg-[#f5f6f1] dark:bg-[#242424] text-white h-screen min-h-screen snap-y z-0 overflow-scroll overflow-x-hidden">
+    <div className="bg-[#f5f6f1] dark:bg-[#242424] text-white min-h-screen h-full ">
       <Head>
         <title>WinLax Portfolio</title>
         <meta name="description" content="Hi!! Welcome to WinLax Portfolio" />
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/images/logo.png" />
       </Head>
       <Header />
+      <ScrollToTop />
       {/* Hero */}
       <section id="hero" className="snap-center">
         <Hero />

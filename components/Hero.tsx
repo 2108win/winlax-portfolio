@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
+import { Link } from "react-scroll";
 import React from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
@@ -31,16 +31,16 @@ export default function Hero({}: Props) {
           <Cursor cursorColor="#f7ab0a" />
         </h1>
         <div className="grid grid-cols-2 gap-4 mt-5 md:grid-cols-4">
-          <Link href="#about">
+          <Link to="about" spy={true} smooth={true} duration={500}>
             <button className="w-full heroButton">About</button>
           </Link>
-          <Link href="#experience">
+          <Link to="experience" spy={true} smooth={true} duration={500}>
             <button className="w-full heroButton">Experience</button>
           </Link>
-          <Link href="#projects">
+          <Link to="projects" spy={true} smooth={true} duration={500}>
             <button className="w-full heroButton">Projects</button>
           </Link>
-          <Link href="#skills">
+          <Link to="skills" spy={true} smooth={true} duration={500}>
             <button className="w-full heroButton">Skills</button>
           </Link>
         </div>

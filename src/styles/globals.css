@@ -5,6 +5,7 @@
 @layer components {
   html {
     font-family: inherit;
+    scroll-behavior: smooth;
   }
   *,
   *:before,
@@ -27,10 +28,13 @@
     min-height: 100vh;
   }
   .buttonMain {
-    @apply px-6 py-2 uppercase border rounded-full text-[#f5f6f1] bg-no-repeat bg-gradient-to-r from-[#f7ab0a] to-[#d3d3d3] bg-blend-normal border-[#f7ab0a] transition-all hover:bg-gradient-to-l hover:duration-300;
+    @apply px-6 py-2 uppercase border rounded-full text-[#f5f6f1] bg-no-repeat bg-gradient-to-r from-[#f7ab0a] to-[#d3d3d3] bg-blend-normal border-[#f7ab0a] transition-all hover:bg-gradient-to-l duration-300;
+  }
+  .buttonToTop {
+    @apply fixed flex items-center justify-center bottom-4 lg:bottom-5 z-20 left-1/2 -translate-x-1/2 h-8 w-8 lg:h-10 lg:w-10 rounded-full text-[#f5f6f1] bg-no-repeat bg-gradient-to-b from-[#f7ab0a] to-[#f5f6f6] bg-blend-normal transition-all  duration-300 hover:scale-125 border border-[#f7ab0a] opacity-80 hover:opacity-100;
   }
   .heroButton {
-    @apply px-6 py-2 uppercase border border-[#f5f6f180] rounded-full tracking-widest text-[#242424] dark:text-[#f5f6f180] transition-all dark:hover:text-[#f5f6f1] hover:text-[#fff] hover:bg-no-repeat hover:bg-gradient-to-r hover:bg-blend-normal  hover:from-[#d3d3d3] hover:to-[#f7ab0a] hover:border-[#f7ab0a];
+    @apply px-6 py-2 uppercase border border-[#f5f6f180] rounded-full tracking-widest text-[#242424] dark:text-[#f5f6f180] transition-all dark:hover:text-[#f5f6f1] hover:text-[#fff] hover:bg-no-repeat hover:bg-gradient-to-r hover:bg-blend-normal  hover:from-[#d3d3d3] hover:to-[#f7ab0a] hover:border-[#f7ab0a] p-1;
   }
   .dot {
     @apply min-w-[20px] w-[20px] h-[20px] rounded-full  border border-[#f7ab0a] bg-no-repeat bg-gradient-to-r from-[#fff] to-[#d3d3d3] bg-blend-normal transition-all duration-500;
