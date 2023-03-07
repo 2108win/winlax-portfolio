@@ -31,7 +31,7 @@
     @apply px-6 py-2 uppercase border rounded-full text-[#f5f6f1] bg-no-repeat bg-gradient-to-r from-[#f7ab0a] to-[#d3d3d3] bg-blend-normal border-[#f7ab0a] transition-all hover:bg-gradient-to-l duration-300 shadow-lg;
   }
   .buttonToTop {
-    @apply fixed flex items-center justify-center bottom-4 lg:bottom-5 z-20 left-1/2 -translate-x-1/2 h-8 w-8 lg:h-10 lg:w-10 rounded-full text-[#f5f6f1] bg-no-repeat bg-gradient-to-b from-[#f7ab0a] to-[#f5f6f6] bg-blend-normal transition-all  duration-300 hover:scale-125 border border-[#f7ab0a] opacity-80 hover:opacity-100 shadow-lg;
+    @apply fixed flex items-center justify-center bottom-4 lg:bottom-5 z-20 left-1/2 -translate-x-1/2 h-8 w-8 lg:h-10 lg:w-10 rounded-full text-[#f5f6f1] bg-no-repeat bg-gradient-to-b from-[#f7ab0a] to-[#f5f6f6] bg-blend-normal transition-all  duration-300 hover:scale-125 border border-[#f7ab0a] opacity-80 hover:opacity-100 shadow-lg cursor-pointer;
   }
   .heroButton {
     @apply px-6 py-2 uppercase border border-[#f5f6f180] rounded-full tracking-widest text-[#242424] dark:text-[#f5f6f180] transition-all dark:hover:text-[#f5f6f1] hover:text-[#fff] hover:bg-no-repeat hover:bg-gradient-to-r hover:bg-blend-normal  hover:from-[#d3d3d3] hover:to-[#f7ab0a] hover:border-[#f7ab0a] p-1;
@@ -48,4 +48,18 @@
   .timelines {
     @apply after:content-[''] after:absolute after:top-0 after:lg:top-[52px] after:lg:left-0 after:left-[75px] after:w-[5px] after:lg:w-full after:h-full after:lg:h-[5px] after:bg-gradient-to-t after:from-[#ffab0a] after:to-[#d3d3d333] after:z-[1];
   }
+  /* .linkLogo::before {
+    content: "";
+    width: 3px;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: flash 2s alternate linear infinite;
+    border-radius: 20px;
+  } */
+  /* .linkLogo {
+    @apply before:content-[""] before:absolute  before:dark:bg-[#24242450] before:bg-[#f5f6f180] before:h-[80%] before:w-[3px] before:top-0 before:left-0 before:z-[1] before:rounded-[20px] before:animate-[flash_2s_alternate_infinite];
+  } */
 }
