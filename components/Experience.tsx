@@ -45,12 +45,12 @@ export default function Experience({}: Props) {
     },
   ];
   return (
-    <div className="relative flex flex-col items-center min-h-screen gap-5 px-5 mx-auto text-center lg:text-left max-w-7xl">
-      <h3 className="absolute tracking-[20px] translate-x-[10px] uppercase top-24 text-gray-500 text-2xl">
+    <div className="relative flex flex-col items-center gap-8 px-5 mx-auto text-center max-w-7xl">
+      <h3 className="tracking-[20px] translate-x-[10px] uppercase   text-gray-500 text-2xl">
         Experience
       </h3>
       {/* timelines */}
-      <div className="timelines relative flex flex-col lg:flex-row gap-4 text-[#242424] dark:text-[#f5f6f1] h-fit mt-44 lg:mt-52">
+      <div className="timelines relative flex flex-col lg:flex-row gap-4 text-[#242424] dark:text-[#f5f6f1] h-fit">
         {timelines.map((item) => {
           return (
             <>

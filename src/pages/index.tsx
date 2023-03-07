@@ -10,7 +10,7 @@ import Contact from "components/Contact";
 import ScrollToTop from "components/ScrollToTop";
 const Home: NextPage = () => {
   return (
-    <div className="bg-[#f5f6f1] dark:bg-[#242424] text-white min-h-screen h-full ">
+    <>
       <Head>
         <title>WinLax Portfolio</title>
         <meta name="description" content="Hi!! Welcome to WinLax Portfolio" />
@@ -25,31 +25,33 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <ScrollToTop />
-      {/* Hero */}
-      <section id="hero" className="snap-center">
-        <Hero />
-      </section>
-      {/* About */}
-      <section id="about" className="snap-start">
-        <About />
-      </section>
-      {/* Experience */}
-      <section id="experience" className="lg:snap-start">
-        <Experience />
-      </section>
-      {/* Projects */}
-      <section id="projects" className="lg:snap-start">
-        <Projects />
-      </section>
-      {/* Skills */}
-      <section id="skills" className="snap-start">
-        <Skills />
-      </section>
-      {/* Contact */}
-      <section id="contact" className="snap-start">
-        <Contact />
-      </section>
-    </div>
+      <div className="flex flex-col gap-32 bg-[#f5f6f1] dark:bg-[#242424] text-white min-h-screen h-full ">
+        {/* Hero */}
+        <section id="hero" className="snap-center">
+          <Hero />
+        </section>
+        {/* About */}
+        <section id="about" className="snap-start">
+          <About />
+        </section>
+        {/* Experience */}
+        <section id="experience" className="lg:snap-start">
+          <Experience />
+        </section>
+        {/* Projects */}
+        <section id="projects" className="lg:snap-start">
+          <Projects />
+        </section>
+        {/* Skills */}
+        <section id="skills" className="snap-start">
+          <Skills />
+        </section>
+        {/* Contact */}
+        <section id="contact" className="snap-start">
+          <Contact />
+        </section>
+      </div>
+    </>
   );
 };
 
