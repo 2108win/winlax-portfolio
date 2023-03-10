@@ -34,7 +34,7 @@
     @apply fixed flex items-center justify-center bottom-4 lg:bottom-5 z-20 left-1/2 -translate-x-1/2 h-8 w-8 lg:h-10 lg:w-10 rounded-full text-[#f5f6f1] bg-no-repeat bg-gradient-to-b from-[#f7ab0a] to-[#f5f6f6] bg-blend-normal transition-all  duration-300 hover:scale-125 border border-[#f7ab0a] opacity-80 hover:opacity-100 shadow-lg cursor-pointer;
   }
   .heroButton {
-    @apply px-6 py-2 uppercase border border-[#f5f6f180] rounded-full tracking-widest text-[#242424] dark:text-[#f5f6f180] transition-all dark:hover:text-[#f5f6f1] hover:text-[#fff] hover:bg-no-repeat hover:bg-gradient-to-r hover:bg-blend-normal  hover:from-[#d3d3d3] hover:to-[#f7ab0a] hover:border-[#f7ab0a] p-1;
+    @apply px-6 py-2 uppercase border border-[#f5f6f180] rounded-full tracking-widest text-[#242424] dark:text-[#f5f6f180] transition-all dark:hover:text-[#f5f6f1] hover:text-[#fff] hover:bg-no-repeat hover:bg-gradient-to-r hover:bg-blend-normal  hover:from-[#d3d3d3] hover:to-[#f7ab0a] hover:border-[#f7ab0a];
   }
   .dot {
     @apply min-w-[20px] w-[20px] h-[20px] rounded-full  border border-[#f7ab0a] bg-no-repeat bg-gradient-to-b from-[#fff] to-[#d3d3d3] bg-blend-normal transition-all duration-500 shadow-md;
@@ -62,4 +62,14 @@
   /* .linkLogo {
     @apply before:content-[""] before:absolute  before:dark:bg-[#24242450] before:bg-[#f5f6f180] before:h-[80%] before:w-[3px] before:top-0 before:left-0 before:z-[1] before:rounded-[20px] before:animate-[flash_2s_alternate_infinite];
   } */
+  .buttonProject {
+    /* display: none; */
+    @apply lg:opacity-100 lg:block w-fit overflow-hidden text-[#242424] dark:text-[#f5f6f180] dark:border border-transparent dark:border-[#f5f6f180] dark:bg-[#242424];
+  }
+  .buttonProject > * {
+    @apply transition-all dark:hover:text-[#f5f6f1] hover:text-[#fff] hover:bg-no-repeat hover:bg-gradient-to-r hover:lg:bg-gradient-to-t hover:bg-blend-normal  hover:from-[#d3d3d380] hover:to-[#f7ab0a] w-full h-full;
+  }
+  .buttonLinkProject:hover {
+    @apply gap-5 tracking-[3px];
+  }
 }

@@ -25,7 +25,7 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <ScrollToTop />
-      <div className="flex flex-col gap-32 bg-[#f5f6f1] dark:bg-[#242424] text-white min-h-screen h-full ">
+      <div className="flex flex-col gap-32 bg-[#f5f6f1] dark:bg-[#242424] text-white min-h-screen h-full transition-all duration-500">
         {/* Hero */}
         <section id="hero" className="snap-center">
           <Hero />

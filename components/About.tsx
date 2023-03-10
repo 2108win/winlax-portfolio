@@ -17,11 +17,11 @@ const ImageLinks = [
 ];
 export default function About({}: Props) {
   return (
-    <div className="relative flex flex-col items-center justify-center gap-8 px-5 mx-auto text-center max-w-7xl">
+    <div className="relative flex flex-col items-center justify-center gap-8 px-5 lg:px-6 mx-auto text-center max-w-7xl">
       <h3 className="tracking-[20px] translate-x-[10px] uppercase   text-gray-500 text-2xl">
         About
       </h3>
-      <h1 className="absolute top-0 md:right-10 -translate-y-1/2 text-5xl md:text-7xl font-extrabold italic text-[#24242415] dark:text-[#f5f6f115] rotate-[20deg] tracking-[8px] cursor-default ">
+      <h1 className="absolute top-0 md:right-10 -translate-y-1/2 text-4xl md:text-7xl font-extrabold italic text-[#24242415] dark:text-[#f5f6f115] rotate-[20deg] tracking-[8px] cursor-default z-[1]">
         ##about
       </h1>
       <motion.div
@@ -50,7 +50,7 @@ export default function About({}: Props) {
             clickable: true,
           }}
           modules={[Autoplay, Pagination]}
-          className="w-[320px] h-[240px] md:w-[400px] md:h-[300px] xl:w-[500px] xl:h-[375px] rounded-2xl border dark:border-[#f5f6f120] shadow-xl overflow-hidden shrink-0"
+          className="w-[320px] h-[240px] md:w-[400px] md:h-[300px] xl:w-[500px] xl:h-[375px] rounded-2xl dark:border dark:border-[#f5f6f120] shadow-xl shrink-0"
         >
           {ImageLinks.map((link) => {
             return (

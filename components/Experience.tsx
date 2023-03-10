@@ -45,11 +45,11 @@ export default function Experience({}: Props) {
     },
   ];
   return (
-    <div className="relative flex flex-col items-center gap-8 px-5 mx-auto text-center max-w-7xl">
+    <div className="max-w-7xl lg:px-6 relative flex flex-col items-center gap-8 px-5 mx-auto text-center">
       <h3 className="tracking-[20px] translate-x-[10px] uppercase   text-gray-500 text-2xl">
         Experience
       </h3>
-      <h1 className="absolute top-0 md:right-10 -translate-y-1/2 text-5xl md:text-7xl font-extrabold italic text-[#24242415] dark:text-[#f5f6f115] rotate-[20deg] tracking-[8px] cursor-default ">
+      <h1 className="absolute top-0 md:right-10 -translate-y-1/2 text-4xl md:text-7xl font-extrabold italic text-[#24242415] dark:text-[#f5f6f115] rotate-[20deg] tracking-[8px] cursor-default z-[1]">
         ##experience
       </h1>
       {/* timelines */}
@@ -57,21 +57,21 @@ export default function Experience({}: Props) {
         {timelines.map((item) => {
           return (
             <>
-              <div className="flex items-start gap-4 timeline lg:flex-col">
+              <div className="timeline lg:flex-col flex items-start gap-4">
                 <span className="timeline-time min-w-[52px] leading-none text-lg md:text-xl transition-all duration-300">
                   {item.year}
                 </span>
-                <div className="z-10 dot"></div>
-                <ul className="space-y-2 text-base text-left md:text-lg">
+                <div className="dot z-10"></div>
+                <ul className="md:text-lg space-y-2 text-base text-left">
                   <li className="list-disc list-inside">{item.content1}</li>
                   {item.content1_1 && (
-                    <li className="ml-4 italic list-disc list-inside opacity-60">
+                    <li className="opacity-60 ml-4 italic list-disc list-inside">
                       {item.content1_1}
                     </li>
                   )}
                   {item.content2 && <li className="list-disc list-inside">{item.content2}</li>}
                   {item.content2_1 && (
-                    <li className="ml-4 italic list-disc list-inside opacity-60">
+                    <li className="opacity-60 ml-4 italic list-disc list-inside">
                       {item.content2_1}
                     </li>
                   )}
@@ -80,7 +80,7 @@ export default function Experience({}: Props) {
             </>
           );
         })}
-        <div className="flex items-end gap-4 lg:flex-col">
+        <div className="lg:flex-col flex items-end gap-4">
           <span className="min-w-[52px] lg:min-w-fit text-lg md:text-xl leading-none text-[#f7ab0a]">
             Now
           </span>
@@ -96,17 +96,17 @@ export default function Experience({}: Props) {
                 <span className="timeline-time min-w-[52px] leading-none text-lg md:text-xl transition-all duration-300">
                   {item.year}
                 </span>
-                <div className="z-10 dot"></div>
-                <ul className="space-y-2 text-base text-left md:text-lg">
+                <div className="dot z-10"></div>
+                <ul className="md:text-lg space-y-2 text-base text-left">
                   <li className="list-disc list-inside">{item.content1}</li>
                   {item.content1_1 && (
-                    <li className="ml-4 italic list-disc list-inside opacity-60">
+                    <li className="opacity-60 ml-4 italic list-disc list-inside">
                       {item.content1_1}
                     </li>
                   )}
                   {item.content2 && <li className="list-disc list-inside">{item.content2}</li>}
                   {item.content2_1 && (
-                    <li className="ml-4 italic list-disc list-inside opacity-60">
+                    <li className="opacity-60 ml-4 italic list-disc list-inside">
                       {item.content2_1}
                     </li>
                   )}
@@ -115,7 +115,7 @@ export default function Experience({}: Props) {
             </>
           );
         })}
-        <div className="flex items-end gap-4 lg:flex-col">
+        <div className="lg:flex-col flex items-end gap-4">
           <span className="min-w-[52px] lg:min-w-fit text-lg md:text-xl leading-none text-[#f7ab0a]">
             Now
           </span>
