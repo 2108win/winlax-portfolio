@@ -28,46 +28,38 @@
     min-height: 100vh;
   }
   .buttonMain {
-    @apply px-6 py-2 uppercase border rounded-full text-[#f5f6f1] bg-no-repeat bg-gradient-to-r from-[#f7ab0a] to-[#d3d3d3] bg-blend-normal border-[#f7ab0a] transition-all hover:bg-gradient-to-l duration-300 shadow-lg;
+    @apply px-6 py-2 uppercase border rounded-full text-grayLight bg-no-repeat bg-gradient-to-r from-primary to-[#d3d3d3] bg-blend-normal border-primary transition-all hover:bg-gradient-to-l duration-300 shadow-lg;
   }
   .buttonToTop {
-    @apply fixed flex items-center justify-center bottom-4 lg:bottom-5 z-20 left-1/2 -translate-x-1/2 h-8 w-8 lg:h-10 lg:w-10 rounded-full text-[#f5f6f1] bg-no-repeat bg-gradient-to-b from-[#f7ab0a] to-[#f5f6f6] bg-blend-normal transition-all  duration-300 hover:scale-125 border border-[#f7ab0a] opacity-80 hover:opacity-100 shadow-lg cursor-pointer;
+    @apply fixed flex items-center justify-center bottom-4 lg:bottom-5 z-20 left-1/2 -translate-x-1/2 h-8 w-8 lg:h-10 lg:w-10 rounded-full text-grayLight bg-no-repeat bg-gradient-to-b from-primary to-[#f5f6f6] bg-blend-normal transition-all  duration-300 hover:scale-125 border border-primary opacity-80 hover:opacity-100 shadow-lg cursor-pointer;
   }
   .heroButton {
-    @apply px-6 py-2 uppercase border border-[#f5f6f180] rounded-full tracking-widest text-[#242424] dark:text-[#f5f6f180] transition-all dark:hover:text-[#f5f6f1] hover:text-[#fff] hover:bg-no-repeat hover:bg-gradient-to-r hover:bg-blend-normal  hover:from-[#d3d3d3] hover:to-[#f7ab0a] hover:border-[#f7ab0a];
+    @apply px-6 py-2 uppercase border border-grayLightOp80 rounded-full tracking-widest text-grayDark dark:text-grayLightOp80 transition-all dark:hover:text-grayLight hover:text-[#fff] hover:bg-no-repeat hover:bg-gradient-to-r hover:bg-blend-normal  hover:from-[#d3d3d3] hover:to-primary hover:border-primary;
   }
   .dot {
-    @apply min-w-[20px] w-[20px] h-[20px] rounded-full  border border-[#f7ab0a] bg-no-repeat bg-gradient-to-b from-[#fff] to-[#d3d3d3] bg-blend-normal transition-all duration-500 shadow-md;
+    @apply min-w-[20px] w-[20px] h-[20px] rounded-full  border border-primary bg-no-repeat bg-gradient-to-b from-[#fff] to-[#d3d3d3] bg-blend-normal transition-all duration-500 shadow-md;
   }
   .timeline:hover > .dot {
-    @apply from-[#f7ab0a] to-[#fff];
+    @apply from-primary to-[#fff];
   }
   .timeline:hover > .timeline-time {
-    @apply text-[#f7ab0a];
+    @apply text-primary;
   }
   .timelines {
     @apply after:content-[''] after:absolute after:top-0 after:lg:top-[52px] after:lg:left-0 after:left-[75px] after:w-[5px] after:lg:w-full after:h-full after:lg:h-[5px] after:bg-gradient-to-t after:from-[#ffab0a] after:to-[#d3d3d333] after:z-[1];
   }
-  /* .linkLogo::before {
-    content: "";
-    width: 3px;
-    height: 80%;
-    background-color: rgba(255, 255, 255, 0.5);
-    position: absolute;
-    left: 0;
-    top: 0;
-    animation: flash 2s alternate linear infinite;
-    border-radius: 20px;
-  } */
-  /* .linkLogo {
-    @apply before:content-[""] before:absolute  before:dark:bg-[#24242450] before:bg-[#f5f6f180] before:h-[80%] before:w-[3px] before:top-0 before:left-0 before:z-[1] before:rounded-[20px] before:animate-[flash_2s_alternate_infinite];
-  } */
+  .linkImage {
+    @apply before:content-[''] before:absolute before:bottom-0 before:right-0 before:left-0 before:bg-gradient-to-t before:from-[#00000045] dark:before:from-grayDark before:to-[#ffffff00] before:z-[9] before:h-[35%];
+  }
+  .linkImage:hover > img {
+    @apply hover:scale-110 hover:blur-none;
+  }
   .buttonProject {
     /* display: none; */
-    @apply lg:opacity-100 lg:block w-fit overflow-hidden text-[#242424] dark:text-[#f5f6f180] dark:border border-transparent dark:border-[#f5f6f180] dark:bg-[#242424];
+    @apply lg:opacity-100 lg:block w-fit overflow-hidden text-grayDark dark:text-grayLightOp80 dark:border dark:border-grayLightOp80 dark:bg-grayDark;
   }
   .buttonProject > * {
-    @apply transition-all dark:hover:text-[#f5f6f1] hover:text-[#fff] hover:bg-no-repeat hover:bg-gradient-to-r hover:lg:bg-gradient-to-t hover:bg-blend-normal  hover:from-[#d3d3d380] hover:to-[#f7ab0a] w-full h-full;
+    @apply transition-all dark:hover:text-grayLight hover:text-[#fff] hover:bg-no-repeat hover:bg-gradient-to-r hover:lg:bg-gradient-to-t hover:bg-blend-normal  hover:from-[#d3d3d380] hover:to-primary w-full h-full;
   }
   .buttonLinkProject:hover {
     @apply gap-5 tracking-[3px];

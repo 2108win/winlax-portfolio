@@ -8,21 +8,21 @@ type Props = {};
 
 const ProjectItems = [
   {
-    linkImage: "/images/Project-1.jpeg",
+    linkImage: "/images/projects/Project-1.jpeg",
     title: "WinLax Portfolio",
     description: "Trang web cá nhân của tôi",
     linkGithub: "https://github.com/2108win/WinLax-Portfolio",
     linkPreview: "https://winlax-portfolio.vercel.app/",
   },
   {
-    linkImage: "/images/Project-2.jpeg",
+    linkImage: "/images/projects/Project-2.jpeg",
     title: "FATMEE",
     description: "Trang web đồ án môn học",
     linkGithub: "https://github.com/2108win/fatmee",
     linkPreview: "https://fatmee.me",
   },
   {
-    linkImage: "/images/Project-3.gif",
+    linkImage: "/images/projects/Project-3.jpeg",
     title: "FATME App",
     description: "Thiết kế giao diện app",
     linkGithub:
@@ -34,39 +34,37 @@ const ProjectItems = [
 export default function Projects({}: Props) {
   return (
     <div className="max-w-7xl lg:px-6 relative flex flex-col items-center justify-center gap-8 px-5 mx-auto text-center">
-      <h3 className="tracking-[20px] translate-x-[10px] uppercase text-gray-500 text-2xl">
+      <h2 className="tracking-[20px] translate-x-[10px] uppercase text-grayDarkOp80 dark:text-grayLightOp80 text-2xl">
         Projects
-      </h3>
-      <h1 className="absolute md:right-10 top-0 -translate-y-1/2 text-4xl md:text-7xl font-extrabold italic text-[#24242415] dark:text-[#f5f6f115] rotate-[20deg] tracking-[8px] cursor-default z-[1]">
+      </h2>
+      <h1 className="absolute md:right-10 top-0 -translate-y-1/2 text-4xl md:text-7xl font-extrabold italic text-grayDarkOp15 dark:text-grayLightOp15 rotate-[20deg] tracking-[8px] cursor-default z-[1] select-none">
         ##projects
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-10 text-[#242424] dark:text-[#f5f6f1] justify-center">
+      <div className="md:grid-cols-2 lg:grid-cols-1 lg:gap-10 text-grayDark dark:text-grayLight grid justify-center grid-cols-1 gap-6">
         {ProjectItems.map((item, index) => (
           <>
             <div key={index} className="projectItem lg:gap-10 lg:flex-row z-10 flex flex-col gap-3">
               <Link
                 href={item.linkPreview}
                 target="_blank"
-                className="relative max-h-[650px] border border-[#24242420] flex rounded-2xl lg:rounded-3xl dark:border dark:border-[#f5f6f120] shadow-2xl overflow-hidden bg-[#f5f6f1] transition-all duration-500 lg:basis-4/5"
+                className="relative min-h-[200px] lg:min-h-[400px] max-h-[650px] flex rounded-2xl lg:rounded-3xl dark:border dark:border-grayDarkOp80 shadow-2xl overflow-hidden bg-grayLight transition-all duration-500 lg:basis-4/5 linkImage"
               >
                 <img
                   src={item.linkImage}
                   alt="Project 1"
-                  className="hover:scale-110 object-cover w-full h-full transition-all duration-500"
+                  className="contrast-[.95] blur-[1px] object-cover w-full h-full transition-all duration-500"
                 />
-                <div className="left-3 bottom-3 md:left-5 md:bottom-5 lg:bottom-10 lg:left-10 absolute flex flex-col items-start">
-                  <h3 className="drop-shadow-2xl md:text-2xl lg:text-4xl text-xl text-gray-500">
-                    {item.title}
-                  </h3>
-                  <p className="drop-shadow-2xl md:text-base lg:text-lg text-xs text-gray-500">
+                <div className="z-[10] left-4 bottom-4 md:left-5 md:bottom-5 lg:bottom-10 lg:left-10 absolute flex flex-col items-start select-none text-grayDark dark:text-grayLight">
+                  <h3 className="drop-shadow-2xl md:text-2xl lg:text-4xl text-xl">{item.title}</h3>
+                  <p className="drop-shadow-2xl md:text-base lg:text-lg text-xs">
                     {item.description}
                   </p>
                 </div>
               </Link>
-              <div className="lg:basis-1/5 flex rounded-lg lg:rounded-3xl bg-[#f5f6f1] drop-shadow-xl lg:flex-col-reverse z-[1] buttonProject w-full">
+              <div className="lg:basis-1/5 flex rounded-lg lg:rounded-3xl bg-grayLight drop-shadow-xl lg:flex-col-reverse z-[1] buttonProject w-full">
                 <Link
                   target="_blank"
-                  className="buttonLinkProject flex items-center justify-center relative basis-1/5 p-5 border-r-[1px] lg:border-r-0 lg:border-t-[1px] border-[#24242420] dark:border-[#f5f6f180]"
+                  className="buttonLinkProject flex items-center justify-center relative basis-1/5 p-5 border-r-[1px] lg:border-r-0 lg:border-t-[1px] border-grayDarkOp15 dark:border-grayLightOp80"
                   href={item.linkGithub}
                 >
                   <span className="w-max lg:text-2xl">Github</span>

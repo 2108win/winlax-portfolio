@@ -46,14 +46,14 @@ export default function Experience({}: Props) {
   ];
   return (
     <div className="max-w-7xl lg:px-6 relative flex flex-col items-center gap-8 px-5 mx-auto text-center">
-      <h3 className="tracking-[20px] translate-x-[10px] uppercase   text-gray-500 text-2xl">
+      <h2 className="tracking-[20px] translate-x-[10px] uppercase text-grayDarkOp80 dark:text-grayLightOp80 text-2xl">
         Experience
-      </h3>
-      <h1 className="absolute top-0 md:right-10 -translate-y-1/2 text-4xl md:text-7xl font-extrabold italic text-[#24242415] dark:text-[#f5f6f115] rotate-[20deg] tracking-[8px] cursor-default z-[1]">
+      </h2>
+      <h1 className="absolute top-0 md:right-10 -translate-y-1/2 text-4xl md:text-7xl font-extrabold italic text-grayDarkOp15 dark:text-grayLightOp15 rotate-[20deg] tracking-[8px] cursor-default z-[1] select-none">
         ##experience
       </h1>
       {/* timelines */}
-      <div className="timelines relative flex flex-col lg:flex-row gap-4 text-[#242424] dark:text-[#f5f6f1] h-fit">
+      <div className="timelines lg:flex-row text-grayDark dark:text-grayLight h-fit relative flex flex-col gap-4">
         {timelines.map((item) => {
           return (
             <>
@@ -81,14 +81,14 @@ export default function Experience({}: Props) {
           );
         })}
         <div className="lg:flex-col flex items-end gap-4">
-          <span className="min-w-[52px] lg:min-w-fit text-lg md:text-xl leading-none text-[#f7ab0a]">
+          <span className="min-w-[52px] lg:min-w-fit text-lg md:text-xl leading-none text-primary">
             Now
           </span>
-          <div className="z-10 dot from-[#f7ab0a] to-[#fff]"></div>
+          <div className="z-10 dot from-primary to-[#fff]"></div>
         </div>
       </div>
       {/* test
-      <div className="timelines relative flex flex-col lg:flex-row gap-4 text-[#242424] dark:text-[#f5f6f1] h-fit w-fit">
+      <div className="timelines lg:flex-row text-grayDark dark:text-grayLight h-fit w-fit relative flex flex-col gap-4">
         {timelinesTest.map((item) => {
           return (
             <>
@@ -116,10 +116,10 @@ export default function Experience({}: Props) {
           );
         })}
         <div className="lg:flex-col flex items-end gap-4">
-          <span className="min-w-[52px] lg:min-w-fit text-lg md:text-xl leading-none text-[#f7ab0a]">
+          <span className="min-w-[52px] lg:min-w-fit text-lg md:text-xl leading-none text-primary">
             Now
           </span>
-          <div className="z-10 dot from-[#f7ab0a] to-[#fff]"></div>
+          <div className="z-10 dot from-primary to-[#fff]"></div>
         </div>
       </div>
       */}

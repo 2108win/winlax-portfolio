@@ -25,8 +25,8 @@ export default function Header({}: Props) {
         }}
         className="flex flex-row items-center"
       >
-        <Link to="hero" className="relative mr-3 overflow-hidden linkLogo">
-          <Image src="/images/logo.png" width={50} height={50} alt="logo" />
+        <Link to="hero" className="linkLogo relative mr-3 overflow-hidden">
+          <Image src="/logo.png" width={50} height={50} alt="logo" />
         </Link>
         <ThemeToggler />
         {/* Social Icon */}
@@ -52,7 +52,7 @@ export default function Header({}: Props) {
           duration: 1,
         }}
         className="buttonMain"
-        href="/images/LaMaiWin_CV.pdf"
+        href="/CV/LaMaiWin_CV.pdf"
         download
       >
         Download CV

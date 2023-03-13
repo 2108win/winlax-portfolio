@@ -21,11 +21,11 @@ const Home: NextPage = () => {
         <meta property="og:url" content="https://winlax-portfolio.vercel.app/" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="WinLax Portfolio" />
-        <link rel="icon" href="/images/logo.png" />
+        <link rel="icon" href="/logo.png" />
       </Head>
       <Header />
       <ScrollToTop />
-      <div className="flex flex-col gap-32 bg-[#f5f6f1] dark:bg-[#242424] text-white min-h-screen h-full transition-all duration-500">
+      <div className="bg-grayLight dark:bg-grayDark flex flex-col h-full min-h-screen gap-32 text-white transition-all duration-500">
         {/* Hero */}
         <section id="hero" className="snap-center">
           <Hero />
