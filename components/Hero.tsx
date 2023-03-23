@@ -28,16 +28,16 @@ export default function Hero({}: Props) {
           <Cursor cursorColor="#f7ab0a" />
         </h1>
         <div className="md:grid-cols-4 grid grid-cols-2 gap-4 mt-5">
-          <Link to="about" spy={true} smooth={true} duration={500}>
+          <Link to="about" spy={true} smooth={true} duration={500} offset={-110}>
             <button className="heroButton w-full">About</button>
           </Link>
-          <Link to="experience" spy={true} smooth={true} duration={500}>
+          <Link to="experience" spy={true} smooth={true} duration={500} offset={-110}>
             <button className="heroButton w-full">Experience</button>
           </Link>
-          <Link to="projects" spy={true} smooth={true} duration={500}>
+          <Link to="projects" spy={true} smooth={true} duration={500} offset={-110}>
             <button className="heroButton w-full">Projects</button>
           </Link>
-          <Link to="skills" spy={true} smooth={true} duration={500}>
+          <Link to="skills" spy={true} smooth={true} duration={500} offset={-110}>
             <button className="heroButton w-full">Skills</button>
           </Link>
         </div>

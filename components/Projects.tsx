@@ -61,7 +61,7 @@ export default function Projects({}: Props) {
                   </p>
                 </div>
               </Link>
-              <div className="lg:basis-1/5 flex rounded-lg lg:rounded-3xl bg-grayLight drop-shadow-xl lg:flex-col-reverse z-[1] buttonProject w-full">
+              <div className="lg:basis-1/5 flex rounded-lg lg:rounded-3xl bg-grayLight shadow-xl lg:flex-col-reverse z-[1] buttonProject w-full">
                 <Link
                   target="_blank"
                   className="buttonLinkProject flex items-center justify-center relative basis-1/5 p-5 border-r-[1px] lg:border-r-0 lg:border-t-[1px] border-grayDarkOp15 dark:border-grayLightOp80"

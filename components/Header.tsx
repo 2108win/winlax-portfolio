@@ -26,7 +26,7 @@ export default function Header({}: Props) {
         className="flex flex-row items-center"
       >
         <Link to="hero" className="linkLogo relative mr-3 overflow-hidden">
-          <Image src="/logo.png" width={50} height={50} alt="logo" />
+          <Image className="cursor-pointer" src="/logo.png" width={50} height={50} alt="logo" />
         </Link>
         <ThemeToggler />
         {/* Social Icon */}
