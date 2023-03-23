@@ -26,7 +26,11 @@ export default function Skills({}: Props) {
       <div className="md:gap-10 md:grid-cols-5 justify-items-center grid w-full grid-cols-3 gap-8">
         {SkillsItems.map((item, index) => (
           <div key={index} className="w-20 h-20">
-            <img src={item} alt="skill" className="object-cover w-full h-full" />
+            <img
+              src={item}
+              alt="skill"
+              className="hover:-translate-y-2 object-cover w-full h-full transition-all duration-500 select-none"
+            />
           </div>
         ))}
       </div>

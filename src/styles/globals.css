@@ -56,7 +56,7 @@
   }
   .buttonProject {
     /* display: none; */
-    @apply lg:opacity-100 lg:block w-fit overflow-hidden text-grayDark dark:text-grayLightOp80 dark:border dark:border-grayLightOp80 dark:bg-grayDark;
+    @apply lg:opacity-100 lg:block w-fit overflow-hidden text-grayDark dark:text-grayLightOp80 dark:border dark:border-grayLightOp80 dark:bg-grayDark transition-all duration-500;
   }
   .buttonProject > * {
     @apply transition-all dark:hover:text-grayLight hover:text-[#fff] hover:bg-no-repeat hover:bg-gradient-to-r hover:lg:bg-gradient-to-t hover:bg-blend-normal  hover:from-[#d3d3d380] hover:to-primary w-full h-full;
