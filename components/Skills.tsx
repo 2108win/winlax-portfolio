@@ -1,5 +1,16 @@
 import React from "react";
 
+const SkillsItems = [
+  "/skills/html.png",
+  "/skills/css.png",
+  "/skills/javascript.png",
+  "/skills/react.png",
+  "/skills/tailwind.png",
+  "/skills/pug.png",
+  "/skills/sass.png",
+  "/skills/figma.png",
+  "/skills/xd.png",
+];
 type Props = {};
 
 export default function Skills({}: Props) {

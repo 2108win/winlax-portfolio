@@ -87,42 +87,6 @@ export default function Experience({}: Props) {
           <div className="z-10 dot from-primary to-[#fff]"></div>
         </div>
       </div>
-      {/* test
-      <div className="timelines lg:flex-row text-grayDark dark:text-grayLight h-fit w-fit relative flex flex-col gap-4">
-        {timelinesTest.map((item) => {
-          return (
-            <>
-              <div className="lg:max-w-[300px] flex items-start gap-4 timeline lg:flex-col">
-                <span className="timeline-time min-w-[52px] leading-none text-lg md:text-xl transition-all duration-300">
-                  {item.year}
-                </span>
-                <div className="dot z-10"></div>
-                <ul className="md:text-lg space-y-2 text-base text-left">
-                  <li className="list-disc list-inside">{item.content1}</li>
-                  {item.content1_1 && (
-                    <li className="opacity-60 ml-4 italic list-disc list-inside">
-                      {item.content1_1}
-                    </li>
-                  )}
-                  {item.content2 && <li className="list-disc list-inside">{item.content2}</li>}
-                  {item.content2_1 && (
-                    <li className="opacity-60 ml-4 italic list-disc list-inside">
-                      {item.content2_1}
-                    </li>
-                  )}
-                </ul>
-              </div>
-            </>
-          );
-        })}
-        <div className="lg:flex-col flex items-end gap-4">
-          <span className="min-w-[52px] lg:min-w-fit text-lg md:text-xl leading-none text-primary">
-            Now
-          </span>
-          <div className="z-10 dot from-primary to-[#fff]"></div>
-        </div>
-      </div>
-      */}
     </div>
   );
 }
