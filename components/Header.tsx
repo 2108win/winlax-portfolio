@@ -52,7 +52,7 @@ export default function Header({}: Props) {
           duration: 1,
         }}
         className="buttonMain"
-        href="/CV/LaMaiWin_CV.pdf"
+        href="https://www.topcv.vn/xem-cv/AVIDAVNSUwINAFMBUgRTDQNcAA9XVABdVlUAVQ4c53"
         download
       >
         Download CV
