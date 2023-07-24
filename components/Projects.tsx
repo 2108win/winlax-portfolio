@@ -29,6 +29,30 @@ const ProjectItems = [
       "https://drive.google.com/drive/folders/15AmAhWW-5-CrV34x9MG8zbyaDf3aRNI0?usp=share_link",
     linkPreview: "https://xd.adobe.com/view/e4cfaca2-81c2-4aff-ba81-652b5de4b375-b19c/grid",
   },
+  {
+    linkImage: "/images/projects/Project-4.jpeg",
+    title: "Watchour",
+    description: "Website bán đồng hồ",
+    linkGithub:
+      "https://github.com/minhanh32001/Python/",
+    linkPreview: "https://github.com/minhanh32001/Python/",
+  },
+  {
+    linkImage: "/images/projects/Project-5.jpeg",
+    title: "WiTu Social",
+    description: "Trang web đồ án môn học",
+    linkGithub:
+      "https://github.com/tuan220301/Witu",
+    linkPreview: "https://github.com/tuan220301/Witu",
+  },
+  {
+    linkImage: "/images/projects/Project-6.jpeg",
+    title: "Library System Management",
+    description: "Ứng dụng đồ án môn học",
+    linkGithub:
+      "https://github.com/2108win/LibrarySystemManage",
+    linkPreview: "https://github.com/2108win/LibrarySystemManage",
+  },
 ];
 
 export default function Projects({}: Props) {
