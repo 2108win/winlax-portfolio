@@ -8,21 +8,21 @@ type Props = {};
 
 const ProjectItems = [
   {
-    linkImage: "/images/projects/Project-1.jpeg",
+    linkImage: "/images/projects/winlax-portfolio.jpeg",
     title: "WinLax Portfolio",
     description: "Trang web cá nhân của tôi",
     linkGithub: "https://github.com/2108win/WinLax-Portfolio",
     linkPreview: "https://winlax-portfolio.vercel.app/",
   },
   {
-    linkImage: "/images/projects/Project-2.jpeg",
+    linkImage: "/images/projects/fatmee.jpeg",
     title: "FATMEE",
     description: "Trang web đồ án môn học",
     linkGithub: "https://github.com/2108win/fatmee",
-    linkPreview: "https://fatmee.me",
+    linkPreview: "https://fatmee.vercel.app/",
   },
   {
-    linkImage: "/images/projects/Project-3.jpeg",
+    linkImage: "/images/projects/fatme-app.jpeg",
     title: "FATME App",
     description: "Thiết kế giao diện app",
     linkGithub:
@@ -30,27 +30,24 @@ const ProjectItems = [
     linkPreview: "https://xd.adobe.com/view/e4cfaca2-81c2-4aff-ba81-652b5de4b375-b19c/grid",
   },
   {
-    linkImage: "/images/projects/Project-4.jpeg",
+    linkImage: "/images/projects/watchour.jpeg",
     title: "Watchour",
     description: "Website bán đồng hồ",
-    linkGithub:
-      "https://github.com/minhanh32001/Python/",
+    linkGithub: "https://github.com/minhanh32001/Python",
     linkPreview: "https://github.com/minhanh32001/Python/",
   },
   {
-    linkImage: "/images/projects/Project-5.jpeg",
-    title: "WiTu Social",
-    description: "Trang web đồ án môn học",
-    linkGithub:
-      "https://github.com/tuan220301/Witu",
-    linkPreview: "https://github.com/tuan220301/Witu",
+    linkImage: "/images/projects/business-landing-page.jpeg",
+    title: "Business Landing Page",
+    description: "Landing page cho doanh nghiệp từ Figma sang ReactJS",
+    linkGithub: "https://github.com/2108win/busniess-landing-page",
+    linkPreview: "https://winlax-busniess-landing-page.vercel.app/",
   },
   {
-    linkImage: "/images/projects/Project-6.jpeg",
+    linkImage: "/images/projects/LSM.jpeg",
     title: "Library System Management",
-    description: "Ứng dụng đồ án môn học",
-    linkGithub:
-      "https://github.com/2108win/LibrarySystemManage",
+    description: "Ứng dụng đồ án môn học Java",
+    linkGithub: "https://github.com/2108win/LibrarySystemManage",
     linkPreview: "https://github.com/2108win/LibrarySystemManage",
   },
 ];
@@ -76,11 +73,13 @@ export default function Projects({}: Props) {
                 <img
                   src={item.linkImage}
                   alt="Project 1"
-                  className="contrast-[.95] blur-[1px] object-cover w-full h-full transition-all duration-500"
+                  className="contrast-[.95] blur-[1px] object-cover object-top aspect-video w-full h-full transition-all duration-500"
                 />
-                <div className="z-[10] left-4 bottom-4 md:left-5 md:bottom-5 lg:bottom-10 lg:left-10 absolute flex flex-col items-start select-none text-grayDark dark:text-grayLight">
-                  <h3 className="drop-shadow-2xl md:text-2xl lg:text-4xl text-xl">{item.title}</h3>
-                  <p className="drop-shadow-2xl md:text-base lg:text-lg text-xs">
+                <div className="z-[10] left-4 bottom-4 md:left-5 md:bottom-5 lg:bottom-10 lg:left-10 absolute flex flex-col items-start select-none text-grayLight">
+                  <h3 className="drop-shadow-2xl md:text-2xl lg:text-4xl text-xl font-semibold">
+                    {item.title}
+                  </h3>
+                  <p className="w-[300px] text-left lg:w-full drop-shadow-2xl lg:text-base text-sm truncate text-ellipsis">
                     {item.description}
                   </p>
                 </div>

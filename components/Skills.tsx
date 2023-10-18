@@ -5,7 +5,9 @@ const SkillsItems = [
   "/images/skills/html.png",
   "/images/skills/css.png",
   "/images/skills/javascript.png",
+  "/images/skills/typescript.png",
   "/images/skills/react.png",
+  "/images/skills/angular.png",
   "/images/skills/tailwind.png",
   "/images/skills/pug.png",
   "/images/skills/sass.png",
@@ -25,11 +27,11 @@ export default function Skills({}: Props) {
       </h1>
       <div className="md:gap-10 md:grid-cols-5 justify-items-center grid w-full grid-cols-3 gap-8">
         {SkillsItems.map((item, index) => (
-          <div key={index} className="w-20 h-20">
+          <div key={index} className="w-20 h-20 ">
             <img
               src={item}
               alt="skill"
-              className="hover:-translate-y-2 object-cover w-full h-full transition-all duration-500 select-none"
+              className="hover:-translate-y-2 object-cover w-full h-full transition-all duration-500 select-none rounded-md overflow-hidden"
             />
           </div>
         ))}
