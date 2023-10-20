@@ -25,31 +25,13 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <ScrollToTop />
-      <div className="bg-grayLight dark:bg-grayDark flex flex-col h-full min-h-screen gap-32 text-white transition-all duration-500">
-        {/* Hero */}
-        <section id="hero" className="snap-center">
-          <Hero />
-        </section>
-        {/* About */}
-        <section id="about" className="snap-start">
-          <About />
-        </section>
-        {/* Experience */}
-        <section id="experience" className="lg:snap-start">
-          <Experience />
-        </section>
-        {/* Projects */}
-        <section id="projects" className="lg:snap-start">
-          <Projects />
-        </section>
-        {/* Skills */}
-        <section id="skills" className="snap-start">
-          <Skills />
-        </section>
-        {/* Contact */}
-        <section id="contact" className="snap-start">
-          <Contact />
-        </section>
+      <div className="flex flex-col h-full min-h-screen gap-32 text-white transition-all duration-500 bg-grayLight dark:bg-grayDark">
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
       </div>
     </>
   );

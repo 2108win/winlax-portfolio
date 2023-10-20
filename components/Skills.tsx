@@ -18,20 +18,23 @@ type Props = {};
 
 export default function Skills({}: Props) {
   return (
-    <div className="lg:px-6 max-w-7xl relative flex flex-col items-center justify-center gap-8 px-5 mx-auto text-center">
+    <div
+      id="skills"
+      className="relative flex flex-col items-center justify-center w-full gap-8 px-5 mx-auto text-center lg:px-6 max-w-7xl"
+    >
       <h2 className="tracking-[20px] translate-x-[10px] uppercase text-grayDarkOp80 dark:text-grayLightOp80 text-2xl">
         Skills
       </h2>
       <h1 className="absolute top-0 md:right-10 -translate-y-1/2 text-4xl md:text-7xl font-extrabold italic text-grayDarkOp15 dark:text-grayLightOp15 rotate-[20deg] tracking-[8px] cursor-default z-[1] select-none">
         ##skills
       </h1>
-      <div className="md:gap-10 md:grid-cols-5 justify-items-center grid w-full grid-cols-3 gap-8">
+      <div className="grid w-full grid-cols-3 gap-8 md:gap-10 md:grid-cols-5 justify-items-center">
         {SkillsItems.map((item, index) => (
           <div key={index} className="w-20 h-20 ">
             <img
               src={item}
               alt="skill"
-              className="hover:-translate-y-2 object-cover w-full h-full transition-all duration-500 select-none rounded-md overflow-hidden"
+              className="object-cover w-full h-full overflow-hidden transition-all duration-500 rounded-md select-none hover:-translate-y-2"
             />
           </div>
         ))}

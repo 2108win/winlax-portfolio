@@ -41,7 +41,7 @@ const ProjectItems = [
     title: "Business Landing Page",
     description: "Landing page cho doanh nghiệp từ Figma sang ReactJS",
     linkGithub: "https://github.com/2108win/busniess-landing-page",
-    linkPreview: "https://winlax-busniess-landing-page.vercel.app/",
+    linkPreview: "https://winlax-business-landing-page.vercel.app/",
   },
   {
     linkImage: "/images/projects/LSM.jpeg",
@@ -54,17 +54,20 @@ const ProjectItems = [
 
 export default function Projects({}: Props) {
   return (
-    <div className="max-w-7xl lg:px-6 relative flex flex-col items-center justify-center gap-8 px-5 mx-auto text-center">
+    <div
+      id="projects"
+      className="relative flex flex-col items-center justify-center gap-8 px-5 mx-auto text-center max-w-7xl lg:px-6"
+    >
       <h2 className="tracking-[20px] translate-x-[10px] uppercase text-grayDarkOp80 dark:text-grayLightOp80 text-2xl">
         Projects
       </h2>
       <h1 className="absolute md:right-10 top-0 -translate-y-1/2 text-4xl md:text-7xl font-extrabold italic text-grayDarkOp15 dark:text-grayLightOp15 rotate-[20deg] tracking-[8px] cursor-default z-[1] select-none">
         ##projects
       </h1>
-      <div className="md:grid-cols-2 lg:grid-cols-1 lg:gap-10 text-grayDark dark:text-grayLight grid justify-center grid-cols-1 gap-6">
+      <div className="grid justify-center grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-1 lg:gap-10 text-grayDark dark:text-grayLight">
         {ProjectItems.map((item, index) => (
           <>
-            <div key={index} className="projectItem lg:gap-10 lg:flex-row z-10 flex flex-col gap-3">
+            <div key={index} className="z-10 flex flex-col gap-3 projectItem lg:gap-10 lg:flex-row">
               <Link
                 href={item.linkPreview}
                 target="_blank"
@@ -76,7 +79,7 @@ export default function Projects({}: Props) {
                   className="contrast-[.95] blur-[1px] object-cover object-top aspect-video w-full h-full transition-all duration-500"
                 />
                 <div className="z-[10] left-4 bottom-4 md:left-5 md:bottom-5 lg:bottom-10 lg:left-10 absolute flex flex-col items-start select-none text-grayLight">
-                  <h3 className="drop-shadow-2xl md:text-2xl lg:text-4xl text-xl font-semibold">
+                  <h3 className="text-xl font-semibold drop-shadow-2xl md:text-2xl lg:text-4xl">
                     {item.title}
                   </h3>
                   <p className="w-[300px] text-left lg:w-full drop-shadow-2xl lg:text-base text-sm truncate text-ellipsis">
@@ -94,7 +97,7 @@ export default function Projects({}: Props) {
                 </Link>
                 <Link
                   target="_blank"
-                  className="buttonLinkProject lg:flex-col-reverse relative flex items-center justify-center h-full p-5 transition-all"
+                  className="relative flex items-center justify-center h-full p-5 transition-all buttonLinkProject lg:flex-col-reverse"
                   href={item.linkPreview}
                 >
                   <span className="w-max lg:text-2xl lg:-rotate-90 lg:translate-y-[20px]">

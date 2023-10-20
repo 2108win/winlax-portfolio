@@ -9,15 +9,20 @@ import "swiper/css/navigation";
 import { motion } from "framer-motion";
 type Props = {};
 const ImageLinks = [
-  "/images/about/About-1.jpg",
-  "/images/about/About-2.jpg",
-  "/images/about/About-3.jpg",
-  "/images/about/About-4.jpg",
-  "/images/about/About-5.jpg",
+  "/images/about/winlax-1.jpg",
+  "/images/about/winlax-2.jpg",
+  "/images/about/winlax-3.jpg",
+  "/images/about/winlax-4.jpg",
+  "/images/about/winlax-5.jpg",
+  "/images/about/winlax-6.jpg",
+  "/images/about/winlax-7.jpg",
 ];
 export default function About({}: Props) {
   return (
-    <div className="lg:px-6 max-w-7xl relative flex flex-col items-center justify-center gap-8 px-5 mx-auto text-center">
+    <div
+      id="about"
+      className="relative flex flex-col items-center justify-center gap-8 px-5 mx-auto text-center lg:px-6 max-w-7xl"
+    >
       <h2 className="tracking-[20px] translate-x-[10px] uppercase text-grayDarkOp80 dark:text-grayLightOp80 text-2xl">
         About
       </h2>
@@ -36,7 +41,7 @@ export default function About({}: Props) {
         transition={{
           duration: 1,
         }}
-        className="md:flex-row flex flex-col items-center justify-center gap-5"
+        className="flex flex-col items-center justify-center gap-5 md:flex-row"
       >
         <Swiper
           spaceBetween={20}
@@ -56,13 +61,13 @@ export default function About({}: Props) {
             return (
               <>
                 <SwiperSlide>
-                  <img className="rounded-xl object-cover w-full h-full" src={link} alt="" />
+                  <img className="object-cover w-full h-full rounded-xl" src={link} alt="" />
                 </SwiperSlide>
               </>
             );
           })}
         </Swiper>
-        <p className="md:text-xl md:text-left text-grayDark dark:text-grayLight text-lg">
+        <p className="text-lg md:text-xl md:text-left text-grayDark dark:text-grayLight">
           Mình là sinh viên sắp tốt nghiệp, có 4 năm học công nghệ thông tin với định hướng công
           nghệ web. Rất thích những giao diện website đẹp. Sự tỉ mỉ, hoàn thiện trong từng chi tiết
           là điều tôi hướng đến để đạt được mong muốn trở thành một front-end developer và hơn thế

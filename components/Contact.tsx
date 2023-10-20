@@ -7,8 +7,8 @@ type Props = {};
 
 export default function Contact({}: Props) {
   return (
-    <div className="bg-grayDarkOp15 lg:px-6 dark:bg-grayLightOp15 h-fit relative flex flex-col items-center justify-center px-5 mx-auto text-center transition-all">
-      <div className="max-w-7xl lg:py-6 border-grayDarkOp15 dark:border-grayLightOp15 flex w-full py-5 mx-auto border-b-2">
+    <div className="relative flex flex-col items-center justify-center w-full px-5 mx-auto text-center transition-all bg-grayDarkOp15 lg:px-6 dark:bg-grayLightOp15 h-fit">
+      <div className="flex w-full py-5 mx-auto border-b-2 max-w-7xl lg:py-6 border-grayDarkOp15 dark:border-grayLightOp15">
         <div className="flex items-center">
           <Link to="hero">
             <Image className="cursor-pointer" src="/logo.png" width={50} height={50} alt="logo" />
