@@ -15,11 +15,11 @@ const ProjectItems = [
     linkPreview: "https://winlax-portfolio.vercel.app/",
   },
   {
-    linkImage: "/images/projects/fatmee.jpeg",
-    title: "FATMEE",
-    description: "Trang web đồ án môn học",
-    linkGithub: "https://github.com/2108win/fatmee",
-    linkPreview: "https://fatmee.vercel.app/",
+    linkImage: "/images/projects/fatme-v2.jpeg",
+    title: "WinLax FATMe version 2",
+    description: "Trang web FATMe version 2",
+    linkGithub: "https://github.com/2108win/FATMe-v2",
+    linkPreview: "https://winlax-fatme-v2.vercel.app/",
   },
   {
     linkImage: "/images/projects/fatme-app.jpeg",
@@ -49,6 +49,13 @@ const ProjectItems = [
     description: "Ứng dụng đồ án môn học Java",
     linkGithub: "https://github.com/2108win/LibrarySystemManage",
     linkPreview: "https://github.com/2108win/LibrarySystemManage",
+  },
+  {
+    linkImage: "/images/projects/fatmee.jpeg",
+    title: "FATMEE",
+    description: "Trang web đồ án môn học",
+    linkGithub: "https://github.com/2108win/fatmee",
+    linkPreview: "https://fatmee.vercel.app/",
   },
 ];
 

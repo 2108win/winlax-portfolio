@@ -2,10 +2,8 @@ import React from "react";
 
 type Props = {
   year?: string;
-  content1?: string;
-  content1_1?: string;
-  content2?: string;
-  content2_1?: string;
+  main?: string[];
+  description?: string[];
 };
 
 export default function Experience({}: Props) {
@@ -13,34 +11,35 @@ export default function Experience({}: Props) {
   const timelines: Props[] = [
     {
       year: "2016",
-      content1: "Học trường THPT Chuyên Hùng Vương Gia Lai",
-      content1_1: "Chuyên Tin",
+      main: ["Học trường THPT Chuyên Hùng Vương Gia Lai"],
+      description: ["Chuyên Tin"],
     },
     {
       year: "2019",
-      content1: "Học trường Đại học Công Nghệ Thông Tin - ĐHQG",
-      content1_1: "Chuyên ngành Công nghệ thông tin chất lượng cao - Định hướng Nhật Bản",
+      main: ["Học trường Đại học Công Nghệ Thông Tin - ĐHQG"],
+      description: ["Chuyên ngành Công nghệ thông tin chất lượng cao - Định hướng Nhật Bản"],
     },
     {
       year: "2022",
-      content1: "Tìm tòi học hỏi thêm Javascript và ReactJS căn bản",
+      main: ["Tìm tòi học hỏi thêm Javascript và ReactJS căn bản"],
     },
     {
       year: "2023",
-      content1: "Tự thực hành và tìm tòi chuyên sâu hơn về HTML, CSS, ReactJS.",
-      content2: "Có định hướng sau khi tốt nghiệp và con đường phát triển sự nghiệp rõ ràng",
-      content2_1: "",
+      main: [
+        "Tự thực hành và tìm tòi chuyên sâu hơn về HTML, CSS, ReactJS.",
+        "Có định hướng sau khi tốt nghiệp và con đường phát triển sự nghiệp rõ ràng",
+      ],
     },
   ];
   const timelines2: Props[] = [
     {
       year: "09/2024",
-      content1: "Thực tập tại công ty Cổ phần Giao Thông Số Việt Nam (VDTC)",
-      content1_1: "Thực tập vị trí front-end developer",
+      main: ["Công ty Cổ phần Giao Thông Số Việt Nam (VDTC)"],
+      description: ["Thực tập - Vị trí front-end developer", "Dự án: Website sáng kiến ý tưởng"],
     },
     {
       year: "12/2024",
-      content1: "Freelancer",
+      main: ["Freelancer"],
     },
   ];
   return (
@@ -57,27 +56,23 @@ export default function Experience({}: Props) {
       {/* timelines */}
       <div className="flex flex-col items-start gap-8">
         <div className="relative flex flex-col gap-4 timelines lg:flex-row text-grayDark dark:text-grayLight h-fit">
-          {timelines.map((item) => {
+          {timelines.map((item, index) => {
             return (
               <>
-                <div className="flex items-start gap-4 timeline lg:flex-col">
+                <div key={index} className="flex items-start gap-4 timeline lg:flex-col">
                   <span className="timeline-time min-w-[69px] leading-none text-lg md:text-xl transition-all duration-300">
                     {item.year}
                   </span>
                   <div className="z-10 dot"></div>
                   <ul className="space-y-2 text-base text-left md:text-lg">
-                    <li className="list-disc list-inside">{item.content1}</li>
-                    {item.content1_1 && (
-                      <li className="ml-4 italic list-disc list-inside opacity-60">
-                        {item.content1_1}
+                    {item.main && item.main.map((item, index) => (
+                      <li key={index} className="list-disc list-inside">{item}</li>
+                    ))}
+                    {item.description && item.description.map((item, index) => (
+                      <li key={index} className="ml-4 italic list-disc list-inside opacity-60">
+                        {item}
                       </li>
-                    )}
-                    {item.content2 && <li className="list-disc list-inside">{item.content2}</li>}
-                    {item.content2_1 && (
-                      <li className="ml-4 italic list-disc list-inside opacity-60">
-                        {item.content2_1}
-                      </li>
-                    )}
+                    ))}
                   </ul>
                 </div>
               </>
@@ -91,27 +86,23 @@ export default function Experience({}: Props) {
           </div>
         </div>
         <div className="relative flex flex-col gap-4 timelines lg:flex-row text-grayDark dark:text-grayLight h-fit">
-          {timelines2.map((item) => {
+          {timelines2.map((item, index) => {
             return (
               <>
-                <div className="flex items-start gap-4 timeline lg:flex-col">
+                <div key={index} className="flex items-start gap-4 timeline lg:flex-col">
                   <span className="timeline-time min-w-[69px] leading-none text-lg md:text-xl transition-all duration-300">
                     {item.year}
                   </span>
                   <div className="z-10 dot"></div>
                   <ul className="space-y-2 text-base text-left md:text-lg">
-                    <li className="list-disc list-inside">{item.content1}</li>
-                    {item.content1_1 && (
-                      <li className="ml-4 italic list-disc list-inside opacity-60">
-                        {item.content1_1}
+                    {item.main && item.main.map((item, index) => (
+                      <li key={index} className="list-disc list-inside">{item}</li>
+                    ))}
+                    {item.description && item.description.map((item, index) => (
+                      <li key={index} className="ml-4 italic list-disc list-inside opacity-60">
+                        {item}
                       </li>
-                    )}
-                    {item.content2 && <li className="list-disc list-inside">{item.content2}</li>}
-                    {item.content2_1 && (
-                      <li className="ml-4 italic list-disc list-inside opacity-60">
-                        {item.content2_1}
-                      </li>
-                    )}
+                    ))}
                   </ul>
                 </div>
               </>
