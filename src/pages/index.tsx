@@ -24,7 +24,6 @@ const Home: NextPage = () => {
         <link rel="icon" href="/logo.png" />
       </Head>
       <Header />
-      <ScrollToTop />
       <div className="flex flex-col h-full min-h-screen gap-32 text-white transition-all duration-500 bg-grayLight dark:bg-grayDark">
         <Hero />
         <About />

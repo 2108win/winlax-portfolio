@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { Link } from "react-scroll";
 import { SocialIcon } from "react-social-icons";
+import ScrollToTop from "./ScrollToTop";
 
 type Props = {};
 
@@ -26,13 +27,14 @@ export default function Contact({}: Props) {
           <SocialIcon url="https://github.com/2108win" fgColor="gray" bgColor="transparent" />
         </div>
       </div>
-      <h1 className="text-3xl md:text-7xl font-extrabold  z-[1] p-5 select-none">
+      <h1 className="text-3xl md:text-5xl lg:text-7xl font-extrabold  z-[1] p-5 select-none">
         🫶
         <span className="italic text-grayDarkOp80 dark:text-grayLightOp80 tracking-[8px]">
           ILoveYou
         </span>
         🫶
       </h1>
+      <ScrollToTop />
     </div>
   );
 }
