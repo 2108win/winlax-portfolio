@@ -33,12 +33,12 @@ export default function Experience({}: Props) {
   ];
   const timelines2: Props[] = [
     {
-      year: "09/2024",
+      year: "09/2023",
       main: ["Công ty Cổ phần Giao Thông Số Việt Nam (VDTC)"],
       description: ["Thực tập - Vị trí front-end developer", "Dự án: Website sáng kiến ý tưởng"],
     },
     {
-      year: "12/2024",
+      year: "12/2023",
       main: ["Freelancer"],
     },
   ];
