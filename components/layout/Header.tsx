@@ -20,6 +20,7 @@ const Header = (props: Props) => {
         />
       </Link>
       <Button className="hidden" variant={"ghost"} size={"icon"}>
+        <span className="sr-only">Menu</span>
         <Menu size={50} />
       </Button>
       <div className="flex gap-2">

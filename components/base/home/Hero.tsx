@@ -8,11 +8,11 @@ const Hero = (props: Props) => {
       <p className="mb-4 text-lg font-semibold uppercase tracking-tight text-orange-400 md:text-2xl">
         La Mai Win
       </p>
-      <p className="mb-8 w-min text-center text-6xl font-bold md:text-[200px]">
+      <p className="mb-8 w-min text-center text-5xl font-bold sm:text-8xl md:text-9xl lg:text-[10rem]">
         Frontend Developer
       </p>
-      <p className="text-right text-xl font-normal md:text-3xl">
-        <span className="relative rotate-3 text-lg after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:-rotate-2 after:bg-orange-400 after:content-['']">
+      <p className="text-right text-xl font-normal md:text-3xl lg:text-5xl">
+        <span className="relative rotate-3 text-lg after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:-rotate-2 after:bg-orange-400 after:content-[''] md:text-2xl lg:text-4xl">
           Opening for job.
         </span>{" "}
         <br />

@@ -53,9 +53,6 @@ export const metadata: Metadata = {
     template: "%s | WinLax Portfolio",
   },
   description: "Welcome to WinLax Portfolio",
-  icons: {
-    icon: "/logo.png",
-  },
 };
 
 export default function RootLayout({
@@ -64,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "relative min-h-svh bg-background font-sans antialiased",
