@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { Menu } from "lucide-react";
 import { ModeToggle } from "../base/mode-toggle";
 
@@ -24,6 +24,15 @@ const Header = (props: Props) => {
         <Menu size={50} />
       </Button>
       <div className="flex gap-2">
+        <Link
+          className={buttonVariants({
+            variant: "outline",
+            className: "rounded-full",
+          })}
+          href={"https://winlax-portfolio-93swck82h-2108win.vercel.app/"}
+        >
+          Back to Version 1
+        </Link>
         <ModeToggle />
       </div>
     </div>
