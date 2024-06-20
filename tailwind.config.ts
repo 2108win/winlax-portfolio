@@ -75,10 +75,45 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        moveHorizontal: {
+          "0%": {
+            transform: "translateX(-50%) translateY(-10%)",
+          },
+          "50%": {
+            transform: "translateX(50%) translateY(10%)",
+          },
+          "100%": {
+            transform: "translateX(-50%) translateY(-10%)",
+          },
+        },
+        moveInCircle: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "50%": {
+            transform: "rotate(180deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
+        moveVertical: {
+          "0%": {
+            transform: "translateY(-50%)",
+          },
+          "50%": {
+            transform: "translateY(50%)",
+          },
+          "100%": {
+            transform: "translateY(-50%)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        first: "moveVertical 30s ease infinite",
+        second: "moveInCircle 20s linear infinite",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
@@ -93,7 +128,7 @@ const config = {
         {
           "bg-grid": () => ({
             backgroundImage: `url("${svgToDataUri(
-              `<svg id="patternId" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="scale(4) rotate(90)"><rect x="0" y="0" width="100%" height="100%" fill="hsla(0, 0%, 45%, 0)"/><path d="M0 10h20z" stroke-width="0.15" stroke="hsla(0,0%,45%,0.2)" fill="none"/></pattern></defs><rect width="800%" height="800%" transform="translate(-240,-960)" fill="url(#a)"/></svg>`,
+              `<svg id="patternId" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="scale(4) rotate(90)"><rect x="0" y="0" width="100%" height="100%" fill="hsla(0, 0%, 45%, 0)"/><path d="M0 10h20z" stroke-width="0.15" stroke="hsla(0,0%,45%,0.5)" fill="none"/></pattern></defs><rect width="800%" height="800%" transform="translate(-240,-960)" fill="url(#a)"/></svg>`,
             )}")`,
           }),
           "bg-grid-small": (value: any) => ({
