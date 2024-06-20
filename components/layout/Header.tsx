@@ -17,6 +17,7 @@ const Header = (props: Props) => {
           width={80}
           height={80}
           className="h-12 w-12 md:h-16 md:w-16"
+          priority
         />
       </Link>
       <Button className="hidden" variant={"ghost"} size={"icon"}>

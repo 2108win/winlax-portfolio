@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import Header from "@/components/layout/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
+import { BackgroundGradientAnimation } from "@/components/base/trying/background-gradient-animation";
+import { Loader2 } from "lucide-react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -76,13 +78,15 @@ export default function RootLayout({
         >
           <Header />
           <div
-            className={`dark:bg-grid-white bg-grid-black relative flex min-h-dvh w-full items-center justify-center ${clashDisplay.className}`}
+            className={`relative flex min-h-dvh w-full items-center justify-center bg-grid-black dark:bg-grid-white ${clashDisplay.className}`}
           >
+            <BackgroundGradientAnimation containerClassName="z-[-1]" />
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_15%,black)] dark:bg-black"></div>
             {children}
-            <p className="absolute bottom-5 mt-8 animate-pulse text-center text-xl font-medium">
-              LOADING <span className="text-3xl text-orange-400">...</span>
-            </p>
+            <div className="absolute bottom-5 mt-8 flex items-center text-center text-xl font-medium">
+              DEVELOPING
+              <Loader2 className="ml-2 h-6 w-6 animate-spin text-orange-400" />
+            </div>
           </div>
         </ThemeProvider>
       </body>
