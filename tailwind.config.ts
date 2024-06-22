@@ -113,7 +113,7 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         first: "moveVertical 30s ease infinite",
-        second: "moveInCircle 20s linear infinite",
+        second: "moveInCircle 20s reverse infinite",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],

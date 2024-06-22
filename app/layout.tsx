@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto_Mono as FontSans } from "next/font/google";
+import { DM_Sans as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/layout/Header";
@@ -47,6 +47,7 @@ const clashDisplay = localFont({
     },
   ],
   variable: "--font-clash-display",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -68,6 +69,7 @@ export default function RootLayout({
         className={cn(
           "relative min-h-svh bg-background font-sans antialiased",
           fontSans.variable,
+          clashDisplay.variable,
         )}
       >
         <ThemeProvider
@@ -76,14 +78,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <div
-            className={`relative flex min-h-dvh w-full items-center justify-center bg-grid-black dark:bg-grid-white ${clashDisplay.className}`}
-          >
+          <div className="relative flex min-h-svh w-full flex-col transition-all duration-1000 bg-grid-black dark:bg-grid-white">
             <BackgroundGradientAnimation containerClassName="z-[-1]" />
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_15%,black)] dark:bg-black"></div>
+            <Header />
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white transition-all duration-1000 [mask-image:radial-gradient(ellipse_at_center,transparent_15%,black)] dark:bg-black"></div>
             {children}
-            <div className="absolute bottom-5 mt-8 flex items-center text-center text-xl font-medium">
+            <div className="z-0 mt-auto flex items-center justify-center py-8 text-center text-xl font-medium">
               DEVELOPING
               <Loader2 className="ml-2 h-6 w-6 animate-spin text-orange-400" />
             </div>

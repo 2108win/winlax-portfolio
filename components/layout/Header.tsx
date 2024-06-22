@@ -9,7 +9,7 @@ type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <div className="absolute top-0 z-50 flex w-full items-center justify-between bg-neutral-100/10 px-5 py-5 dark:bg-neutral-900/10 md:px-12 lg:px-14">
+    <div className="sticky top-0 z-[9999] flex w-screen items-center justify-between bg-neutral-100/10 px-5 py-5 dark:bg-neutral-900/10 md:px-12 lg:px-14">
       <Link href={"/"} className="hover:scale-90">
         <Image
           src={"/logo.png"}
