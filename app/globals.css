@@ -74,3 +74,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .link__hover {
+    @apply relative flex w-fit overflow-hidden font-clashDisplay text-3xl font-bold leading-none tracking-wider duration-1000 md:text-5xl;
+  }
+}

@@ -3,10 +3,10 @@ import { cn } from "@/lib/utils";
 import { useEffect } from "react";
 
 export const BackgroundGradientAnimation = ({
-  gradientBackgroundStart = "rgba(255, 157, 0, 0.5)",
-  gradientBackgroundEnd = "rgba(255, 0, 234, 0.5)",
-  firstColor = "18, 113, 255",
-  secondColor = "255, 87, 34",
+  gradientBackgroundStart = "rgba(255, 166, 47, 0.5)",
+  gradientBackgroundEnd = "rgba(255, 0, 251, 0.5)",
+  firstColor = "85, 173, 155",
+  secondColor = "255, 232, 200",
   size = "100%",
   blendingValue = "hard-light",
   containerClassName,
@@ -68,20 +68,20 @@ export const BackgroundGradientAnimation = ({
       </svg>
       <div
         className={cn(
-          `absolute [background:radial-gradient(circle_at_center,_var(--first-color)_0,_var(--first-color)_50%)_no-repeat]`,
+          `absolute [background:radial-gradient(circle_at_center,_rgba(var(--first-color),_0.8)_0,_rgba(var(--first-color),_0)_50%)_no-repeat]`,
           `-top-1/2 left-0 h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
           `[filter:url(#blurMe)_blur(40px)] [transform-origin:center_center]`,
           `animate-first`,
-          `opacity-100`,
+          `opacity-70`,
         )}
       ></div>
       <div
         className={cn(
           `absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),_0.8)_0,_rgba(var(--second-color),_0)_50%)_no-repeat]`,
-          `-top-1/2 left-1/2 h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
-          `[transform-origin:calc(50%-400px)]`,
+          `-top-1/2 left-1/2 h-[500%] w-[200%] [mix-blend-mode:var(--blending-value)]`,
+          `[filter:url(#blurMe)_blur(40px)] [transform-origin:center_center]`,
           `animate-second`,
-          `opacity-100`,
+          `opacity-70`,
         )}
       ></div>
     </div>
