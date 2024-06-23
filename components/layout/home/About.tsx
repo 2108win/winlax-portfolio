@@ -1,5 +1,5 @@
 import React from "react";
-import LinkAnimate from "@/components/base/LinkAnimate";
+import LinkAnimate from "@/components/base/animations/link-animate";
 
 type Props = {};
 

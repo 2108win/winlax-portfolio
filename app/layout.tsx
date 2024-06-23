@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import Header from "@/components/layout/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
-import { BackgroundGradientAnimation } from "@/components/base/trying/background-gradient-animation";
+import { BackgroundGradientAnimation } from "@/components/base/animations/background-gradient-animation";
 import { Loader2 } from "lucide-react";
 
 const fontSans = FontSans({

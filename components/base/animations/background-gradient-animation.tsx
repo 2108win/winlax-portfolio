@@ -71,7 +71,7 @@ export const BackgroundGradientAnimation = ({
           `absolute [background:radial-gradient(circle_at_center,_rgba(var(--first-color),_0.8)_0,_rgba(var(--first-color),_0)_50%)_no-repeat]`,
           `-top-1/2 left-0 h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
           `[filter:url(#blurMe)_blur(40px)] [transform-origin:center_center]`,
-          `animate-first`,
+          `sm:animate-first`,
           `opacity-70`,
         )}
       ></div>
@@ -80,7 +80,7 @@ export const BackgroundGradientAnimation = ({
           `absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),_0.8)_0,_rgba(var(--second-color),_0)_50%)_no-repeat]`,
           `-top-1/2 left-1/2 h-[500%] w-[200%] [mix-blend-mode:var(--blending-value)]`,
           `[filter:url(#blurMe)_blur(40px)] [transform-origin:center_center]`,
-          `animate-second`,
+          `sm:animate-second`,
           `opacity-70`,
         )}
       ></div>

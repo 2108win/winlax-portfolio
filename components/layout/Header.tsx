@@ -1,15 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Button, buttonVariants } from "../ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Menu } from "lucide-react";
-import { ModeToggle } from "../base/mode-toggle";
+import { ModeToggle } from "@/components/base/mode-toggle";
 
 type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <div className="sticky top-0 z-[9999] flex w-screen items-center justify-between bg-neutral-100/10 px-5 py-5 dark:bg-neutral-900/10 md:px-12 lg:px-14">
+    <div className="sticky top-0 z-[9999] flex w-full items-center justify-between bg-neutral-100/10 px-5 py-5 dark:bg-neutral-900/10 md:px-12 lg:px-14">
       <Link href={"/"} className="hover:scale-90">
         <Image
           src={"/logo.png"}
