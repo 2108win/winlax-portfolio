@@ -95,14 +95,14 @@ const AboutDetail = () => {
             >
               <TextAnimate
                 id={"about__secondaryText" + i}
-                className="flex flex-wrap text-pretty"
+                className="text-pretty"
                 classText="text-xl leading-normal md:text-2xl"
               >
                 {item.secondaryText}
               </TextAnimate>
               <TextAnimate
                 id={"about__secondaryDescription" + i}
-                className="flex flex-wrap gap-1 text-pretty text-xl leading-normal text-muted-foreground md:text-2xl"
+                className="gap-1 text-pretty text-xl leading-normal text-muted-foreground md:text-2xl"
                 split={" "}
                 classText="text-xl leading-normal md:text-2xl"
               >
@@ -116,7 +116,7 @@ const AboutDetail = () => {
             <TextAnimate
               id={"about__primaryText--wrapper"}
               key={i + "about__primaryText" + i}
-              className="flex flex-wrap gap-1 text-pretty leading-normal"
+              className="gap-1 text-pretty leading-normal"
               split={" "}
               classText="text-2xl font-medium md:text-3xl"
             >

@@ -86,7 +86,7 @@ export const TextAnimate = forwardRef<HTMLDivElement, any>(
     // const { contextSafe } = useGSAP({ scope: animation });
     return (
       <div
-        className={cn("overflow-hidden", className)}
+        className={cn("flex flex-wrap overflow-hidden", className)}
         ref={animation}
         {...props}
         // onMouseEnter={handleHover}

@@ -17,7 +17,9 @@ const About = (props: Props) => {
             For whatever reason it is you are here, welcome.
           </p>
         </div>
-        <LinkAnimate href="/about">About me</LinkAnimate>
+        <LinkAnimate id="home__link--home-home" href="/about">
+          About me
+        </LinkAnimate>
       </div>
     </div>
   );

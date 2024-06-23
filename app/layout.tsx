@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
 import { BackgroundGradientAnimation } from "@/components/base/animations/background-gradient-animation";
 import { Loader2 } from "lucide-react";
+import ConnectMe from "@/components/layout/ConnectMe";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -83,6 +84,7 @@ export default function RootLayout({
             <Header />
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white transition-all duration-1000 [mask-image:radial-gradient(ellipse_at_center,transparent_15%,black)] dark:bg-black"></div>
             {children}
+            <ConnectMe />
             <div className="z-0 mt-auto flex items-center justify-center py-8 text-center text-xl font-medium">
               DEVELOPING
               <Loader2 className="ml-2 h-6 w-6 animate-spin text-orange-400" />

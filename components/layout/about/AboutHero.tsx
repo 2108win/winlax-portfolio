@@ -131,6 +131,7 @@ export default function AboutHero() {
           />
         </CardContainer>
         <LinkAnimate
+        id="about__link--home"
           href="/cv-winlax-frontend-developer.pdf"
           className="text-2xl font-semibold"
           download
