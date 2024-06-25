@@ -84,9 +84,9 @@ const aboutDataPrimary = [
 
 const AboutDetail = () => {
   return (
-    <div className="relative mx-auto flex h-full max-w-7xl flex-col items-center space-y-10 px-10">
+    <div className="relative mx-auto flex h-full w-full max-w-5xl flex-col items-center space-y-10 px-10">
       {/* <button onClick={toggleTimeline}>toggleTimeline</button> */}
-      <div className="flex flex-col-reverse gap-12 sm:max-w-[85%] md:flex-row">
+      <div className="flex w-full flex-col-reverse gap-12 md:flex-row">
         <div className="about__secondary flex flex-col gap-10 sm:basis-1/4">
           {aboutDataSecondary.map((item, i) => (
             <div

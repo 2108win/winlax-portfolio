@@ -1,16 +1,24 @@
 "use client";
-import Link, { LinkProps } from "next/link";
+import Link from "next/link";
 import React, { forwardRef } from "react";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-// type Props = {
-//   children: React.ReactNode | string;
-//   className?: string;
-//   href: string;
-// };
+import type { UrlObject } from "url";
+type Url = string | UrlObject;
+type LinkProps = {
+  isNormalLink?: boolean;
+  id: string;
+  children: React.ReactNode | string;
+  className?: string;
+  href: string;
+  hasUnderline?: boolean;
+};
 
-const LinkAnimate = forwardRef<HTMLAnchorElement, any>(
+const LinkAnimate = forwardRef<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  LinkProps | any
+>(
   (
     {
       isNormalLink = false,
@@ -56,7 +64,7 @@ const LinkAnimate = forwardRef<HTMLAnchorElement, any>(
           })
           .fromTo(
             ida,
-            { y: "-100%" },
+            { y: "-150%" },
             { y: 0, stagger: 0.03, delay: 0.1, duration: 0.2, reversed: true },
           );
       }
@@ -74,7 +82,7 @@ const LinkAnimate = forwardRef<HTMLAnchorElement, any>(
         onMouseLeave={handleLeaveHover}
         href={href}
         ref={animation}
-        className={`link__hover !leading-normal ${className}`}
+        className={`link__hover items-center !leading-none ${className}`}
         {...props}
       >
         {typeof children == "string" && !isNormalLink ? (

@@ -1,15 +1,31 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import LinkAnimate from "@/components/base/animations/link-animate";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
 import { CardContainer } from "@/components/ui/3d-card";
+import {
+  useMotionTemplate,
+  useMotionValue,
+  motion,
+  animate,
+} from "framer-motion";
+const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
 export default function AboutHero() {
   const aboutRef = useRef<HTMLDivElement>(null);
   const textTop = "Win".split("");
   const textBottom = "Lã Mai".split("");
+  const color = useMotionValue(COLORS_TOP[0]);
+  useEffect(() => {
+    animate(color, COLORS_TOP, {
+      ease: "easeInOut",
+      duration: 10,
+      repeat: Infinity,
+      repeatType: "mirror",
+    });
+  }, []);
   gsap.registerPlugin(useGSAP);
   // const { contextSafe } = useGSAP({ scope: aboutRef });
   useGSAP(
@@ -88,6 +104,10 @@ export default function AboutHero() {
       scope: aboutRef,
     },
   );
+
+  const border = useMotionTemplate`1px solid ${color}`;
+  const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
+
   return (
     <div
       ref={aboutRef}
@@ -121,17 +141,24 @@ export default function AboutHero() {
           </p>
         </div>
         <CardContainer className="flex h-full select-none items-center justify-center">
-          <Image
-            src={"/winlax-latest.png"}
-            alt={"winlax"}
-            width={500}
-            height={500}
-            className="about__image w-[70%] rounded-3xl shadow-xl transition-all duration-1000 ease-linear md:w-[60%] lg:w-[50%]"
-            priority
-          />
+          <motion.div
+            style={{
+              border,
+              boxShadow,
+            }}
+            className="about__image w-[70%] overflow-hidden rounded-3xl shadow-xl transition-all duration-1000 ease-linear md:w-[60%] lg:w-[50%]"
+          >
+            <Image
+              src={"/winlax-latest.png"}
+              alt={"winlax"}
+              width={500}
+              height={500}
+              priority
+            />
+          </motion.div>
         </CardContainer>
         <LinkAnimate
-        id="about__link--home"
+          id="about__link--home"
           href="/cv-winlax-frontend-developer.pdf"
           className="text-2xl font-semibold"
           download

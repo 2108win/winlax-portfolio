@@ -89,16 +89,16 @@ const Hero = (props: Props) => {
   return (
     <div
       ref={heroRef}
-      className="relative flex h-full min-h-[calc(100svh-104px)] max-w-7xl items-center justify-center px-5 font-clashDisplay font-bold"
+      className="relative flex h-full min-h-[calc(100svh-104px)] w-full max-w-5xl items-center justify-center px-10 font-clashDisplay font-bold"
     >
-      <div className="relative h-fit">
+      <div className="relative flex h-fit w-full flex-col">
         <p
           className="hero__name mb-4 text-lg font-semibold uppercase tracking-tight text-orange-400 opacity-0 md:text-2xl"
           onMouseEnter={handleMoveDown}
         >
           La Mai Win
         </p>
-        <div className="mb-8 flex flex-col overflow-hidden">
+        <div className="mb-8 flex w-full flex-col overflow-hidden">
           <p className="hero__title--top flex w-min text-center text-5xl font-bold sm:text-8xl md:text-9xl lg:text-[10rem]">
             {textTop.map((letter, index) => (
               <span
@@ -109,7 +109,7 @@ const Hero = (props: Props) => {
               </span>
             ))}
           </p>
-          <p className="hero__title--bottom ml-10 flex w-min text-center text-5xl font-bold sm:text-8xl md:text-9xl lg:ml-16 lg:text-[10rem]">
+          <p className="hero__title--bottom ml-auto flex w-min text-center text-5xl font-bold sm:text-8xl md:text-9xl lg:text-[10rem]">
             {textBottom.map((letter, index) => (
               <span
                 key={"bottom" + index}

@@ -5,8 +5,8 @@ type Props = {};
 
 const About = (props: Props) => {
   return (
-    <div className="relative mx-auto flex h-full max-w-7xl flex-col items-center space-y-10 px-10">
-      <div className="flex flex-col space-y-10 sm:max-w-[70%]">
+    <div className="relative mx-auto flex h-full max-w-5xl w-full flex-col items-center px-10">
+      <div className="flex flex-col space-y-10 w-full">
         <div className="relative w-full space-y-6 text-xl !leading-normal md:text-4xl lg:text-5xl">
           <p className="about__text text-pretty">Hi, Win Lã here!</p>
           <p className="about__text text-pretty">
