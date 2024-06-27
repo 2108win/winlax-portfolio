@@ -1,13 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
 import { ModeToggle } from "@/components/base/mode-toggle";
+import MenuButton from "../base/menu-button";
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
   return (
     <div className="sticky top-0 z-[9999] flex w-full items-center justify-between bg-neutral-100/10 px-5 py-5 dark:bg-neutral-900/10 md:px-12 lg:px-14">
       <Link href={"/"} className="hover:scale-90">
@@ -20,20 +18,8 @@ const Header = (props: Props) => {
           priority
         />
       </Link>
-      <Button className="hidden" variant={"ghost"} size={"icon"}>
-        <span className="sr-only">Menu</span>
-        <Menu size={50} />
-      </Button>
+      <MenuButton />
       <div className="flex gap-2">
-        <Link
-          className={buttonVariants({
-            variant: "outline",
-            className: "rounded-full",
-          })}
-          href={"https://winlax-portfolio-93swck82h-2108win.vercel.app/"}
-        >
-          Back to Version 1
-        </Link>
         <ModeToggle />
       </div>
     </div>

@@ -1,18 +1,23 @@
+import { HoverCard3d } from "@/components/base/animations/hover-card";
 import { TextAnimate } from "@/components/base/animations/text-animate";
+import { cn } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import ProjectCard from "./ProjectCard";
 const projectData = [
   {
     image: "/winlax-latest.png",
     title: "WinLax",
     time: "2022",
-    link: "/",
+    link: "#",
   },
   {
     image: "/winlax-latest.png",
     title: "WinLax",
     time: "2022",
-    link: "/",
+    link: "#",
   },
 ];
 export default function ProjectFeatured() {
@@ -27,39 +32,28 @@ export default function ProjectFeatured() {
             Featured Projects
           </p>
         </div>
-        <div className="flex w-full flex-col justify-between">
+        <div className="flex w-full flex-col items-center justify-between gap-20">
           {projectData.map((item, i) => (
             <div
               key={i + "project" + i}
-              className="flex w-[60%] flex-col space-y-5 odd:ml-auto"
+              className="flex w-[80%] flex-col-reverse sm:flex-row sm:gap-5 sm:odd:ml-auto sm:odd:flex-row-reverse"
             >
-              <div
-                id="project__image"
-                className="flex items-center justify-center"
-              >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={500}
-                  height={500}
-                  className="w-full rounded-lg"
-                />
-              </div>
+              <ProjectCard
+                image={item.image}
+                title={item.title}
+                isEven={i % 2 === 0}
+                link={item.link}
+                time={item.time}
+              />
               <div className="flex flex-col space-y-5">
-                <TextAnimate
-                  id={"project__title" + i}
-                  className="text-pretty"
-                  classText="text-3xl font-bold sm:text-4xl"
+                <p
+                  className={cn(
+                    "text-pretty font-clashDisplay text-2xl font-medium text-orange-400 sm:text-4xl",
+                    i % 2 === 0 && "sm:text-right",
+                  )}
                 >
-                  {item.title}
-                </TextAnimate>
-                <TextAnimate
-                  id={"project__time" + i}
-                  className="text-pretty"
-                  classText="text-3xl font-bold sm:text-4xl"
-                >
-                  {item.time}
-                </TextAnimate>
+                  {i + 1}/{projectData.length}
+                </p>
               </div>
             </div>
           ))}

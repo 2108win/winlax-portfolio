@@ -4,20 +4,19 @@ import React, { forwardRef } from "react";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import type { UrlObject } from "url";
-type Url = string | UrlObject;
-type LinkProps = {
-  isNormalLink?: boolean;
-  id: string;
-  children: React.ReactNode | string;
-  className?: string;
+import { cn } from "@/lib/utils";
+export interface LinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
+  id: string;
+  isNormalLink?: boolean;
   hasUnderline?: boolean;
-};
+  classNameUnderline?: string;
+}
 
 const LinkAnimate = forwardRef<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
-  LinkProps | any
+  LinkProps
 >(
   (
     {
@@ -27,6 +26,7 @@ const LinkAnimate = forwardRef<
       href,
       id,
       hasUnderline = true,
+      classNameUnderline,
       ...props
     },
     ref,
@@ -82,7 +82,7 @@ const LinkAnimate = forwardRef<
         onMouseLeave={handleLeaveHover}
         href={href}
         ref={animation}
-        className={`link__hover items-center !leading-none ${className}`}
+        className={cn("link__hover items-center", className)}
         {...props}
       >
         {typeof children == "string" && !isNormalLink ? (
@@ -96,11 +96,18 @@ const LinkAnimate = forwardRef<
             );
           })
         ) : (
-          <span>{children}</span>
+          <>{children}</>
         )}
         {hasUnderline && (
           <div
-            className={`link__hover--underline absolute bottom-0 w-0 bg-foreground ${isNormalLink ? "h-[1px]" : "h-[2px]"}`}
+            className={cn(
+              "link__hover--underline absolute bottom-0 w-0 bg-foreground",
+              {
+                "h-[1px]": isNormalLink,
+                "h-[2px]": !isNormalLink,
+              },
+              classNameUnderline,
+            )}
           ></div>
         )}
       </Link>

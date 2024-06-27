@@ -6,9 +6,10 @@ import Header from "@/components/layout/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
 import { Loader2 } from "lucide-react";
-import ConnectMe from "@/components/layout/ConnectMe";
-import Footer from "@/components/layout/Footer";
 import { AuroraHero } from "@/components/base/animations/bg-radient";
+import Footer from "@/components/layout/Footer";
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -86,12 +87,19 @@ export default function RootLayout({
             <Header />
             <div className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center bg-white transition-all duration-1000 [mask-image:radial-gradient(ellipse_at_center,transparent_15%,black)] dark:bg-black"></div>
             {children}
-            <ConnectMe />
             <Footer />
             <div className="z-10 mt-auto flex items-center justify-center py-8 text-center text-xl font-medium">
               DEVELOPING
               <Loader2 className="ml-2 h-6 w-6 animate-spin text-orange-400" />
             </div>
+            <Link
+              className={buttonVariants({
+                className: "z-10 mx-auto my-2 w-fit rounded-full",
+              })}
+              href={"https://winlax-portfolio-93swck82h-2108win.vercel.app/"}
+            >
+              Back to Version 1
+            </Link>
           </div>
         </ThemeProvider>
       </body>

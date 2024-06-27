@@ -48,7 +48,7 @@ const aboutDataSecondary = [
 
 const aboutDataPrimary = [
   {
-    description: " Hi, Win Lã here!",
+    description: "Hi, Win Lã here!",
   },
   {
     description:
@@ -79,6 +79,9 @@ const aboutDataPrimary = [
   },
   {
     description: "Cheers! 🥂🥂",
+  },
+  {
+    description: "❤️ & 💡 ",
   },
 ];
 
@@ -114,6 +117,9 @@ const AboutDetail = () => {
         <div className="about__primary flex flex-col gap-5 sm:basis-3/4">
           {aboutDataPrimary.map((item, i) => (
             <TextAnimate
+              delay={0.03}
+              duration={0.04}
+              stagger={0.03}
               id={"about__primaryText--wrapper"}
               key={i + "about__primaryText" + i}
               className="gap-1 text-pretty leading-normal"

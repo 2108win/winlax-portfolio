@@ -12,6 +12,9 @@ type TextAnimateProps = {
   id: string;
   classText?: string;
   split?: string;
+  delay?: number;
+  duration?: number;
+  stagger?: number;
 };
 type TextAnimateContainerProps = {
   children: React.ReactNode | string;
@@ -32,7 +35,20 @@ export const TextAnimateContainer = forwardRef<
 TextAnimateContainer.displayName = "TextAnimateContainer";
 
 export const TextAnimate = forwardRef<HTMLDivElement, TextAnimateProps>(
-  ({ children, className, classText, split = "", id, ...props }, ref) => {
+  (
+    {
+      children,
+      className,
+      classText,
+      split = "",
+      id,
+      delay = 0.1,
+      duration = 0.1,
+      stagger = 0.05,
+      ...props
+    },
+    ref,
+  ) => {
     // const [isMobile, setIsMobile] = useState(true);
     const animation = useRef<any>();
     gsap.registerPlugin(useGSAP);
@@ -64,9 +80,9 @@ export const TextAnimate = forwardRef<HTMLDivElement, TextAnimateProps>(
             {
               y: 0,
               opacity: 1,
-              stagger: 0.05,
-              delay: 0.1,
-              duration: 0.1,
+              stagger: stagger,
+              delay: delay,
+              duration: duration,
               scrollTrigger: {
                 trigger: ida,
                 start: "top 90%",
