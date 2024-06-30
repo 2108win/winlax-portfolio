@@ -31,30 +31,13 @@ const socialData = [
 
 export default function Footer() {
   return (
-    <div className="relative z-10 mx-auto my-10 flex h-full w-full max-w-5xl flex-col items-center overflow-hidden px-10 py-20">
-      <div className="flex w-full flex-col space-y-8">
-        <TextAnimate
-          stagger={0.03}
-          id="connectMe__text"
-          className="text-pretty font-clashDisplay text-2xl sm:text-4xl md:text-6xl"
-        >
-          Want to Start a Project?
-        </TextAnimate>
-        <LinkAnimate
-          id="connectMe__link"
-          className="flex-wrap text-pretty text-5xl sm:text-8xl md:text-9xl lg:text-[10rem]"
-          href={mail}
-          hasUnderline={false}
-        >
-          Let's Talk
-        </LinkAnimate>
-      </div>
-      <div className="mt-32 flex w-full flex-col justify-between gap-5 md:flex-row md:items-center">
+    <div className="relative z-10 mx-auto flex h-full w-full max-w-5xl flex-col items-center overflow-hidden px-10 py-20">
+      <div className="flex w-full flex-col justify-between gap-5 md:flex-row md:items-center">
         <div className="flex gap-2 text-xl">
           <span>Design by</span>
           <LinkAnimate
             id="footer__link--winlax"
-            className="text-xl font-medium"
+            className="text-xl font-normal sm:font-medium"
             href="https://www.instagram.com/win_lax/"
             isNormalLink
           >
@@ -65,7 +48,7 @@ export default function Footer() {
           <LinkAnimate
             id="footer__link--contact--email"
             href={mail}
-            className="group text-xl font-medium"
+            className="group text-xl font-normal sm:font-medium"
             isNormalLink
           >
             <div className="flex items-center gap-2">
@@ -79,7 +62,7 @@ export default function Footer() {
                 id={"footer__link--social--" + item.socialName}
                 key={"footer__link--social" + item.socialName}
                 href={item.url}
-                className="text-xl font-medium"
+                className="text-xl font-normal sm:font-medium"
                 isNormalLink
                 classNameUnderline="h-[1px]"
               >

@@ -1,3 +1,4 @@
+import ConnectMe from "@/components/layout/ConnectMe";
 import About from "@/components/layout/home/About";
 import Hero from "@/components/layout/home/Hero";
 import ProjectFeatured from "@/components/layout/projects/ProjectFeatured";
@@ -7,6 +8,7 @@ export default function Home() {
       <Hero />
       <About />
       <ProjectFeatured />
+      <ConnectMe />
     </div>
   );
 }

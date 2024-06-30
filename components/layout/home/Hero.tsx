@@ -89,9 +89,9 @@ const Hero = (props: Props) => {
   return (
     <div
       ref={heroRef}
-      className="relative flex h-full min-h-[calc(100svh-104px)] w-full max-w-5xl items-center justify-center px-10 font-clashDisplay font-bold"
+      className="relative flex h-full min-h-[calc(100svh-104px)] w-fit max-w-5xl items-center justify-center px-10 font-clashDisplay font-bold sm:w-full"
     >
-      <div className="relative flex h-fit w-full flex-col">
+      <div className="relative flex h-fit w-fit translate-y-[-50px] flex-col sm:w-full">
         <p
           className="hero__name mb-4 text-lg font-semibold uppercase tracking-tight text-orange-400 opacity-0 md:text-2xl"
           onMouseEnter={handleMoveDown}
@@ -109,7 +109,7 @@ const Hero = (props: Props) => {
               </span>
             ))}
           </p>
-          <p className="hero__title--bottom ml-auto flex w-min text-center text-5xl font-bold sm:text-8xl md:text-9xl lg:text-[10rem]">
+          <p className="hero__title--bottom ml-5 flex w-min text-center text-5xl font-bold sm:ml-auto sm:text-8xl md:text-9xl lg:text-[10rem]">
             {textBottom.map((letter, index) => (
               <span
                 key={"bottom" + index}

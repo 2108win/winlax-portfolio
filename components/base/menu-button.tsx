@@ -5,6 +5,8 @@ import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import LinkAnimate from "./animations/link-animate";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export const Links = [
   {
@@ -27,47 +29,57 @@ export const Links = [
 
 export default function MenuButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
   return (
     <motion.div className={cn("z-[-10] h-full w-fit")}>
       <span className="sr-only">Menu</span>
       <motion.button
-        whileTap={{
-          scale: 0.9,
+        whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+        whileTap={{ scale: 0.95 }}
+        animate={{
+          rotate: isOpen ? 360 : 0,
+          transition: { duration: 1.5 },
         }}
-        whileHover={{ rotate: 360, transition: { duration: 1 } }}
         onClick={() => {
           setIsOpen(!isOpen);
         }}
+        transition={{
+          duration: 1,
+          ease: [0.76, 0, 0.24, 1],
+          type: "spring",
+          damping: 10,
+          delay: 0.5,
+        }}
         className={cn(
-          buttonVariants({ variant: isOpen ? "outline" : "ghost" }),
-          "relative z-50 flex size-auto flex-col items-center justify-center overflow-hidden rounded-full p-0 text-primary hover:bg-primary hover:text-primary-foreground",
+          "relative z-50 flex size-auto flex-col items-center justify-center overflow-hidden rounded-full",
         )}
       >
         <motion.div
-          animate={{ y: isOpen ? "-100%" : 0 }}
+          animate={{ y: isOpen ? "100%" : 0 }}
           transition={{
             duration: 0.5,
             ease: [0.76, 0, 0.24, 1],
             type: "spring",
+            delay: 1.4,
           }}
           className="relative flex size-full flex-col items-center justify-center"
         >
           <div className="h-full w-full p-2">
-            <Menu size={30} className="h-full w-full" />
+            <Menu strokeWidth={1} size={40} className="h-full w-full" />
           </div>
-          <div className="absolute top-full p-2">
-            <X size={30} className="h-full w-full" />
+          <div className="absolute bottom-full p-2">
+            <X strokeWidth={1} size={40} className="h-full w-full" />
           </div>
         </motion.div>
       </motion.button>
       <motion.div
         variants={{
           open: {
-            height: "80dvh",
+            height: "80svh",
             borderRadius: "0 0 20% 20%",
           },
           closed: {
-            top: 0,
             height: 0,
             borderRadius: "0 0 200% 200%",
           },
@@ -75,15 +87,16 @@ export default function MenuButton() {
         initial="closed"
         animate={isOpen ? "open" : "closed"}
         transition={{
-          duration: 0.75,
-          ease: [0.76, 0, 0.24, 1],
-          delay: 0.5,
+          duration: 0.7,
+          ease: [0.24, 0.76, 0, 1],
+          delay: 0.3,
         }}
-        className="absolute left-0 top-0 z-[-1] flex w-svw flex-col items-center justify-center gap-10 bg-orange-400 drop-shadow-lg backdrop-blur-xl transition-all duration-500"
+        className="absolute left-0 top-0 z-[-1] flex w-svw flex-col items-center justify-center gap-10 overflow-hidden bg-secondary shadow-lg transition-all duration-500"
       >
         {Links.map((link, i) => (
           <motion.div
             key={link.href + i}
+            onClick={() => setIsOpen(false)}
             variants={{
               initial: {
                 opacity: 0,
@@ -92,12 +105,22 @@ export default function MenuButton() {
               enter: {
                 opacity: 1,
                 y: 0,
-                transition: { delay: 1 + i * 0.2, duration: 0.5 },
+                transition: {
+                  delay: 1 + i * 0.2,
+                  duration: 0.5,
+                  type: "spring",
+                  damping: 15,
+                },
               },
               exit: {
                 opacity: 0,
-                y: 100,
-                transition: { delay: 0.5 + i * 0.2, duration: 0.5 },
+                y: -100,
+                transition: {
+                  delay: 0.5 + i * 0.2,
+                  duration: 0.5,
+                  type: "spring",
+                  damping: 15,
+                },
               },
             }}
             initial="initial"
@@ -107,12 +130,31 @@ export default function MenuButton() {
             <LinkAnimate
               id={"menu__link" + link.title}
               href={link.href}
-              className="text-pretty font-clashDisplay text-4xl sm:text-5xl"
+              className={cn(
+                "text-pretty font-clashDisplay text-4xl text-secondary-foreground/50 sm:text-5xl",
+                pathname === link.href && "text-orange-400",
+              )}
+              classNameUnderline={
+                pathname === link.href
+                  ? "bg-orange-400"
+                  : "bg-secondary-foreground/50"
+              }
             >
               {link.title}
             </LinkAnimate>
           </motion.div>
         ))}
+        <Link
+          onClick={() => setIsOpen(false)}
+          className={buttonVariants({
+            variant: "outline",
+            className: "z-10 mx-auto my-2 w-fit rounded-full",
+          })}
+          target="_blank"
+          href={"https://winlax-portfolio-93swck82h-2108win.vercel.app/"}
+        >
+          Back to Version 1
+        </Link>
       </motion.div>
       <div
         className={cn(

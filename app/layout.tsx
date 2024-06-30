@@ -2,14 +2,10 @@ import type { Metadata } from "next";
 import { DM_Sans as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import Header from "@/components/layout/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
-import { Loader2 } from "lucide-react";
-import { AuroraHero } from "@/components/base/animations/bg-radient";
-import Footer from "@/components/layout/Footer";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
+import { AuroraHero } from "@/components/base/animations/bg-radiant";
+import FuzzyOverlay from "@/components/base/animations/fuzzy-overlay";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -70,7 +66,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "relative min-h-svh bg-background font-sans antialiased",
+          "relative h-full min-h-svh bg-background font-sans antialiased",
           fontSans.variable,
           clashDisplay.variable,
         )}
@@ -82,24 +78,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="relative flex min-h-svh w-full flex-col transition-all duration-1000 bg-grid-black dark:bg-grid-white">
-            {/* <BackgroundGradientAnimation containerClassName="z-[-1]" /> */}
+            {/* <FuzzyOverlay /> */}
             <AuroraHero />
-            <Header />
             <div className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center bg-white transition-all duration-1000 [mask-image:radial-gradient(ellipse_at_center,transparent_15%,black)] dark:bg-black"></div>
             {children}
-            <Footer />
-            <div className="z-10 mt-auto flex items-center justify-center py-8 text-center text-xl font-medium">
-              DEVELOPING
-              <Loader2 className="ml-2 h-6 w-6 animate-spin text-orange-400" />
-            </div>
-            <Link
-              className={buttonVariants({
-                className: "z-10 mx-auto my-2 w-fit rounded-full",
-              })}
-              href={"https://winlax-portfolio-93swck82h-2108win.vercel.app/"}
-            >
-              Back to Version 1
-            </Link>
           </div>
         </ThemeProvider>
       </body>

@@ -5,17 +5,20 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { cn } from "@/lib/utils";
+import { animationPageOut } from "@/lib/animations";
+import { usePathname, useRouter } from "next/navigation";
 export interface LinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   href: string;
   id: string;
   isNormalLink?: boolean;
   hasUnderline?: boolean;
   classNameUnderline?: string;
+  download?: boolean;
 }
 
 const LinkAnimate = forwardRef<
-  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
   LinkProps
 >(
   (
@@ -27,16 +30,20 @@ const LinkAnimate = forwardRef<
       id,
       hasUnderline = true,
       classNameUnderline,
+      download,
       ...props
     },
     ref,
   ) => {
+    const router = useRouter();
+    const pathname = usePathname();
     const animation = useRef<any>();
     gsap.registerPlugin(useGSAP);
 
     const { contextSafe } = useGSAP({ scope: animation });
     const handleHover = contextSafe(() => {
       const ida = `#${id}`;
+      const underline = `#link__underline--${id}`;
       if (!isNormalLink) {
         gsap.fromTo(
           ida,
@@ -46,7 +53,7 @@ const LinkAnimate = forwardRef<
       }
       if (hasUnderline) {
         gsap.fromTo(
-          ".link__hover--underline",
+          underline,
           { left: 0, width: 0 },
           { left: 0, width: "100%", duration: 1 },
         );
@@ -57,6 +64,7 @@ const LinkAnimate = forwardRef<
 
     const handleLeaveHover = () => {
       const ida = `#${id}`;
+      const underline = `#link__underline--${id}`;
       if (!isNormalLink) {
         gsap
           .timeline({
@@ -64,26 +72,33 @@ const LinkAnimate = forwardRef<
           })
           .fromTo(
             ida,
-            { y: "-150%" },
+            { y: "-100%" },
             { y: 0, stagger: 0.03, delay: 0.1, duration: 0.2, reversed: true },
           );
       }
       if (hasUnderline) {
         gsap.fromTo(
-          ".link__hover--underline",
-          { right: 0, width: "100%" },
-          { right: 0, left: "100%", width: 0, duration: 1 },
+          underline,
+          { left: 0, width: "100%" },
+          { left: "100%", width: "100%", duration: 1 },
         );
       }
     };
-    return (
+    const handleClick = () => {
+      if (pathname !== href) {
+        animationPageOut(href, router);
+      }
+    };
+    return isNormalLink ? (
       <Link
+        href={href}
         onMouseEnter={handleHover}
         onMouseLeave={handleLeaveHover}
-        href={href}
         ref={animation}
         className={cn("link__hover items-center", className)}
+        download={download}
         {...props}
+        onClick={handleClick}
       >
         {typeof children == "string" && !isNormalLink ? (
           children.split("").map((item, i) => {
@@ -100,8 +115,9 @@ const LinkAnimate = forwardRef<
         )}
         {hasUnderline && (
           <div
+            id={`link__underline--${id}`}
             className={cn(
-              "link__hover--underline absolute bottom-0 w-0 bg-foreground",
+              "absolute bottom-0 left-0 w-0 bg-foreground",
               {
                 "h-[1px]": isNormalLink,
                 "h-[2px]": !isNormalLink,
@@ -111,6 +127,42 @@ const LinkAnimate = forwardRef<
           ></div>
         )}
       </Link>
+    ) : (
+      <button
+        onMouseEnter={handleHover}
+        onMouseLeave={handleLeaveHover}
+        ref={animation}
+        className={cn("link__hover items-center", className)}
+        {...props}
+        onClick={handleClick}
+      >
+        {typeof children == "string" && !isNormalLink ? (
+          children.split("").map((item, i) => {
+            return item === " " ? (
+              <span key={item + item[i + 1] + i}>&nbsp;</span>
+            ) : (
+              <span id={id} key={item + item[i + 1] + i + item}>
+                {item}
+              </span>
+            );
+          })
+        ) : (
+          <>{children}</>
+        )}
+        {hasUnderline && (
+          <div
+            id={`link__underline--${id}`}
+            className={cn(
+              "absolute bottom-0 left-0 w-0 bg-foreground",
+              {
+                "h-[1px]": isNormalLink,
+                "h-[2px]": !isNormalLink,
+              },
+              classNameUnderline,
+            )}
+          ></div>
+        )}
+      </button>
     );
   },
 );

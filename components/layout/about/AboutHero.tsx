@@ -95,7 +95,7 @@ export default function AboutHero() {
       className="relative flex min-h-[calc(100svh-104px)] flex-col items-center justify-center px-5"
     >
       <div className="relative flex h-fit flex-col items-center">
-        <div className="flex flex-col items-center font-clashDisplay text-7xl font-bold md:text-8xl lg:text-9xl">
+        <div className="flex flex-col items-center font-clashDisplay text-6xl font-bold sm:text-6xl md:text-8xl lg:text-9xl">
           <p className="hero__title--bottom flex w-min gap-1 text-center">
             {textBottom.map((letter, index) => {
               return letter === " " ? (
@@ -135,9 +135,10 @@ export default function AboutHero() {
         <LinkAnimate
           id="about__link--home"
           href="/cv-winlax-frontend-developer.pdf"
-          className="text-2xl font-semibold"
+          className="text-xl font-medium md:text-2xl"
+          classNameUnderline="md:h-[1px]"
+          isNormalLink
           download
-          target="_blank"
         >
           Download Resume
         </LinkAnimate>

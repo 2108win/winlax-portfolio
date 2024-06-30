@@ -1,30 +1,50 @@
-import { HoverCard3d } from "@/components/base/animations/hover-card";
-import { TextAnimate } from "@/components/base/animations/text-animate";
-import { cn } from "@/lib/utils";
-import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
+import { cn } from "@/lib/utils";
 const projectData = [
   {
-    image: "/winlax-latest.png",
-    title: "WinLax",
-    time: "2022",
-    link: "#",
+    image: "/projects/winlax-portfolio.jpeg",
+    title: "WinLax Portfolio",
+    time: "2024",
+    link: "/projects/winlax-portfolio",
   },
   {
-    image: "/winlax-latest.png",
-    title: "WinLax",
+    image: "/projects/business-landing-page.jpeg",
+    title: "Business Landing Page",
+    time: "2023",
+    link: "/projects/business-landing-page",
+  },
+  {
+    image: "/projects/fatme-v2.jpeg",
+    title: "WinLax FATMe version 2",
+    time: "2023",
+    link: "/projects/winlax-portfolio",
+  },
+  {
+    image: "/projects/fatme-app.jpeg",
+    title: "FATME App",
     time: "2022",
-    link: "#",
+    link: "/projects/fatme-app",
+  },
+  {
+    image: "/projects/watchour.jpeg",
+    title: "Wathchour",
+    time: "2022",
+    link: "/projects/watchour",
+  },
+  {
+    image: "/projects/LSM.jpeg",
+    title: "Library System Management",
+    time: "2022",
+    link: "/projects/LSM",
   },
 ];
 export default function ProjectFeatured() {
   return (
     <div className="relative flex h-full flex-col items-center justify-center px-5 py-10">
-      <div className="flex w-[90%] flex-col gap-16 sm:w-[80%]">
-        <div className="flex flex-col">
+      <div className="flex flex-col gap-20">
+        <div className="mx-auto flex w-[90%] flex-col sm:w-[80%]">
           <p className="text-right text-6xl text-orange-400 sm:translate-y-10 sm:text-7xl lg:text-8xl">
             {projectData.length || 0}
           </p>
@@ -32,7 +52,7 @@ export default function ProjectFeatured() {
             Featured Projects
           </p>
         </div>
-        <div className="flex w-full flex-col items-center justify-between gap-20">
+        <div className="flex w-full flex-col items-center justify-between gap-20 sm:px-10">
           {projectData.map((item, i) => (
             <div
               key={i + "project" + i}
@@ -45,7 +65,7 @@ export default function ProjectFeatured() {
                 link={item.link}
                 time={item.time}
               />
-              <div className="flex flex-col space-y-5">
+              <div className="z-30 flex flex-col space-y-5">
                 <p
                   className={cn(
                     "text-pretty font-clashDisplay text-2xl font-medium text-orange-400 sm:text-4xl",

@@ -1,14 +1,22 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export function ModeToggle() {
-  const { setTheme } = useTheme();
-  const [isDark, setIsDark] = React.useState(false);
-
+  const { setTheme, theme } = useTheme();
+  const [isDark, setIsDark] = useState(true);
+  useEffect(() => {
+    if (theme === "dark") {
+      setIsDark(true);
+    } else {
+      setIsDark(false);
+    }
+  }, []);
   const toggleTheme = () => {
     setIsDark(!isDark);
     setTheme(isDark ? "light" : "dark");
@@ -19,10 +27,44 @@ export function ModeToggle() {
       variant="outline"
       size="icon"
       onClick={toggleTheme}
-      className="rounded-full border-none bg-neutral-950 text-neutral-50 hover:bg-neutral-900 hover:text-neutral-50 dark:bg-neutral-50 dark:text-neutral-950 dark:hover:bg-neutral-100"
+      className="size-12 scale-75 rounded-full border-none bg-neutral-950 p-0 text-neutral-50 hover:scale-[0.7] hover:bg-neutral-900 hover:text-neutral-50 dark:bg-neutral-50 dark:text-neutral-950 dark:hover:bg-neutral-100 md:size-16"
     >
-      <Sun className="h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all duration-1000 dark:rotate-90 dark:scale-100" />
-      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all duration-1000 dark:rotate-90 dark:scale-0" />
+      <motion.span
+        whileTap={{
+          scale: 0.95,
+        }}
+        className="flex items-center justify-center opacity-0"
+        animate={{
+          rotate: isDark ? 180 : 0,
+          scale: isDark ? 1 : 0,
+          opacity: isDark ? 1 : 0,
+        }}
+        transition={{
+          duration: 0.5,
+          type: "spring",
+          damping: 15,
+        }}
+      >
+        <Sun className="size-6" />
+      </motion.span>
+      <motion.span
+        whileTap={{
+          scale: 0.95,
+        }}
+        className="absolute flex -translate-y-1/2 translate-x-1/2 items-center justify-center opacity-0"
+        animate={{
+          rotate: isDark ? 0 : -180,
+          scale: isDark ? 0 : 1,
+          opacity: isDark ? 0 : 1,
+        }}
+        transition={{
+          duration: 0.5,
+          type: "spring",
+          damping: 15,
+        }}
+      >
+        <Moon className="size-6 rotate-180" />
+      </motion.span>
       <span className="sr-only">Toggle theme</span>
     </Button>
   );

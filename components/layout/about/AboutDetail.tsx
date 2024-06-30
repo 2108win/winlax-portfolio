@@ -117,6 +117,7 @@ const AboutDetail = () => {
         <div className="about__primary flex flex-col gap-5 sm:basis-3/4">
           {aboutDataPrimary.map((item, i) => (
             <TextAnimate
+              once
               delay={0.03}
               duration={0.04}
               stagger={0.03}
@@ -124,7 +125,7 @@ const AboutDetail = () => {
               key={i + "about__primaryText" + i}
               className="gap-1 text-pretty leading-normal"
               split={" "}
-              classText="text-2xl font-medium md:text-3xl"
+              classText="text-xl md:font-normal sm:text-2xl md:text-3xl"
             >
               {item.description}
             </TextAnimate>
