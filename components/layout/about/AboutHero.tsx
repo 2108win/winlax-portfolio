@@ -138,6 +138,7 @@ export default function AboutHero() {
           className="text-xl font-medium md:text-2xl"
           classNameUnderline="md:h-[1px]"
           isNormalLink
+          hasUnderline
           download
         >
           Download Resume

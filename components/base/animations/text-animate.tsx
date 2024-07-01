@@ -44,7 +44,7 @@ export const TextAnimate = forwardRef<HTMLDivElement, TextAnimateProps>(
       split = "",
       id,
       delay = 0.1,
-      duration = 0.1,
+      duration = 0.5,
       stagger = 0.05,
       once = false,
       ...props
@@ -64,7 +64,7 @@ export const TextAnimate = forwardRef<HTMLDivElement, TextAnimateProps>(
     const fadeInAnimationVariants = {
       initial: {
         opacity: 0,
-        y: "100%",
+        y: 50,
       },
       animate: (i: number) => ({
         opacity: 1,

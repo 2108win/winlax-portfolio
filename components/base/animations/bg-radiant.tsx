@@ -34,14 +34,7 @@ export const AuroraHero = () => {
     >
       <div className="absolute inset-0 z-0 hidden dark:block">
         <Canvas>
-          <Stars
-            radius={50}
-            fade
-            speed={1}
-            depth={4}
-            count={20000}
-            factor={5}
-          />
+          <Stars radius={50} fade speed={1} depth={4} count={5000} factor={5} />
           {/* <Stars /> */}
         </Canvas>
       </div>

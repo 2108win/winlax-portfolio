@@ -100,19 +100,7 @@ const LinkAnimate = forwardRef<
         {...props}
         onClick={handleClick}
       >
-        {typeof children == "string" && !isNormalLink ? (
-          children.split("").map((item, i) => {
-            return item === " " ? (
-              <span key={item + item[i + 1] + i}>&nbsp;</span>
-            ) : (
-              <span id={id} key={item + item[i + 1] + i + item}>
-                {item}
-              </span>
-            );
-          })
-        ) : (
-          <>{children}</>
-        )}
+        {children}
         {hasUnderline && (
           <div
             id={`link__underline--${id}`}

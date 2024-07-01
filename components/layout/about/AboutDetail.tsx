@@ -118,9 +118,9 @@ const AboutDetail = () => {
           {aboutDataPrimary.map((item, i) => (
             <TextAnimate
               once
-              delay={0.03}
-              duration={0.04}
-              stagger={0.03}
+              delay={0.05}
+              duration={0.1}
+              stagger={0.05}
               id={"about__primaryText--wrapper"}
               key={i + "about__primaryText" + i}
               className="gap-1 text-pretty leading-normal"

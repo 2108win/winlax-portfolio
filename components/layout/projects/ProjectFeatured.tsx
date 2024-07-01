@@ -52,7 +52,7 @@ export default function ProjectFeatured() {
             Featured Projects
           </p>
         </div>
-        <div className="flex w-full flex-col items-center justify-between gap-20 sm:px-10">
+        <div className="flex w-full flex-col items-center justify-between gap-20 overflow-hidden sm:px-10">
           {projectData.map((item, i) => (
             <div
               key={i + "project" + i}

@@ -5,11 +5,11 @@ import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useIsomorphicLayoutEffect } from "framer-motion";
 type Props = {
   link: string;
   image: string;
@@ -22,48 +22,61 @@ type Props = {
 const ProjectCard = ({ link, image, title, time, isEven }: Props) => {
   const containerRef = useRef<HTMLAnchorElement>(null);
   const idl = `#project__image__arrow${title.split(" ").join("")}`;
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
+  gsap.registerPlugin(useGSAP);
+  useIsomorphicLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  }, []);
   useGSAP(() => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          toggleActions: "restart reverse restart reverse",
-          start: "top 95%",
-          end: "bottom 5%",
-          // markers: true,
-          // end: "bottom 20%",
-        },
-      })
-      .fromTo(
-        containerRef.current,
-        {
-          opacity: 0,
-          scale: 0,
-          x: isEven ? "100%" : "-100%",
-        },
-        {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 0.5,
-          ease: "power4.inOut",
-          yoyo: true,
-        },
-      )
-      .fromTo(
-        idl,
-        { opacity: 0, scale: 0 },
-        { opacity: 1, scale: 1, ease: "bounce.inOut", duration: 1 },
-      )
-      .to(idl, { rotate: isEven ? 360 : 270, duration: 1.5 });
+    let mb = gsap.matchMedia();
+    mb.add(
+      {
+        isDesktop: `(min-width: 640px)`,
+        isMobile: `(max-width: 639px)`,
+      },
+      (context) => {
+        let { isDesktop, isMobile }: any = context.conditions;
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: containerRef.current,
+              toggleActions: isDesktop
+                ? "restart reverse restart reverse"
+                : "play none none none",
+              start: "top 95%",
+              end: "bottom 5%",
+            },
+          })
+          .fromTo(
+            containerRef.current,
+            {
+              opacity: 0,
+              scale: 0,
+              x: isEven ? "100%" : "-100%",
+            },
+            {
+              opacity: 1,
+              x: 0,
+              scale: 1,
+              duration: 0.5,
+              ease: "power4.inOut",
+              yoyo: true,
+            },
+          )
+          .fromTo(
+            idl,
+            { opacity: 0, scale: 0 },
+            { opacity: 1, scale: 1, ease: "bounce.inOut", duration: 1 },
+          )
+          .to(idl, { rotate: !isEven && isDesktop ? 270 : 360, duration: 1.5 });
+      },
+    );
   });
   return (
     <Link
       ref={containerRef}
       href={link}
       id="project__image"
-      className="group relative flex items-center justify-center"
+      className="group relative flex min-h-52 items-center justify-center"
     >
       <HoverCard3d className="aspect-[5/4] sm:aspect-[5/3]">
         <Image
@@ -71,6 +84,7 @@ const ProjectCard = ({ link, image, title, time, isEven }: Props) => {
           alt={title}
           width={500}
           height={400}
+          priority
           className={cn(
             "aspect-[5/4] w-full rounded-lg rounded-ss-none object-cover object-top shadow-lg transition-all duration-1000 group-hover:scale-105 group-hover:saturate-150 sm:aspect-[5/3] dark:md:saturate-50",
             !isEven && "sm:rounded-se-none sm:rounded-ss-lg",
@@ -113,7 +127,7 @@ const ProjectCard = ({ link, image, title, time, isEven }: Props) => {
         {/* shadow blur */}
         <div
           className={cn(
-            "absolute bottom-0 left-0 h-32 w-[100%] rounded-xl bg-foreground/30 blur-md dark:bg-background/30 md:blur-xl",
+            "absolute inset-2 rounded-lg bg-foreground/30 blur-xl dark:bg-background/30 md:h-32 md:rounded-xl md:blur-xl",
           )}
         ></div>
         {/* button arrow */}
