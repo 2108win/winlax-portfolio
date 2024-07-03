@@ -52,7 +52,7 @@ export default function MenuButton() {
           delay: 0.5,
         }}
         className={cn(
-          "relative z-50 flex size-auto flex-col items-center justify-center overflow-hidden rounded-full",
+          "relative z-50 flex size-12 flex-col items-center justify-center overflow-hidden rounded-full md:size-16",
         )}
       >
         <motion.div
@@ -66,10 +66,18 @@ export default function MenuButton() {
           className="relative flex size-full flex-col items-center justify-center"
         >
           <div className="h-full w-full p-2">
-            <Menu strokeWidth={1} size={40} className="h-full w-full" />
+            <Menu
+              strokeWidth={1}
+              size={40}
+              className="h-full w-full drop-shadow-lg"
+            />
           </div>
           <div className="absolute bottom-full p-2">
-            <X strokeWidth={1} size={40} className="h-full w-full" />
+            <X
+              strokeWidth={1}
+              size={40}
+              className="h-full w-full drop-shadow-lg"
+            />
           </div>
         </motion.div>
       </motion.button>

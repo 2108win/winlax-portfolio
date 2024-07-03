@@ -5,10 +5,10 @@ import React, { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 type Props = {
   src: string;
-  slug?: string;
+  title?: string;
 };
 
-const ImageHero = ({ slug, src }: Props) => {
+const ImageHero = ({ title, src }: Props) => {
   const textRef = useRef(null);
   const isInView = useInView(textRef);
   const animationControl = useAnimation();
@@ -20,16 +20,17 @@ const ImageHero = ({ slug, src }: Props) => {
     }
   }, [isInView]);
   return (
-    <div className="relative aspect-square w-svw sm:aspect-auto sm:h-[calc(100svh-104px)]">
+    <div className="relative aspect-square w-svw sm:aspect-auto sm:h-svh sm:-translate-y-[88px] md:-translate-y-[104px]">
       <Image
         src={src}
-        alt={slug || "winlax-image-project"}
+        alt={title || "winlax-image-project"}
         fill
+        sizes="100vw"
         priority
         className="h-full w-full object-cover object-top"
       />
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden text-pretty bg-background/30">
-        {slug?.split("").map((item, i) =>
+        {title?.split("").map((item, i) =>
           item === " " ? (
             <span key={item + item[i + 1] + i}>&nbsp;</span>
           ) : (

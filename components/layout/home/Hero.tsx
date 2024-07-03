@@ -89,9 +89,9 @@ const Hero = (props: Props) => {
   return (
     <div
       ref={heroRef}
-      className="relative flex h-full min-h-[calc(100svh-104px)] w-fit max-w-5xl items-center justify-center px-10 font-clashDisplay font-bold sm:w-full"
+      className="relative flex h-full min-h-svh -translate-y-[88px] md:-translate-y-[104px] w-fit max-w-5xl items-center justify-center px-10 font-clashDisplay font-bold sm:w-full"
     >
-      <div className="relative flex h-fit w-fit translate-y-[-50px] flex-col sm:w-full">
+      <div className="relative flex h-fit w-fit flex-col sm:w-full">
         <p
           className="hero__name mb-4 text-lg font-semibold uppercase tracking-tight text-orange-400 opacity-0 md:text-2xl"
           onMouseEnter={handleMoveDown}

@@ -12,14 +12,14 @@ import { useGSAP } from "@gsap/react";
 import { useIsomorphicLayoutEffect } from "framer-motion";
 type Props = {
   link: string;
-  image: string;
+  srcImage: string;
   title: string;
   time: string;
   description?: string;
   isEven: boolean;
 };
 
-const ProjectCard = ({ link, image, title, time, isEven }: Props) => {
+const ProjectCard = ({ link, srcImage, title, time, isEven }: Props) => {
   const containerRef = useRef<HTMLAnchorElement>(null);
   const idl = `#project__image__arrow${title.split(" ").join("")}`;
   gsap.registerPlugin(useGSAP);
@@ -80,7 +80,7 @@ const ProjectCard = ({ link, image, title, time, isEven }: Props) => {
     >
       <HoverCard3d className="aspect-[5/4] sm:aspect-[5/3]">
         <Image
-          src={image}
+          src={srcImage}
           alt={title}
           width={500}
           height={400}
@@ -127,7 +127,7 @@ const ProjectCard = ({ link, image, title, time, isEven }: Props) => {
         {/* shadow blur */}
         <div
           className={cn(
-            "absolute inset-2 rounded-lg bg-foreground/30 blur-xl dark:bg-background/30 md:h-32 md:rounded-xl md:blur-xl",
+            "absolute inset-2 w-full rounded-lg bg-foreground/30 blur-xl dark:bg-background/30 md:inset-auto md:bottom-2 md:h-32 md:rounded-xl md:blur-xl",
           )}
         ></div>
         {/* button arrow */}

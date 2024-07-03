@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@/lib/utils";
 import { useGSAP } from "@gsap/react";
 import { useIsomorphicLayoutEffect } from "framer-motion";
 import gsap from "gsap";
@@ -8,9 +9,11 @@ import React, { useRef } from "react";
 
 type Props = {
   src: string;
+  classNameContainer?: string;
+  className?: string;
 };
 
-const ImageFadeZoom = ({ src }: Props) => {
+const ImageFadeZoom = ({ src, classNameContainer, className }: Props) => {
   const imageRef = useRef<HTMLDivElement>(null);
   gsap.registerPlugin(useGSAP);
   useIsomorphicLayoutEffect(() => {
@@ -38,18 +41,23 @@ const ImageFadeZoom = ({ src }: Props) => {
         { scale: 1, duration: 1, ease: "power4.out" },
       );
   }, [imageRef]);
-  console.log("🚀 ~ ImageFadeZoom ~ imageRef.current:", imageRef.current);
   return (
     <div
       ref={imageRef}
-      className="relative flex h-auto max-h-[40rem] w-full overflow-hidden"
+      className={cn(
+        "relative flex h-auto w-full overflow-hidden",
+        classNameContainer,
+      )}
     >
       <Image
         src={src}
         alt="winlax project detail"
         width={1920}
         height={1080}
-        className="h-full w-full object-cover object-top transition-all duration-500 sm:aspect-[5/4] md:aspect-[5/3] md:rounded-lg"
+        className={cn(
+          "h-full w-full object-cover object-top transition-all duration-500",
+          className,
+        )}
       />
     </div>
   );
