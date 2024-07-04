@@ -13,16 +13,18 @@ type Props = {
 };
 export default async function ProjectDetail({ params }: Props) {
   const data: Project = await getProjectBySlug(params.slug);
-
+  const currentSlug = params.slug;
+  const prevSlug = data?.slugs?.[data.slugs.indexOf(currentSlug) - 1];
+  const nextSlug = data?.slugs?.[data.slugs.indexOf(currentSlug) + 1];
   return (
     <div className="flex flex-col gap-20">
       <ImageHero
-        title={data.title}
-        src={data.heroImage.url || "/image-placeholder.png"}
+        title={data?.title ? data.title : params.slug}
+        src={data?.heroImage.url || "/image-placeholder.png"}
       />
       {/* information of project */}
       <div className="mx-auto grid max-w-5xl grid-cols-2 gap-10 px-10">
-        {data.information.map((item) =>
+        {data?.information.map((item) =>
           item.informationType === "url" ? (
             <div key={item._key} className="flex flex-col gap-2">
               <p className="text-lg text-orange-400 md:text-xl">
@@ -55,70 +57,75 @@ export default async function ProjectDetail({ params }: Props) {
         )}
       </div>
       {/* description of project */}
-      <div className="mx-auto grid w-full max-w-[100rem] items-center gap-20 px-10 py-10 lg:grid-cols-2">
+      <div className="mx-auto grid h-full w-full max-w-5xl items-center gap-10 px-10 xl:max-w-[100rem] xl:grid-cols-2">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-2">
             <p className="text-lg text-orange-400 md:text-xl">Description</p>
-            <div className="prose md:prose-lg lg:prose-xl dark:prose-invert prose-li:marker:text-orange-400 text-xl md:text-3xl">
-              <PortableText value={data.description} />
+            <div className="prose text-xl dark:prose-invert md:prose-lg lg:prose-xl prose-a:italic prose-li:marker:text-orange-400 md:text-3xl">
+              <PortableText value={data?.description} />
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <p className="text-lg text-orange-400 md:text-xl">Technology</p>
             <p className="flex text-xl md:text-3xl">
-              {data.technologies.map((item) => item).join(", ")}.
+              {data?.technologies.map((item) => item).join(", ")}.
             </p>
           </div>
         </div>
         <ImageFadeZoom
-          classNameContainer="rounded-sm h-full shadow-md md:rounded-lg max-h-[40rem]"
-          className="rounded-sm sm:aspect-[5/4] md:aspect-[5/3] md:rounded-lg"
-          src={data.heroImage.url || "/image-placeholder.png"}
+          classNameContainer="rounded-sm shadow-md md:rounded-lg max-h-[40rem]"
+          className="rounded-sm md:aspect-[5/4] md:rounded-lg xl:aspect-[5/3]"
+          src={data?.heroImage.url || "/image-placeholder.png"}
         />
       </div>
       {/* list images */}
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-10 px-10">
-        {data.projectImages.map((item) => (
+        {data?.projectImages.map((item) => (
           <ImageFadeZoom
             key={item._id}
-            classNameContainer="rounded-sm shadow-md md:rounded-lg max-h-[40rem]"
-            className="rounded-sm sm:aspect-[5/4] md:aspect-[5/3] md:rounded-lg"
+            classNameContainer="rounded-sm shadow-md md:rounded-lg"
+            className="rounded-sm md:rounded-lg lg:aspect-[5/3]"
             src={item.url || "/image-placeholder.png"}
           />
         ))}
       </div>
       {/* next or prev project */}
       <div className="mx-auto flex w-full max-w-5xl items-center justify-around gap-5">
-        <LinkAnimate
-          href={"#"}
-          isNormalLink
-          hasUnderline={false}
-          id={`link__project--prev`}
-          className="group"
-        >
-          <div
-            id="link__project--prev"
-            className="flex items-center justify-end gap-2 text-xl font-normal md:text-2xl"
+        {prevSlug && (
+          <LinkAnimate
+            href={`/projects/${prevSlug}`}
+            isNormalLink
+            hasUnderline={false}
+            id={`link__project--prev`}
+            className="group"
+            hasAnimate={false}
           >
-            <ArrowLeft className="w-14 transition-all duration-500 group-hover:-translate-x-4" />
-            Prev
-          </div>
-        </LinkAnimate>
-        <LinkAnimate
-          href={"#"}
-          isNormalLink
-          hasUnderline={false}
-          id={`link__project--next`}
-          className="group"
-        >
-          <div
-            id="link__project--next"
-            className="flex items-center justify-start gap-2 text-xl font-normal md:text-2xl"
+            <div
+              id="link__project--prev"
+              className="flex items-center justify-end gap-2 text-xl font-normal md:text-2xl"
+            >
+              <ArrowLeft className="w-14 transition-all duration-500 group-hover:-translate-x-4" />
+              {nextSlug ? "Prev" : "Go"} {prevSlug}
+            </div>
+          </LinkAnimate>
+        )}
+        {nextSlug && (
+          <LinkAnimate
+            href={`/projects/${nextSlug}`}
+            hasUnderline={false}
+            id={`link__project--next`}
+            className="group"
+            hasAnimate={false}
           >
-            Next
-            <ArrowRight className="w-14 transition-all duration-500 group-hover:translate-x-4" />
-          </div>
-        </LinkAnimate>
+            <div
+              id="link__project--next"
+              className="flex items-center justify-start gap-2 text-xl font-normal md:text-2xl"
+            >
+              {prevSlug ? "Next" : "Go"} {nextSlug}
+              <ArrowRight className="w-14 transition-all duration-500 group-hover:translate-x-4" />
+            </div>
+          </LinkAnimate>
+        )}
       </div>
     </div>
   );

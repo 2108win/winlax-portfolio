@@ -15,6 +15,8 @@ export interface LinkProps
   hasUnderline?: boolean;
   classNameUnderline?: string;
   download?: boolean;
+  hasAnimate?: boolean;
+  icon?: React.ReactNode;
 }
 
 const LinkAnimate = forwardRef<
@@ -31,6 +33,8 @@ const LinkAnimate = forwardRef<
       hasUnderline = true,
       classNameUnderline,
       download,
+      hasAnimate = true,
+      icon,
       ...props
     },
     ref,
@@ -44,7 +48,7 @@ const LinkAnimate = forwardRef<
     const handleHover = contextSafe(() => {
       const ida = `#${id}`;
       const underline = `#link__underline--${id}`;
-      if (!isNormalLink) {
+      if (!isNormalLink && hasAnimate) {
         gsap.fromTo(
           ida,
           { y: "100%" },
@@ -65,7 +69,7 @@ const LinkAnimate = forwardRef<
     const handleLeaveHover = () => {
       const ida = `#${id}`;
       const underline = `#link__underline--${id}`;
-      if (!isNormalLink) {
+      if (!isNormalLink && hasAnimate) {
         gsap
           .timeline({
             yoyo: true,
@@ -101,6 +105,7 @@ const LinkAnimate = forwardRef<
         onClick={handleClick}
       >
         {children}
+        {icon}
         {hasUnderline && (
           <div
             id={`link__underline--${id}`}
@@ -125,27 +130,28 @@ const LinkAnimate = forwardRef<
         onClick={handleClick}
       >
         {typeof children == "string" && !isNormalLink ? (
-          children.split("").map((item, i) => {
-            return item === " " ? (
-              <span key={item + item[i + 1] + i}>&nbsp;</span>
-            ) : (
-              <span id={id} key={item + item[i + 1] + i + item}>
-                {item}
-              </span>
-            );
-          })
+          <>
+            {children.split("").map((item, i) => {
+              return item === " " ? (
+                <span key={item + item[i + 1] + i}>&nbsp;</span>
+              ) : (
+                <span id={id} key={item + item[i + 1] + i + item}>
+                  {item}
+                </span>
+              );
+            })}{" "}
+            {icon}
+          </>
         ) : (
-          <>{children}</>
+          <>
+            {children} {icon}
+          </>
         )}
         {hasUnderline && (
           <div
             id={`link__underline--${id}`}
             className={cn(
-              "absolute bottom-0 left-0 w-0 bg-foreground",
-              {
-                "h-[1px]": isNormalLink,
-                "h-[2px]": !isNormalLink,
-              },
+              "absolute bottom-0 left-0 h-[2px] w-0 bg-foreground",
               classNameUnderline,
             )}
           ></div>

@@ -1,5 +1,6 @@
 import React from "react";
 import LinkAnimate from "@/components/base/animations/link-animate";
+import { ArrowUpRight } from "lucide-react";
 
 type Props = {};
 
@@ -17,7 +18,11 @@ const About = (props: Props) => {
             For whatever reason it is you are here, welcome.
           </p>
         </div>
-        <LinkAnimate id="home__link--home-home" href="/about">
+        <LinkAnimate
+          id="home__link--home-home"
+          href="/about"
+          icon={<ArrowUpRight className="size-7 md:size-10" />}
+        >
           About me
         </LinkAnimate>
       </div>

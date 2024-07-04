@@ -97,8 +97,8 @@ const ProjectCard = ({ link, srcImage, title, time, isEven }: Props) => {
             transformStyle: "preserve-3d",
           }}
           className={cn(
-            "absolute bottom-4 left-4 z-10 flex w-[100%-2rem] flex-col text-pretty text-background transition-all dark:text-foreground",
-            isEven && "sm:right-4 sm:items-end",
+            "absolute bottom-4 left-4 z-10 flex w-[calc(90%-2rem)] flex-col text-pretty text-background transition-all dark:text-foreground",
+            isEven && "sm:left-auto sm:right-4 sm:items-end",
           )}
         >
           <TextAnimate
@@ -106,7 +106,7 @@ const ProjectCard = ({ link, srcImage, title, time, isEven }: Props) => {
             duration={1}
             id={"project__title" + link}
             className={cn(
-              "w-[90%] gap-1 text-pretty font-clashDisplay",
+              "gap-1 text-pretty font-clashDisplay",
               isEven && "sm:justify-end",
             )}
             classText="text-3xl font-bold sm:text-4xl"

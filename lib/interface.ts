@@ -16,6 +16,8 @@ export interface Project {
   }[];
   projectImages: Image[];
   technologies: string[];
+  slugs: string[];
+  totalProjects: number;
 }
 
 export interface Image {

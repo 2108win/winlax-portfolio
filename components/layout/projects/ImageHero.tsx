@@ -20,9 +20,9 @@ const ImageHero = ({ title, src }: Props) => {
     }
   }, [isInView]);
   return (
-    <div className="relative aspect-square w-svw sm:aspect-auto sm:h-svh sm:-translate-y-[88px] md:-translate-y-[104px]">
+    <div className="relative aspect-square w-full sm:aspect-auto sm:h-svh sm:-translate-y-[88px] md:-translate-y-[104px]">
       <Image
-        src={src}
+        src={src || "/image-placeholder.png"}
         alt={title || "winlax-image-project"}
         fill
         sizes="100vw"

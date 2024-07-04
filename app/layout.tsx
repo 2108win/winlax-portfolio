@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
 import { AuroraHero } from "@/components/base/animations/bg-radiant";
-import FuzzyOverlay from "@/components/base/animations/fuzzy-overlay";
 
 const fontSans = FontSans({
   subsets: ["latin"],

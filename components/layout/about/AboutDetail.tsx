@@ -42,7 +42,7 @@ const aboutDataSecondary = [
   // },
   {
     secondaryText: "Languages",
-    description: "Vietnamese, English (Basic), Japanese (3Q ~ N3).",
+    description: "Vietnamese (Native), English (Basic), Japanese (3Q ~ N3).",
   },
 ];
 

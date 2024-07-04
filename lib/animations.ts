@@ -38,6 +38,7 @@ export const animationPageOut = (href: string, router: AppRouterInstance) => {
         duration: 0.5,
         onComplete: () => {
           router.push(href);
+          animationPageIn();
         },
       });
   }

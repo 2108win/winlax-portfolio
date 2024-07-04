@@ -1,46 +1,49 @@
 import { Project } from "@/lib/interface";
 import { sanityFetch } from "@/lib/sanity";
-const PROJECTS_QUERY = `*[_type == "project"] {
-  _id,
-  title,
-  time,
-  "slug": slug.current,
-  "heroImage": heroImage.asset-> {
+
+export async function getProjectList(numberOfProject?: number) {
+  const count = numberOfProject && numberOfProject - 1;
+  const PROJECTS_QUERY = `*[_type == "project"] | order(time desc)[${numberOfProject ? "0.." + count : ""}] {
     _id,
-    _updatedAt,
-    url,
-    "nameImage": originalFilename
+    title,
+    time,
+    "slug": slug.current,
+    "heroImage": heroImage.asset-> {
+      _id,
+      _updatedAt,
+      url,
+      "nameImage": originalFilename
+    },
   }
-}
-`;
-const PROJECTS_QUERY_BY_SLUG = `*[_type == "project" && slug.current == $slug][0] {
-  _id,
-  title,
-  time,
-  "slug": slug.current,
-  "heroImage": heroImage.asset-> {
-    _id,
-    _updatedAt,
-    url,
-    "nameImage": originalFilename
-  },
-  information,
-  description,
-  technologies,
-  "projectImages": projectImages[].asset-> {
-    _id,
-    _updatedAt,
-    url,
-    "nameImage": originalFilename
-  }
-}
-`;
-export async function getProjectList() {
+  `;
   const res = await sanityFetch<Project[]>({ query: PROJECTS_QUERY });
   return res;
 }
 
 export async function getProjectBySlug(slug: string) {
+  const PROJECTS_QUERY_BY_SLUG = `*[_type == "project" && slug.current == $slug][0] {
+    _id,
+    title,
+    time,
+    "slug": slug.current,
+    "heroImage": heroImage.asset-> {
+      _id,
+      _updatedAt,
+      url,
+      "nameImage": originalFilename
+    },
+    information,
+    description,
+    technologies,
+    "projectImages": projectImages[].asset-> {
+      _id,
+      _updatedAt,
+      url,
+      "nameImage": originalFilename
+    },
+    "slugs": *[_type == "project"] | order(time desc).slug.current
+  }
+  `;
   const res = await sanityFetch<Project>({
     query: PROJECTS_QUERY_BY_SLUG,
     params: { slug },

@@ -4,15 +4,25 @@ import { cn } from "@/lib/utils";
 import { Project } from "@/lib/interface";
 import { sanityFetch, urlFor } from "@/lib/sanity";
 import { getProjectList } from "@/utils/getProjects";
+import LinkAnimate from "@/components/base/animations/link-animate";
+import { ArrowUpRight } from "lucide-react";
 
-export default async function ProjectFeatured() {
-  const projectData: Project[] = await getProjectList();
+export default async function ProjectFeatured({
+  numberOfProject,
+  hasLink = false,
+}: {
+  numberOfProject?: number;
+  hasLink?: boolean;
+}) {
+  const projectData: Project[] = await getProjectList(numberOfProject);
+  const resProject: Project[] = await getProjectList();
+  const countTotal: number = resProject.length;
   return (
     <div className="relative flex h-full flex-col items-center justify-center px-5 py-10">
       <div className="flex flex-col gap-20">
         <div className="mx-auto flex w-[90%] flex-col sm:w-[80%]">
           <p className="text-right text-6xl text-orange-400 sm:translate-y-10 sm:text-7xl lg:text-8xl">
-            {projectData.length || 0}
+            {countTotal || 0}
           </p>
           <p className="text-center font-clashDisplay text-6xl font-bold sm:text-8xl lg:text-9xl">
             Featured Projects
@@ -42,12 +52,22 @@ export default async function ProjectFeatured() {
                       i % 2 === 0 && "sm:text-right",
                     )}
                   >
-                    {i + 1}/{projectData.length}
+                    {i + 1}/{countTotal}
                   </p>
                 </div>
               </div>
             );
           })}
+          {projectData.length < countTotal ||
+            (hasLink && (
+              <LinkAnimate
+                href="/projects"
+                id="link__project-see-more"
+                icon={<ArrowUpRight className="size-7 md:size-10" />}
+              >
+                All projects
+              </LinkAnimate>
+            ))}
         </div>
       </div>
     </div>
