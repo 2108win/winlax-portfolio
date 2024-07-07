@@ -25,6 +25,10 @@ export const Links = [
     title: "Contact",
     href: "/contact",
   },
+  {
+    title: "Download CV",
+    href: "/cv",
+  },
 ];
 
 export default function MenuButton() {
@@ -136,7 +140,7 @@ export default function MenuButton() {
             exit="exit"
           >
             <LinkAnimate
-              id={"menu__link" + link.title}
+              id={"menu__link" + link.title.replace(" ", "-")}
               href={link.href}
               className={cn(
                 "text-pretty font-clashDisplay text-4xl text-secondary-foreground/50 sm:text-5xl",
@@ -166,7 +170,7 @@ export default function MenuButton() {
       </motion.div>
       <div
         className={cn(
-          "absolute inset-0 -z-10 h-dvh bg-background/20",
+          "absolute inset-0 -z-10 h-screen bg-background/20",
           !isOpen && "hidden",
         )}
         onClick={() => setIsOpen(false)}

@@ -2,7 +2,7 @@ import ImageFadeZoom from "@/components/base/animations/image-fade-zoom";
 import LinkAnimate from "@/components/base/animations/link-animate";
 import ImageHero from "@/components/layout/projects/ImageHero";
 import { Project } from "@/lib/interface";
-import { getProjectBySlug } from "@/utils/getProjects";
+import { getProjectBySlug, getProjectList } from "@/utils/getProjects";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import React from "react";
 import { PortableText } from "@portabletext/react";
@@ -11,6 +11,15 @@ type Props = {
     slug: string;
   };
 };
+
+export async function generateStaticParams() {
+  const projects: Project[] = await getProjectList();
+
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
 export default async function ProjectDetail({ params }: Props) {
   const data: Project = await getProjectBySlug(params.slug);
   const currentSlug = params.slug;

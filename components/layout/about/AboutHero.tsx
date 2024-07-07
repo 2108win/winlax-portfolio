@@ -92,7 +92,7 @@ export default function AboutHero() {
   return (
     <div
       ref={aboutRef}
-      className="relative flex min-h-svh -translate-y-[88px] md:-translate-y-[104px] flex-col items-center justify-center px-5"
+      className="relative flex min-h-svh -translate-y-[88px] flex-col items-center justify-center px-5 md:-translate-y-[104px]"
     >
       <div className="relative flex h-fit flex-col items-center">
         <div className="flex flex-col items-center font-clashDisplay text-6xl font-bold sm:text-6xl md:text-8xl lg:text-9xl">
@@ -134,14 +134,13 @@ export default function AboutHero() {
         </HoverCard3d>
         <LinkAnimate
           id="about__link--home"
-          href="/cv-winlax-frontend-developer.pdf"
+          href="/cv"
           className="text-xl font-semibold md:text-2xl"
           classNameUnderline="md:h-[1px]"
           isNormalLink
           hasUnderline
-          download
         >
-          Download Resume
+          Review Resume
         </LinkAnimate>
       </div>
     </div>
