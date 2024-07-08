@@ -9,7 +9,7 @@ export default function About() {
     <div className="z-50 flex h-full min-h-svh w-full flex-col space-y-20 overflow-hidden">
       <AboutHero />
       <AboutDetail />
-      <div className="max-w-5xl px-10">
+      <div className="mx-auto grid w-full max-w-5xl px-10">
         <LinkAnimate
           href="/projects"
           id="about__link--see-projects"

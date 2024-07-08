@@ -118,6 +118,7 @@ const config = {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
         clashDisplay: ["var(--font-clash-display)"],
+        poppins: ["var(--font-poppins)"],
       },
     },
   },

@@ -21,7 +21,7 @@ export const ExampleCardHover = () => {
               transform: "translateZ(75px)",
               transformStyle: "preserve-3d",
             }}
-            src={"/winlax-latest.png"}
+            src={"/winlax-latest-1.JPEG"}
             alt={"winlax"}
             width={500}
             height={500}

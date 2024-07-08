@@ -1,16 +1,38 @@
 "use client";
-import { motion } from "framer-motion";
 import React, { useCallback, useState } from "react";
 import { pdfjs, Document, Page } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import type { PDFDocumentProxy } from "pdfjs-dist";
 import { useResizeObserver } from "@wojtekmaj/react-hooks";
-import { ArrowDown, X } from "lucide-react";
-import { cn } from "@/lib/utils";
 import ButtonDownload from "@/components/base/button-download";
+
+if (typeof Promise.withResolvers === "undefined") {
+  if (typeof window !== "undefined") {
+    // @ts-expect-error This does not exist outside of polyfill which this is doing
+    window.Promise.withResolvers = function () {
+      let resolve, reject;
+      const promise = new Promise((res, rej) => {
+        resolve = res;
+        reject = rej;
+      });
+      return { promise, resolve, reject };
+    };
+  } else {
+    // @ts-expect-error This does not exist outside of polyfill which this is doing
+    global.Promise.withResolvers = function () {
+      let resolve, reject;
+      const promise = new Promise((res, rej) => {
+        resolve = res;
+        reject = rej;
+      });
+      return { promise, resolve, reject };
+    };
+  }
+}
+
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
+  "pdfjs-dist/legacy/build/pdf.worker.min.mjs",
   import.meta.url,
 ).toString();
 const options = {
@@ -52,7 +74,7 @@ export default function CVPage() {
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
             className={
-              "overflow-hidden rounded-lg !bg-background transition-all dark:invisible"
+              "overflow-hidden rounded-lg !bg-background shadow-lg transition-all dark:invisible"
             }
           >
             <Page
@@ -68,7 +90,7 @@ export default function CVPage() {
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
             className={
-              "invisible absolute inset-0 left-0 top-0 overflow-hidden rounded-lg !bg-background transition-all dark:visible"
+              "invisible absolute inset-0 left-0 top-0 overflow-hidden rounded-lg !bg-background shadow-lg transition-all dark:visible"
             }
           >
             <Page
@@ -86,7 +108,7 @@ export default function CVPage() {
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
             className={
-              "overflow-hidden rounded-lg !bg-background transition-all dark:invisible"
+              "overflow-hidden rounded-lg !bg-background shadow-lg transition-all dark:invisible"
             }
           >
             <Page
@@ -102,7 +124,7 @@ export default function CVPage() {
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
             className={
-              "invisible absolute inset-0 left-0 top-0 overflow-hidden rounded-lg !bg-background transition-all dark:visible"
+              "invisible absolute inset-0 left-0 top-0 overflow-hidden rounded-lg !bg-background shadow-lg transition-all dark:visible"
             }
           >
             <Page

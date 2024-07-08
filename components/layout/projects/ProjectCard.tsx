@@ -134,7 +134,7 @@ const ProjectCard = ({ link, srcImage, title, time, isEven }: Props) => {
         <div
           id={"project__image__arrow" + title.split(" ").join("")}
           className={cn(
-            "absolute -right-7 bottom-10 flex size-14 items-center justify-center rounded-full bg-foreground shadow-md sm:-right-10 sm:size-20 md:-right-12 md:size-24",
+            "absolute -right-7 bottom-10 flex size-14 items-center justify-center rounded-full bg-foreground shadow-inner shadow-background sm:-right-10 sm:size-20 md:-right-12 md:size-24",
             isEven && "sm:-left-10 md:-left-12",
           )}
         >

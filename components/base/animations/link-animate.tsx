@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { cn } from "@/lib/utils";
 import { animationPageOut } from "@/lib/animations";
 import { usePathname, useRouter } from "next/navigation";
-export interface LinkProps
+export interface LinkAnimateProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   href: string;
   id: string;
@@ -21,7 +21,7 @@ export interface LinkProps
 
 const LinkAnimate = forwardRef<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
-  LinkProps
+  LinkAnimateProps
 >(
   (
     {

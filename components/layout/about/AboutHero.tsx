@@ -124,7 +124,7 @@ export default function AboutHero() {
         <HoverCard3d className="relative flex h-full select-none items-center justify-center py-10 transition-all duration-200 ease-linear">
           <BorderShadowGradient className="about__image w-[70%] overflow-hidden rounded-3xl shadow-xl transition-all duration-1000 ease-linear md:w-[60%] lg:w-[50%]">
             <Image
-              src={"/winlax-latest.png"}
+              src={"/winlax-latest-1.JPEG"}
               alt={"winlax"}
               width={500}
               height={500}

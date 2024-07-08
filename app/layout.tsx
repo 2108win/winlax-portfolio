@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
 import { AuroraHero } from "@/components/base/animations/bg-radiant";
-
+import "core-js/full/promise/with-resolvers";
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -48,6 +48,43 @@ const clashDisplay = localFont({
   preload: false,
 });
 
+const poppins = localFont({
+  src: [
+    {
+      path: "../public/fonts/FzPoppins/Poppins-Black.ttf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/FzPoppins/Poppins-ExtraBold.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/FzPoppins/Poppins-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/FzPoppins/Poppins-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/FzPoppins/Poppins-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/FzPoppins/Poppins-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-poppins",
+  preload: false,
+});
+
 export const metadata: Metadata = {
   title: {
     default: "WinLax Portfolio",
@@ -68,6 +105,7 @@ export default function RootLayout({
           "relative h-full min-h-svh bg-background font-sans antialiased",
           fontSans.variable,
           clashDisplay.variable,
+          poppins.variable,
         )}
       >
         <ThemeProvider

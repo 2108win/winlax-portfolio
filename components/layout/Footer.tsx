@@ -25,7 +25,7 @@ const socialData = [
   {
     socialName: "facebook",
     display: "FB",
-    url: "https://www.instagram.com/win_lax/",
+    url: "https://www.facebook.com/2108win/",
   },
 ];
 

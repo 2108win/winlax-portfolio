@@ -70,7 +70,7 @@ export default async function ProjectDetail({ params }: Props) {
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-2">
             <p className="text-lg text-orange-400 md:text-xl">Description</p>
-            <div className="prose text-xl dark:prose-invert md:prose-lg lg:prose-xl prose-a:italic prose-li:marker:text-orange-400 md:text-3xl">
+            <div className="prose-strong:font-poppins prose text-xl dark:prose-invert md:prose-lg lg:prose-xl prose-a:italic prose-li:marker:text-orange-400 md:text-3xl">
               <PortableText value={data?.description} />
             </div>
           </div>
@@ -83,7 +83,7 @@ export default async function ProjectDetail({ params }: Props) {
         </div>
         <ImageFadeZoom
           classNameContainer="rounded-sm shadow-md md:rounded-lg max-h-[40rem]"
-          className="rounded-sm md:aspect-[5/4] md:rounded-lg xl:aspect-[5/3]"
+          className="h-auto rounded-sm md:aspect-[5/4] md:rounded-lg xl:aspect-auto"
           src={data?.heroImage.url || "/image-placeholder.png"}
         />
       </div>
