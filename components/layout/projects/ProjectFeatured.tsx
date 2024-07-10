@@ -2,10 +2,9 @@ import React from "react";
 import ProjectCard from "./ProjectCard";
 import { cn } from "@/lib/utils";
 import { Project } from "@/lib/interface";
-import { sanityFetch, urlFor } from "@/lib/sanity";
 import { getProjectList } from "@/utils/getProjects";
-import LinkAnimate from "@/components/base/animations/link-animate";
 import { ArrowUpRight } from "lucide-react";
+import LinkTransition from "@/components/utils/animations/link-transition";
 
 export default async function ProjectFeatured({
   numberOfProject,
@@ -18,7 +17,7 @@ export default async function ProjectFeatured({
   const resProject: Project[] = await getProjectList();
   const countTotal: number = resProject.length;
   return (
-    <div className="relative flex h-full flex-col items-center justify-center px-5 py-10">
+    <div className="relative z-50 flex h-full flex-col items-center justify-center px-5 py-10">
       <div className="flex flex-col gap-20">
         <div className="mx-auto flex w-[90%] flex-col sm:w-[80%]">
           <p className="text-right text-6xl text-orange-400 sm:translate-y-10 sm:text-7xl lg:text-8xl">
@@ -60,13 +59,14 @@ export default async function ProjectFeatured({
           })}
           {projectData.length < countTotal ||
             (hasLink && (
-              <LinkAnimate
+              <LinkTransition
                 href="/projects"
-                id="link__project-see-more"
-                icon={<ArrowUpRight className="size-7 md:size-10" />}
+                icon={
+                  <ArrowUpRight className="size-7 transition-all duration-500 group-hover:rotate-45 md:size-10" />
+                }
               >
                 All projects
-              </LinkAnimate>
+              </LinkTransition>
             ))}
         </div>
       </div>

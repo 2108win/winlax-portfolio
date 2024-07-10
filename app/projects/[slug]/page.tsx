@@ -1,11 +1,11 @@
-import ImageFadeZoom from "@/components/base/animations/image-fade-zoom";
-import LinkAnimate from "@/components/base/animations/link-animate";
+import ImageFadeZoom from "@/components/utils/animations/image-fade-zoom";
 import ImageHero from "@/components/layout/projects/ImageHero";
 import { Project } from "@/lib/interface";
 import { getProjectBySlug, getProjectList } from "@/utils/getProjects";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import React from "react";
 import { PortableText } from "@portabletext/react";
+import LinkTransition from "@/components/utils/animations/link-transition";
 type Props = {
   params: {
     slug: string;
@@ -26,7 +26,7 @@ export default async function ProjectDetail({ params }: Props) {
   const prevSlug = data?.slugs?.[data.slugs.indexOf(currentSlug) - 1];
   const nextSlug = data?.slugs?.[data.slugs.indexOf(currentSlug) + 1];
   return (
-    <div className="flex flex-col gap-20">
+    <div className="flex z-50 flex-col gap-20">
       <ImageHero
         title={data?.title ? data.title : params.slug}
         src={data?.heroImage.url || "/image-placeholder.png"}
@@ -40,17 +40,16 @@ export default async function ProjectDetail({ params }: Props) {
                 {item.informationTitle}
               </p>
               <div className="flex">
-                <LinkAnimate
+                <LinkTransition
                   href={item.informationUrl?.url || "#"}
-                  id={`link__project--${item.informationUrl?.title.split(" ").join("-") || item._key}`}
                   isNormalLink
-                  className="group"
-                >
-                  <div className="flex items-center gap-2 text-xl font-medium md:text-3xl">
-                    {item.informationUrl?.title || item.informationTitle}
+                  icon={
                     <ArrowUpRight className="transition-all duration-500 group-hover:rotate-45" />
-                  </div>
-                </LinkAnimate>
+                  }
+                  className="flex items-center gap-2 text-xl font-medium md:text-3xl"
+                >
+                  {item.informationUrl?.title || item.informationTitle}
+                </LinkTransition>
               </div>
             </div>
           ) : (
@@ -70,7 +69,7 @@ export default async function ProjectDetail({ params }: Props) {
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-2">
             <p className="text-lg text-orange-400 md:text-xl">Description</p>
-            <div className="prose-strong:font-poppins prose text-xl dark:prose-invert md:prose-lg lg:prose-xl prose-a:italic prose-li:marker:text-orange-400 md:text-3xl">
+            <div className="prose text-xl dark:prose-invert md:prose-lg lg:prose-xl prose-a:italic prose-strong:font-poppins prose-li:marker:text-orange-400 md:text-3xl">
               <PortableText value={data?.description} />
             </div>
           </div>
@@ -101,39 +100,31 @@ export default async function ProjectDetail({ params }: Props) {
       {/* next or prev project */}
       <div className="mx-auto flex w-full max-w-5xl items-center justify-around gap-5">
         {prevSlug && (
-          <LinkAnimate
+          <LinkTransition
             href={`/projects/${prevSlug}`}
             isNormalLink
             hasUnderline={false}
-            id={`link__project--prev`}
-            className="group"
             hasAnimate={false}
-          >
-            <div
-              id="link__project--prev"
-              className="flex items-center justify-end gap-2 text-xl font-normal md:text-2xl"
-            >
+            icon={
               <ArrowLeft className="w-14 transition-all duration-500 group-hover:-translate-x-4" />
-              {nextSlug ? "Prev" : "Go"} {prevSlug}
-            </div>
-          </LinkAnimate>
+            }
+            className="flex items-center justify-end gap-2 text-xl font-normal md:text-2xl"
+          >
+            {nextSlug ? "Prev " + prevSlug : "Go " + prevSlug}
+          </LinkTransition>
         )}
         {nextSlug && (
-          <LinkAnimate
+          <LinkTransition
             href={`/projects/${nextSlug}`}
             hasUnderline={false}
-            id={`link__project--next`}
-            className="group"
+            className="flex items-center justify-start gap-2 text-xl font-normal md:text-2xl"
             hasAnimate={false}
-          >
-            <div
-              id="link__project--next"
-              className="flex items-center justify-start gap-2 text-xl font-normal md:text-2xl"
-            >
-              {prevSlug ? "Next" : "Go"} {nextSlug}
+            icon={
               <ArrowRight className="w-14 transition-all duration-500 group-hover:translate-x-4" />
-            </div>
-          </LinkAnimate>
+            }
+          >
+            {prevSlug ? "Next " + nextSlug : "Go " + nextSlug}
+          </LinkTransition>
         )}
       </div>
     </div>

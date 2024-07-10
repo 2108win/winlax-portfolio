@@ -1,6 +1,6 @@
 import React from "react";
-import LinkAnimate from "@/components/base/animations/link-animate";
 import { ArrowUpRight } from "lucide-react";
+import LinkTransition from "@/components/utils/animations/link-transition";
 
 type Props = {};
 
@@ -18,13 +18,14 @@ const About = (props: Props) => {
             For whatever reason it is you are here, welcome.
           </p>
         </div>
-        <LinkAnimate
-          id="home__link--home-home"
+        <LinkTransition
           href="/about"
-          icon={<ArrowUpRight className="size-7 md:size-10" />}
+          icon={
+            <ArrowUpRight className="size-7 transition-all duration-500 group-hover:rotate-45 md:size-10" />
+          }
         >
           About me
-        </LinkAnimate>
+        </LinkTransition>
       </div>
     </div>
   );

@@ -4,7 +4,9 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
-import { AuroraHero } from "@/components/base/animations/bg-radiant";
+import { AuroraHero } from "@/components/utils/animations/bg-radiant";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 import "core-js/full/promise/with-resolvers";
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -118,7 +120,9 @@ export default function RootLayout({
             {/* <FuzzyOverlay /> */}
             <AuroraHero />
             <div className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center bg-white transition-all duration-1000 [mask-image:radial-gradient(ellipse_at_center,transparent_15%,black)] dark:bg-black"></div>
+            <Header />
             {children}
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

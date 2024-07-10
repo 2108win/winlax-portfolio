@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { Moon, Sun } from "lucide-react";
@@ -16,23 +15,24 @@ export function ModeToggle() {
     } else {
       setIsDark(false);
     }
-  }, []);
+  }, [theme]);
   const toggleTheme = () => {
     setIsDark(!isDark);
     setTheme(isDark ? "light" : "dark");
   };
 
   return (
-    <Button
-      variant="outline"
-      size="icon"
+    <motion.button
+      whileTap={{
+        scale: 0.9,
+      }}
+      whileHover={{
+        scale: 0.95,
+      }}
       onClick={toggleTheme}
-      className="size-12 scale-75 rounded-full border-none bg-neutral-950 p-0 text-neutral-50 hover:scale-[0.7] hover:bg-neutral-900 hover:text-neutral-50 dark:bg-neutral-50 dark:text-neutral-950 dark:hover:bg-neutral-100 md:size-16"
+      className="relative size-10 rounded-full border-none bg-foreground text-background duration-300 hover:text-background dark:bg-foreground dark:text-background md:size-12"
     >
       <motion.span
-        whileTap={{
-          scale: 0.95,
-        }}
         className="flex items-center justify-center opacity-0"
         animate={{
           rotate: isDark ? 180 : 0,
@@ -45,13 +45,10 @@ export function ModeToggle() {
           damping: 15,
         }}
       >
-        <Sun className="size-6" />
+        <Sun className="size-5 md:size-6" />
       </motion.span>
       <motion.span
-        whileTap={{
-          scale: 0.95,
-        }}
-        className="absolute flex -translate-y-1/2 translate-x-1/2 items-center justify-center opacity-0"
+        className="absolute inset-0 flex items-center justify-center opacity-0"
         animate={{
           rotate: isDark ? 0 : -180,
           scale: isDark ? 0 : 1,
@@ -63,9 +60,9 @@ export function ModeToggle() {
           damping: 15,
         }}
       >
-        <Moon className="size-6 rotate-180" />
+        <Moon className="size-5 rotate-180 md:size-6" />
       </motion.span>
       <span className="sr-only">Toggle theme</span>
-    </Button>
+    </motion.button>
   );
 }

@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { buttonVariants } from "../ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import LinkAnimate from "./animations/link-animate";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import LinkTransition from "@/components/utils/animations/link-transition";
 
 export const Links = [
   {
@@ -21,10 +21,10 @@ export const Links = [
     title: "Projects",
     href: "/projects",
   },
-  {
-    title: "Contact",
-    href: "/contact",
-  },
+  // {
+  //   title: "Contact",
+  //   href: "/contact",
+  // },
   {
     title: "Download CV",
     href: "/cv",
@@ -139,8 +139,7 @@ export default function MenuButton() {
             animate={isOpen ? "enter" : "exit"}
             exit="exit"
           >
-            <LinkAnimate
-              id={"menu__link" + link.title.replace(" ", "-")}
+            <LinkTransition
               href={link.href}
               className={cn(
                 "text-pretty font-clashDisplay text-4xl text-secondary-foreground/50 sm:text-5xl",
@@ -153,7 +152,7 @@ export default function MenuButton() {
               }
             >
               {link.title}
-            </LinkAnimate>
+            </LinkTransition>
           </motion.div>
         ))}
         <Link

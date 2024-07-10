@@ -5,7 +5,7 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import type { PDFDocumentProxy } from "pdfjs-dist";
 import { useResizeObserver } from "@wojtekmaj/react-hooks";
-import ButtonDownload from "@/components/base/button-download";
+import ButtonDownload from "@/components/utils/button-download";
 
 if (typeof Promise.withResolvers === "undefined") {
   if (typeof window !== "undefined") {
@@ -62,7 +62,7 @@ export default function CVPage() {
     setNumPages(nextNumPages);
   }
   return (
-    <div className="relative flex h-full flex-col items-center justify-center px-5 py-10">
+    <div className="relative z-50 flex h-full flex-col items-center justify-center px-5 py-10">
       <ButtonDownload />
       <div
         ref={setContainerRef}

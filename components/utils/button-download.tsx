@@ -10,14 +10,13 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 
 type Props = {};
-const SPACE = 8;
 
 const menu = {
   open: {
     width: "400px",
     height: "450px",
-    top: `-${SPACE}px`,
-    right: `-${SPACE}px`,
+    top: 0,
+    right: 0,
     transition: { duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1] },
   },
 
@@ -88,11 +87,11 @@ function ButtonDownload({}: Props) {
         }}
         initial="closed"
         animate={isActive ? "open" : "closed"}
-        className="fixed right-5 z-50 w-fit pb-6 transition-all duration-500 md:right-10"
+        className="fixed right-4 z-50 w-fit pb-6 transition-all duration-500 md:right-10"
       >
         <motion.div
           className={
-            "relative flex h-fit max-w-[calc(100svw-1.5rem)] flex-col items-center justify-center gap-6 rounded-lg border border-orange-400 bg-secondary shadow-2xl"
+            "relative flex h-fit max-w-[calc(100svw-2rem)] flex-col items-center justify-center gap-6 rounded-lg bg-secondary shadow-2xl"
           }
           variants={menu}
           animate={isActive ? "open" : "closed"}
@@ -131,7 +130,7 @@ function ButtonDownload({}: Props) {
                     checked={isCheckCover}
                     onCheckedChange={() => setIsCheckCover(!isCheckCover)}
                     id="with-cover-letter"
-                    className="size-6"
+                    className="size-6 data-[state=checked]:bg-orange-400 data-[state=checked]:text-primary"
                   />
                   <Label
                     htmlFor="with-cover-letter"
@@ -140,14 +139,21 @@ function ButtonDownload({}: Props) {
                     Download with cover letter
                   </Label>
                 </div>
-                <div className="relative w-full cursor-pointer overflow-hidden rounded-sm shadow-lg">
+                <div
+                  className={cn(
+                    "relative w-full cursor-pointer overflow-hidden rounded-sm shadow-lg transition-all duration-300",
+                    isCheckCover
+                      ? "opacity-100 shadow-sm shadow-foreground"
+                      : "opacity-50 shadow-sm shadow-transparent",
+                  )}
+                >
                   <Image
                     src="/cover-letter-print.png"
                     alt="cover letter"
                     width={200}
                     height={200}
                     className={cn(
-                      "w-full transition-all duration-300",
+                      "w-full rounded-sm transition-all duration-300",
                       isCheckCover ? "saturate-100" : "saturate-50",
                       isDark && "opacity-0",
                     )}
@@ -158,7 +164,7 @@ function ButtonDownload({}: Props) {
                     width={200}
                     height={200}
                     className={cn(
-                      "absolute inset-0 w-full opacity-0 transition-all duration-300",
+                      "absolute inset-0 w-full rounded-sm opacity-0 transition-all duration-300",
                       isCheckCover ? "saturate-100" : "saturate-50",
                       isDark && "opacity-100",
                     )}
@@ -171,11 +177,19 @@ function ButtonDownload({}: Props) {
                 onValueChange={(value) => setIsDark(value === "dark")}
               >
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="light" id="r1" />
+                  <RadioGroupItem
+                    value="light"
+                    id="r1"
+                    className="text-orange-400"
+                  />
                   <Label htmlFor="r1">Light</Label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="dark" id="r2" />
+                  <RadioGroupItem
+                    value="dark"
+                    id="r2"
+                    className="text-orange-400"
+                  />
                   <Label htmlFor="r2">Dark</Label>
                 </div>
               </RadioGroup>
@@ -199,7 +213,7 @@ function ButtonDownload({}: Props) {
           onClick={() => setIsActive(!isActive)}
           className={cn(
             buttonVariants({ variant: "ghost" }),
-            "absolute right-0 top-0 size-12 cursor-pointer rounded-full p-2",
+            "absolute right-2 top-2 size-12 cursor-pointer rounded-full p-2",
             isActive ? "block" : "hidden",
           )}
         />

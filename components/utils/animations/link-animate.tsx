@@ -89,9 +89,10 @@ const LinkAnimate = forwardRef<
       }
     };
     const handleClick = () => {
-      if (pathname !== href) {
-        animationPageOut(href, router);
-      }
+      // if (pathname !== href) {
+      //   animationPageOut(href, router);
+      // }
+      router.push(href);
     };
     return isNormalLink ? (
       <Link

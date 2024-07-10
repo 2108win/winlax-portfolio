@@ -1,5 +1,5 @@
 import React from "react";
-import { TextAnimate } from "@/components/base/animations/text-animate";
+import { TextAnimate } from "@/components/utils/animations/text-animate";
 
 // const aboutDataPrimary = [
 //   {

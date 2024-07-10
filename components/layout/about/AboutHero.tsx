@@ -1,11 +1,11 @@
 "use client";
 import React, { useRef } from "react";
-import LinkAnimate from "@/components/base/animations/link-animate";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
-import { BorderShadowGradient } from "@/components/base/animations/border-shadow-gradient";
-import { HoverCard3d } from "@/components/base/animations/hover-card";
+import { BorderShadowGradient } from "@/components/utils/animations/border-shadow-gradient";
+import { HoverCard3d } from "@/components/utils/animations/hover-card";
+import LinkTransition from "@/components/utils/animations/link-transition";
 
 export default function AboutHero() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -132,8 +132,7 @@ export default function AboutHero() {
             />
           </BorderShadowGradient>
         </HoverCard3d>
-        <LinkAnimate
-          id="about__link--home"
+        <LinkTransition
           href="/cv"
           className="text-xl font-semibold md:text-2xl"
           classNameUnderline="md:h-[1px]"
@@ -141,7 +140,7 @@ export default function AboutHero() {
           hasUnderline
         >
           Review Resume
-        </LinkAnimate>
+        </LinkTransition>
       </div>
     </div>
   );
