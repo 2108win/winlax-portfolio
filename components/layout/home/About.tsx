@@ -12,7 +12,8 @@ const About = (props: Props) => {
           <p className="about__text text-pretty">Hi, Win Lã here!</p>
           <p className="about__text text-pretty">
             I am a Frontend Developer with a passion for creating beautiful and
-            user-friendly websites.
+            user-friendly websites, with over 1 year of experience in developing
+            responsive and accessible web applications.
           </p>
           <p className="about__text text-pretty">
             For whatever reason it is you are here, welcome.

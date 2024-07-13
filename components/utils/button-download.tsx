@@ -2,19 +2,16 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
 
 type Props = {};
 
 const menu = {
   open: {
     width: "400px",
-    height: "450px",
+    height: "370px",
     top: 0,
     right: 0,
     transition: { duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1] },
@@ -36,29 +33,17 @@ const menu = {
 
 function ButtonDownload({}: Props) {
   const [isActive, setIsActive] = useState(false);
-  const [isCheckCover, setIsCheckCover] = useState(false);
   const [labelButton, setLabelButton] = useState("Download CV");
-  const [isDark, setIsDark] = useState(false);
-
-  const linkDownload = isDark
-    ? "/cv-winlax-frontend-developer-dark.pdf"
-    : "/cv-winlax-frontend-developer-print.pdf";
-  const linkDownloadFull = isDark
-    ? "/cv-winlax-frontend-developer-full-dark.pdf"
-    : "/cv-winlax-frontend-developer-full.pdf";
+  const linkDownloadFull = "/cv-winlax-frontend-developer-main.pdf";
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!isActive) {
       e.preventDefault();
       setIsActive(true);
-      setLabelButton("Download CV");
-    } else {
       setLabelButton("Downloading...");
       const link = document.createElement("a");
-      link.href = isCheckCover ? linkDownloadFull : linkDownload;
-      link.download = isCheckCover
-        ? "CV-La-Mai-Win-Frontend-Developer-Full"
-        : "CV-La-Mai-Win-Frontend-Developer";
+      link.href = linkDownloadFull;
+      link.download = "CV-La-Mai-Win-Frontend-Developer-main";
       link.click();
       setTimeout(() => {
         setIsActive(false);
@@ -68,7 +53,7 @@ function ButtonDownload({}: Props) {
   };
 
   return (
-    <div>
+    <div className="z-50">
       <div
         className={cn(
           "fixed inset-0 z-40 bg-background/20",
@@ -125,81 +110,23 @@ function ButtonDownload({}: Props) {
                 htmlFor="with-cover-letter"
                 className="flex flex-col gap-4 transition-all duration-300"
               >
-                <div className="flex h-fit items-center gap-2">
-                  <Checkbox
-                    checked={isCheckCover}
-                    onCheckedChange={() => setIsCheckCover(!isCheckCover)}
-                    id="with-cover-letter"
-                    className="size-6 data-[state=checked]:bg-orange-400 data-[state=checked]:text-primary"
-                  />
-                  <Label
-                    htmlFor="with-cover-letter"
-                    className="cursor-pointer font-clashDisplay text-lg font-medium"
-                  >
-                    Download with cover letter
-                  </Label>
-                </div>
-                <div
-                  className={cn(
-                    "relative w-full cursor-pointer overflow-hidden rounded-sm shadow-lg transition-all duration-300",
-                    isCheckCover
-                      ? "opacity-100 shadow-sm shadow-foreground"
-                      : "opacity-50 shadow-sm shadow-transparent",
-                  )}
-                >
+                <div className="relative w-full cursor-pointer overflow-hidden rounded-sm shadow-lg shadow-white/50 transition-all duration-300">
                   <Image
-                    src="/cover-letter-print.png"
+                    src="/cover-letter-main.png"
                     alt="cover letter"
                     width={200}
                     height={200}
-                    className={cn(
-                      "w-full rounded-sm transition-all duration-300",
-                      isCheckCover ? "saturate-100" : "saturate-50",
-                      isDark && "opacity-0",
-                    )}
-                  />
-                  <Image
-                    src="/cover-letter-dark.png"
-                    alt="cover letter dark"
-                    width={200}
-                    height={200}
-                    className={cn(
-                      "absolute inset-0 w-full rounded-sm opacity-0 transition-all duration-300",
-                      isCheckCover ? "saturate-100" : "saturate-50",
-                      isDark && "opacity-100",
-                    )}
+                    className="w-full rounded-sm transition-all duration-300"
                   />
                 </div>
               </label>
-              <RadioGroup
-                defaultValue="light"
-                className="flex items-center gap-2"
-                onValueChange={(value) => setIsDark(value === "dark")}
-              >
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem
-                    value="light"
-                    id="r1"
-                    className="text-orange-400"
-                  />
-                  <Label htmlFor="r1">Light</Label>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem
-                    value="dark"
-                    id="r2"
-                    className="text-orange-400"
-                  />
-                  <Label htmlFor="r2">Dark</Label>
-                </div>
-              </RadioGroup>
             </motion.div>
           )}
           <Link
-            href={isCheckCover ? linkDownloadFull : linkDownload}
+            href={linkDownloadFull}
             onClick={handleClick}
             target="_blank"
-            download={isActive}
+            download
             className="flex w-[200px] cursor-pointer items-center justify-center gap-2 rounded-lg bg-orange-400 px-4 py-3 text-background shadow-lg transition-all duration-500 dark:text-foreground"
           >
             <span className="font-clashDisplay text-lg font-medium">

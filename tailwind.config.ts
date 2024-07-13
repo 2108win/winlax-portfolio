@@ -108,17 +108,65 @@ const config = {
             transform: "translateY(-50%)",
           },
         },
+        "cursorAnimate-one": {
+          "0%": {
+            transform: "rotate(0) translate(30px) rotate(0) scale(1)",
+          },
+          "33%": {
+            transform:
+              "rotate(180deg) translate(30px) rotate(-180deg) scaleX(1.66)",
+          },
+          "100%": {
+            transform:
+              "rotate(360deg) translate(30px) rotate(-360deg) scale(1)",
+          },
+        },
+        "cursorAnimate-two": {
+          "0%": {
+            transform: "rotate(0) translate(-40px) rotate(0) scale(1)",
+          },
+          "50%": {
+            transform:
+              "rotate(-180deg) translate(-40px) rotate(-180deg) scaleY(1.33)",
+          },
+          "100%": {
+            transform:
+              "rotate(-360deg) translate(-40px) rotate(-360deg) scale(1)",
+          },
+        },
+        "reveal-up": {
+          "0%": { opacity: "0", transform: "translateY(80%)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "reveal-down": {
+          "0%": { opacity: "0", transform: "translateY(-80%)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "content-blur": {
+          "0%": { filter: "blur(0.3rem)" },
+          "100%": { filter: "blur(0)" },
+        },
+        "bg-position": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "100% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         first: "moveVertical 30s ease infinite",
         second: "moveInCircle 20s reverse infinite",
+        "cursorAnimate-one": "cursorAnimate-one 6s linear infinite",
+        "cursorAnimate-two": "cursorAnimate-two 10s linear infinite",
+        "bg-position": "bg-position 10s linear infinite",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
         clashDisplay: ["var(--font-clash-display)"],
         poppins: ["var(--font-poppins)"],
+      },
+      transitionTimingFunction: {
+        "minor-spring": "cubic-bezier(0.18,0.89,0.82,1.04)",
       },
     },
   },

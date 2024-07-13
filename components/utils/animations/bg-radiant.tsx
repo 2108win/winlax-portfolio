@@ -9,7 +9,7 @@ import {
   animate,
 } from "framer-motion";
 
-const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
+const COLORS_TOP = ["#13ffa920", "#1E67C620", "#CE84CF20", "#DD335C20"];
 
 export const AuroraHero = () => {
   const color = useMotionValue(COLORS_TOP[0]);
@@ -21,21 +21,21 @@ export const AuroraHero = () => {
       repeat: Infinity,
       repeatType: "mirror",
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const backgroundImage = useMotionTemplate`radial-gradient(130% 130% at 50% 100%, hsl(var(--background)) 30%, ${color})`;
+  const backgroundImage = useMotionTemplate`radial-gradient(130% 130% at 50% 100%, hsl(var(--background)) 10%, ${color})`;
 
   return (
     <motion.div
       style={{
         backgroundImage,
       }}
-      className="absolute inset-0 -z-10 grid min-h-screen place-content-center overflow-hidden bg-gray-950 px-4 py-24 text-gray-200"
+      className="absolute inset-0 -z-10 grid min-h-screen place-content-center overflow-hidden"
     >
       <div className="absolute inset-0 z-0 hidden dark:block">
         <Canvas>
-          <Stars radius={50} fade speed={1} depth={4} count={5000} factor={5} />
-          {/* <Stars /> */}
+          <Stars radius={50} fade speed={1} depth={3} count={5000} factor={3} />
         </Canvas>
       </div>
     </motion.div>

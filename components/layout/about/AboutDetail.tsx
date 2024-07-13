@@ -1,6 +1,5 @@
+import { TextAnimate } from "@/components/utils/animations/text/text-animate";
 import React from "react";
-import { TextAnimate } from "@/components/utils/animations/text-animate";
-
 // const aboutDataPrimary = [
 //   {
 //     primaryText: "Name",
@@ -97,14 +96,12 @@ const AboutDetail = () => {
               className="flex flex-col gap-5"
             >
               <TextAnimate
-                id={"about__secondaryText" + i}
                 className="text-pretty"
                 classText="text-xl leading-normal md:text-2xl"
               >
                 {item.secondaryText}
               </TextAnimate>
               <TextAnimate
-                id={"about__secondaryDescription" + i}
                 className="gap-1 text-pretty text-xl leading-normal text-muted-foreground md:text-2xl"
                 split={" "}
                 classText="text-xl leading-normal md:text-2xl"
@@ -118,10 +115,8 @@ const AboutDetail = () => {
           {aboutDataPrimary.map((item, i) => (
             <TextAnimate
               once
-              delay={0.05}
               duration={0.1}
-              stagger={0.05}
-              id={"about__primaryText--wrapper"}
+              stagger={0.075}
               key={i + "about__primaryText" + i}
               className="gap-1 text-pretty leading-normal"
               split={" "}

@@ -6,6 +6,7 @@ import "react-pdf/dist/esm/Page/TextLayer.css";
 import type { PDFDocumentProxy } from "pdfjs-dist";
 import { useResizeObserver } from "@wojtekmaj/react-hooks";
 import ButtonDownload from "@/components/utils/button-download";
+import Spinner from "@/components/utils/animations/progress/spinner";
 
 if (typeof Promise.withResolvers === "undefined") {
   if (typeof window !== "undefined") {
@@ -70,7 +71,8 @@ export default function CVPage() {
       >
         <div className="relative">
           <Document
-            file={"./cover-letter.pdf"}
+            loading={<Spinner />}
+            file={"./cover-letter-light.pdf"}
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
             className={
@@ -78,6 +80,7 @@ export default function CVPage() {
             }
           >
             <Page
+              loading={<Spinner />}
               className={"!bg-background"}
               pageNumber={numPages}
               width={
@@ -86,6 +89,7 @@ export default function CVPage() {
             />
           </Document>
           <Document
+            loading={<Spinner />}
             file={"./cover-letter-dark.pdf"}
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
@@ -94,6 +98,7 @@ export default function CVPage() {
             }
           >
             <Page
+              loading={<Spinner />}
               pageNumber={numPages}
               className={"!bg-background"}
               width={
@@ -104,7 +109,8 @@ export default function CVPage() {
         </div>
         <div className="relative">
           <Document
-            file={"./cv-winlax-frontend-developer.pdf"}
+            loading={<Spinner />}
+            file={"./cv-winlax-frontend-developer-light.pdf"}
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
             className={
@@ -112,6 +118,7 @@ export default function CVPage() {
             }
           >
             <Page
+              loading={<Spinner />}
               className={"!bg-background"}
               pageNumber={numPages}
               width={
@@ -120,6 +127,7 @@ export default function CVPage() {
             />
           </Document>
           <Document
+            loading={<Spinner />}
             file={"./cv-winlax-frontend-developer-dark.pdf"}
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
@@ -128,6 +136,7 @@ export default function CVPage() {
             }
           >
             <Page
+              loading={<Spinner />}
               className={"!bg-background"}
               pageNumber={numPages}
               width={
