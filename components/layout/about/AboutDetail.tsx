@@ -96,6 +96,7 @@ const AboutDetail = () => {
               className="flex flex-col gap-5"
             >
               <TextAnimate
+                flip
                 className="text-pretty"
                 classText="text-xl leading-normal md:text-2xl"
               >

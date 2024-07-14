@@ -3,11 +3,11 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 export default function BlurryCursor({ isActive }: { isActive: boolean }) {
-  const mouse = useRef({ x: 0, y: 0 });
+  const mouse = useRef({ x: 300, y: 300 });
   const delayedMouse = useRef({ x: 0, y: 0 });
   const rafId = useRef<any>(null);
   const circle = useRef<HTMLDivElement>(null);
-  const size = isActive ? 400 : 200;
+  const size = isActive ? 400 : 300;
 
   const lerp = (x: number, y: number, a: number) => x * (1 - a) + y * a;
 
@@ -24,17 +24,20 @@ export default function BlurryCursor({ isActive }: { isActive: boolean }) {
     const { x, y } = delayedMouse.current;
 
     delayedMouse.current = {
-      x: lerp(x, mouse.current.x, 1),
-      y: lerp(y, mouse.current.y, 1),
+      x: lerp(x, mouse.current.x, 0.075),
+      y: lerp(y, mouse.current.y, 0.075),
     };
 
-    moveCircle(delayedMouse.current.x, delayedMouse.current.y);
+    moveCircle(
+      delayedMouse.current.x - size / 2 + 100,
+      delayedMouse.current.y - size / 2 + 100,
+    );
 
     rafId.current = window.requestAnimationFrame(animate);
   };
 
   const moveCircle = (x: number, y: number) => {
-    gsap.set(circle.current, { x, y, xPercent: 100, yPercent: 100 });
+    gsap.set(circle.current, { x, y, xPercent: 0, yPercent: 0 });
   };
 
   useEffect(() => {
@@ -57,9 +60,9 @@ export default function BlurryCursor({ isActive }: { isActive: boolean }) {
             "linear-gradient(90deg,#ff873c 1.98%,#ff873c 1.99%,#900c3e 100%)",
           width: size,
           height: size,
-          filter: "blur(100px)",
+          filter: "blur(150px)",
         }}
-        className="animate-cursorAnimate-one pointer-events-none fixed left-0 top-0"
+        className="pointer-events-none absolute left-0 top-0 animate-cursorAnimate-one"
         ref={circle}
       />
       <div
@@ -68,10 +71,10 @@ export default function BlurryCursor({ isActive }: { isActive: boolean }) {
             "linear-gradient(90deg, #c7003b 1.98%, #c7003b 1.99%, #900c3e 100%)",
           width: size,
           height: size,
-          filter: "blur(100px)",
+          filter: "blur(150px)",
         }}
         ref={circle}
-        className="animate-cursorAnimate-two pointer-events-none fixed left-0 top-0"
+        className="pointer-events-none absolute left-0 top-0 animate-cursorAnimate-two"
       />
     </div>
   );

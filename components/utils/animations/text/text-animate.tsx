@@ -13,6 +13,7 @@ type TextAnimateProps = {
   duration?: number;
   stagger?: number;
   once?: boolean;
+  flip?: boolean;
 };
 
 export const TextAnimate = ({
@@ -23,6 +24,7 @@ export const TextAnimate = ({
   duration = 0.75,
   stagger = 0.075,
   once = false,
+  flip = false,
 }: TextAnimateProps) => {
   const textRef = useRef(null);
   const { ref, inView, entry } = useInView({
@@ -40,11 +42,23 @@ export const TextAnimate = ({
       },
     }),
   };
+  const flipText = {
+    initial: { rotateX: -90, opacity: 0 },
+    enter: (i: number) => ({
+      rotateX: 0,
+      opacity: 1,
+      transition: {
+        duration: duration,
+        ease: [0.33, 1, 0.68, 1],
+        delay: stagger * i,
+      },
+    }),
+  };
   return (
     <div className={cn("flex flex-wrap overflow-hidden", className)} ref={ref}>
       {children.split(split).map((item: any, i: number) => {
         const commonProps = {
-          variants: animation,
+          variants: flip ? flipText : animation,
           custom: i,
           initial: "initial",
           animate: inView ? "enter" : "initial",

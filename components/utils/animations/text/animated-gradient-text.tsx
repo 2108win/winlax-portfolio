@@ -1,16 +1,22 @@
-import { cn } from "@/lib/utils";
+import type { ReactNode } from "react";
+import { ny } from "@/lib/utils";
 
-export default function AnimatedGradientText({
-  className,
+export function AnimatedGradientText({
   children,
-}: React.HTMLAttributes<HTMLDivElement>) {
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
     <div
-      className={cn(
-        "bg-size animate-bg-position bg-gradient-to-r from-orange-400 from-30% via-yellow-700 via-50% to-foreground to-80% bg-[length:200%_auto] bg-clip-text text-transparent",
+      className={ny(
+        "group relative mx-auto flex max-w-fit flex-row items-center justify-center rounded-2xl bg-background px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#8fdfff1f] backdrop-blur-sm transition-shadow duration-500 ease-out [--bg-size:300%] hover:shadow-[inset_0_-5px_10px_#8fdfff3f]",
         className,
       )}
     >
+      <div className="animate-gradient absolute inset-0 block size-full bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:var(--bg-size)_100%] p-px [border-radius:inherit] ![mask-composite:subtract] [mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)]" />
+
       {children}
     </div>
   );

@@ -17,7 +17,7 @@ export default async function ProjectFeatured({
   const resProject: Project[] = await getProjectList();
   const countTotal: number = resProject.length;
   return (
-    <div className="relative z-50 flex h-full flex-col items-center justify-center px-5 py-10">
+    <div className="relative z-50 mt-32 flex h-full flex-col items-center justify-center overflow-x-hidden px-5 py-10">
       <div className="flex flex-col gap-20">
         <div className="mx-auto flex w-[90%] flex-col sm:w-[80%]">
           <p className="text-right text-6xl text-orange-400 sm:translate-y-10 sm:text-7xl lg:text-8xl">
@@ -57,17 +57,16 @@ export default async function ProjectFeatured({
               </div>
             );
           })}
-          {projectData.length < countTotal ||
-            (hasLink && (
-              <LinkTransition
-                href="/projects"
-                icon={
-                  <ArrowUpRight className="size-7 transition-all duration-500 group-hover:rotate-45 md:size-10" />
-                }
-              >
-                All projects
-              </LinkTransition>
-            ))}
+          {projectData.length < countTotal && hasLink && (
+            <LinkTransition
+              href="/projects"
+              icon={
+                <ArrowUpRight className="size-7 transition-all duration-500 group-hover:rotate-45 md:size-10" />
+              }
+            >
+              All projects
+            </LinkTransition>
+          )}
         </div>
       </div>
     </div>

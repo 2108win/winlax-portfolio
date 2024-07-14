@@ -77,7 +77,7 @@
 
 @layer components {
   .link__hover {
-    @apply relative flex w-fit overflow-hidden font-clashDisplay text-3xl font-bold leading-none tracking-wider duration-1000 md:text-5xl;
+    @apply font-clashDisplay text-3xl font-bold leading-none tracking-wider duration-1000 md:text-5xl;
   }
   .page-transition {
     @apply translate-y-10 !bg-orange-400 !opacity-0 blur-xl delay-150;

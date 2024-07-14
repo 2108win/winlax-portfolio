@@ -13,7 +13,7 @@ import { BorderShadowGradient } from "./border-shadow-gradient";
 
 export const ExampleCardHover = () => {
   return (
-    <div className="grid min-h-svh w-full -translate-y-[88px] place-content-center px-4 py-12 text-slate-900 md:-translate-y-[104px]">
+    <div className="grid min-h-svh w-full place-content-center px-4 py-12 text-slate-900">
       <HoverCard3d>
         <BorderShadowGradient className="overflow-hidden rounded-3xl">
           <Image

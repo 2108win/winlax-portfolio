@@ -63,7 +63,7 @@ export default function CVPage() {
     setNumPages(nextNumPages);
   }
   return (
-    <div className="relative z-50 flex h-full flex-col items-center justify-center px-5 py-10">
+    <div className="relative z-50 mt-32 flex h-full flex-col items-center justify-center px-5 py-10">
       <ButtonDownload />
       <div
         ref={setContainerRef}
@@ -76,7 +76,7 @@ export default function CVPage() {
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
             className={
-              "overflow-hidden rounded-lg !bg-background shadow-lg transition-all dark:invisible"
+              "overflow-hidden rounded-lg border-[0.5px] border-foreground/20 !bg-background shadow-lg transition-all dark:invisible"
             }
           >
             <Page
@@ -94,7 +94,7 @@ export default function CVPage() {
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
             className={
-              "invisible absolute inset-0 left-0 top-0 overflow-hidden rounded-lg !bg-background shadow-lg transition-all dark:visible"
+              "invisible absolute inset-0 left-0 top-0 overflow-hidden rounded-lg border-[0.5px] border-foreground/20 !bg-background shadow-lg transition-all dark:visible"
             }
           >
             <Page
@@ -114,7 +114,7 @@ export default function CVPage() {
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
             className={
-              "overflow-hidden rounded-lg !bg-background shadow-lg transition-all dark:invisible"
+              "overflow-hidden rounded-lg border-[0.5px] border-foreground/20 !bg-background shadow-lg transition-all dark:invisible"
             }
           >
             <Page
@@ -132,7 +132,7 @@ export default function CVPage() {
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
             className={
-              "invisible absolute inset-0 left-0 top-0 overflow-hidden rounded-lg !bg-background shadow-lg transition-all dark:visible"
+              "invisible absolute inset-0 left-0 top-0 overflow-hidden rounded-lg border-[0.5px] border-foreground/20 !bg-background shadow-lg transition-all dark:visible"
             }
           >
             <Page

@@ -13,7 +13,7 @@ export default function About() {
         <LinkTransition
           href="/projects"
           icon={
-            <ArrowUpRight className="size-7 group-hover:rotate-45 md:size-10 transition-all duration-500" />
+            <ArrowUpRight className="size-7 transition-all duration-500 group-hover:rotate-45 md:size-10" />
           }
         >
           See my projects

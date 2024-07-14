@@ -10,7 +10,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useIsomorphicLayoutEffect } from "framer-motion";
 import LinkTransition from "@/components/utils/animations/link-transition";
-import { useMousePosition } from "@/hooks/use-mouse-position";
 type Props = {
   link: string;
   srcImage: string;
@@ -22,18 +21,6 @@ type Props = {
 
 const ProjectCard = ({ link, srcImage, title, time, isEven }: Props) => {
   const containerRef = useRef(null);
-  const infoRef = useRef<HTMLDivElement>(null);
-  const update = useCallback(({ x, y }: { x: number; y: number }) => {
-    // We need to offset the position to center the info div
-    const offsetX = (infoRef.current?.offsetWidth || 0) / 2;
-    const offsetY = (infoRef.current?.offsetHeight || 0) / 2;
-
-    // Use CSS variables to position the info div instead of state to avoid re-renders
-    infoRef.current?.style.setProperty("--x", `${x - offsetX}px`);
-    infoRef.current?.style.setProperty("--y", `${y - offsetY}px`);
-  }, []);
-
-  useMousePosition(containerRef, update);
   const idl = `#project__image__arrow${title.split(" ").join("")}`;
   gsap.registerPlugin(useGSAP);
   useIsomorphicLayoutEffect(() => {
@@ -70,34 +57,25 @@ const ProjectCard = ({ link, srcImage, title, time, isEven }: Props) => {
               opacity: 1,
               x: 0,
               scale: 1,
-              duration: 0.5,
+              duration: 1,
               ease: "power4.inOut",
               yoyo: true,
             },
-          );
-        if (isMobile) {
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: infoRef.current,
-                start: "top bottom",
-                end: "bottom top",
-                toggleActions: "play none none reverse",
-              },
-            })
-            .fromTo(
-              idl,
-              { opacity: 0, scale: 0 },
-              { opacity: 1, scale: 1, ease: "bounce.inOut", duration: 1 },
-            )
-            .to(idl, { rotate: 360, duration: 1.5 });
-        }
+          )
+          .fromTo(
+            idl,
+            { opacity: 0, scale: 0 },
+            { opacity: 1, scale: 1, ease: "bounce.inOut", duration: 1 },
+          )
+          .to(idl, { rotate: !isEven && isDesktop ? 270 : 360, duration: 1.5 });
       },
     );
   });
   return (
     <div ref={containerRef} className="group">
       <LinkTransition
+        hasAnimate={false}
+        hasUnderline={false}
         href={link}
         className="relative flex min-h-52 items-center justify-center"
       >
@@ -109,7 +87,7 @@ const ProjectCard = ({ link, srcImage, title, time, isEven }: Props) => {
             height={400}
             priority
             className={cn(
-              "aspect-[5/4] w-full rounded-lg rounded-ss-none border-[0.5px] border-foreground/10 object-cover object-top shadow-inner transition-all duration-1000 group-hover:scale-105 group-hover:saturate-150 sm:aspect-[5/3] dark:md:saturate-50",
+              "aspect-[5/4] w-full rounded-lg rounded-ss-none border-[0.5px] border-foreground/20 object-cover object-top shadow-inner transition-all duration-1000 group-hover:scale-105 group-hover:saturate-150 sm:aspect-[5/3] dark:md:saturate-50",
               !isEven && "sm:rounded-se-none sm:rounded-ss-lg",
             )}
           />
@@ -153,22 +131,19 @@ const ProjectCard = ({ link, srcImage, title, time, isEven }: Props) => {
           ></div>
           {/* button arrow */}
           <div
-            ref={infoRef}
-            style={{
-              transform: "translate(var(--x), var(--y)) !important",
-            }}
+            id={"project__image__arrow" + title.split(" ").join("")}
             className={cn(
-              "absolute left-0 top-0 flex items-center justify-center gap-2 rounded-full bg-foreground px-4 py-3 opacity-0 shadow-inner shadow-background group-hover:opacity-100",
+              "absolute -right-7 bottom-10 flex size-14 items-center justify-center rounded-full bg-foreground shadow-inner shadow-background sm:-right-10 sm:size-20 md:-right-12 md:size-24",
+              isEven && "sm:-left-10 md:-left-12",
             )}
           >
-            <span className="text-lg text-background">View project</span>
             <ArrowUpRight
               style={{
                 transform: "translateZ(50px)",
                 transformStyle: "preserve-3d",
               }}
               className={cn(
-                "size-7 text-background transition-all duration-1000 sm:size-8 md:size-9",
+                "size-7 text-background transition-all duration-1000 sm:size-10 md:size-12",
                 isEven && "sm:-rotate-45",
               )}
             />

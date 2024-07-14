@@ -6,8 +6,8 @@ import LinkTransition from "@/components/utils/animations/link-transition";
 
 const Header = () => {
   return (
-    <div className="sticky top-0 z-[9999] flex w-full items-center justify-between bg-neutral-100/30 px-5 py-5 dark:bg-neutral-900/10 md:px-12 lg:px-14">
-      <LinkTransition href={"/"}>
+    <div className="fixed top-0 z-[9999] flex w-full items-center justify-between bg-neutral-100/30 px-5 py-5 dark:bg-neutral-900/10 md:px-12 lg:px-14">
+      <LinkTransition href={"/"} hasAnimate={false} hasUnderline={false}>
         <Image
           src={"/logo.png"}
           alt="logo"

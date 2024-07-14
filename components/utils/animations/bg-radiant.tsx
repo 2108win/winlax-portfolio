@@ -1,6 +1,4 @@
 "use client";
-import { Stars } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
 import React, { useEffect } from "react";
 import {
   useMotionTemplate,
@@ -32,12 +30,6 @@ export const AuroraHero = () => {
         backgroundImage,
       }}
       className="absolute inset-0 -z-10 grid min-h-screen place-content-center overflow-hidden"
-    >
-      <div className="absolute inset-0 z-0 hidden dark:block">
-        <Canvas>
-          <Stars radius={50} fade speed={1} depth={3} count={5000} factor={3} />
-        </Canvas>
-      </div>
-    </motion.div>
+    ></motion.div>
   );
 };

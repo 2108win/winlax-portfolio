@@ -1,4 +1,5 @@
 "use client";
+import Meteors from "@/components/ui/meteors";
 import BlurryCursor from "@/components/utils/animations/blurry-cursor";
 import React from "react";
 import { useState } from "react";
@@ -7,7 +8,7 @@ export default function Scene2() {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <div className="flex h-[100vh] items-center justify-center">
+    <div className="mt-32 flex h-[100vh] items-center justify-center">
       <h1
         onMouseOver={() => {
           setIsActive(true);
@@ -19,7 +20,6 @@ export default function Scene2() {
       >
         The quick brown fox jumps over the lazy dog
       </h1>
-      <BlurryCursor isActive={isActive} />
     </div>
   );
 }

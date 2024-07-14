@@ -7,6 +7,7 @@ import localFont from "next/font/local";
 import { AuroraHero } from "@/components/utils/animations/bg-radiant";
 import Header from "@/components/layout/Header";
 import "core-js/full/promise/with-resolvers";
+import Meteors from "@/components/ui/meteors";
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -111,12 +112,15 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
           <div className="relative flex min-h-svh w-full flex-col transition-all duration-1000 bg-grid-black dark:bg-grid-white">
             {/* <FuzzyOverlay /> */}
+            <div className="fixed inset-0 flex w-svw overflow-hidden">
+              <Meteors number={30} />
+            </div>
             <AuroraHero />
             <div className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center bg-white transition-all duration-1000 [mask-image:radial-gradient(ellipse_at_center,transparent_15%,black)] dark:bg-black"></div>
             <Header />

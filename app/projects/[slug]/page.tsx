@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import React from "react";
 import { PortableText } from "@portabletext/react";
 import LinkTransition from "@/components/utils/animations/link-transition";
+import BlurFade from "@/components/utils/animations/blur-fade";
 type Props = {
   params: {
     slug: string;
@@ -26,13 +27,16 @@ export default async function ProjectDetail({ params }: Props) {
   const prevSlug = data?.slugs?.[data.slugs.indexOf(currentSlug) - 1];
   const nextSlug = data?.slugs?.[data.slugs.indexOf(currentSlug) + 1];
   return (
-    <div className="flex z-50 flex-col gap-20">
+    <div className="z-50 flex flex-col gap-20">
       <ImageHero
         title={data?.title ? data.title : params.slug}
         src={data?.heroImage.url || "/image-placeholder.png"}
       />
       {/* information of project */}
-      <div className="mx-auto grid max-w-5xl grid-cols-2 gap-10 px-10">
+      <div
+        id="details"
+        className="mx-auto grid max-w-5xl grid-cols-2 gap-10 px-10"
+      >
         {data?.information.map((item) =>
           item.informationType === "url" ? (
             <div key={item._key} className="flex flex-col gap-2">
@@ -88,13 +92,14 @@ export default async function ProjectDetail({ params }: Props) {
       </div>
       {/* list images */}
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-10 px-10">
-        {data?.projectImages.map((item) => (
-          <ImageFadeZoom
-            key={item._id}
-            classNameContainer="rounded-sm shadow-md md:rounded-lg"
-            className="rounded-sm md:rounded-lg lg:aspect-[5/3]"
-            src={item.url || "/image-placeholder.png"}
-          />
+        {data?.projectImages.map((item, i) => (
+          <BlurFade key={item._id} delay={0.25 + i * 0.05} inView>
+            <ImageFadeZoom
+              classNameContainer="rounded-sm shadow-md md:rounded-lg border-[0.5px] border-foreground/20"
+              className="rounded-sm md:rounded-lg"
+              src={item.url || "/image-placeholder.png"}
+            />
+          </BlurFade>
         ))}
       </div>
       {/* next or prev project */}
@@ -108,6 +113,7 @@ export default async function ProjectDetail({ params }: Props) {
             icon={
               <ArrowLeft className="w-14 transition-all duration-500 group-hover:-translate-x-4" />
             }
+            iconLeft
             className="flex items-center justify-end gap-2 text-xl font-normal md:text-2xl"
           >
             {nextSlug ? "Prev " + prevSlug : "Go " + prevSlug}

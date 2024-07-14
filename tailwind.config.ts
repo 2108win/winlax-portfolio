@@ -150,6 +150,22 @@ const config = {
           "0%": { backgroundPosition: "0% 50%" },
           "100%": { backgroundPosition: "100% 50%" },
         },
+        meteor: {
+          "0%": {
+            transform: "rotate(230deg) translateX(0) translateY(-50px)",
+            opacity: "1",
+          },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(230deg) translateX(-2000px) translateY(-400px)",
+            opacity: "0",
+          },
+        },
+        "gradient-button": {
+          to: {
+            backgroundPosition: "var(--bg-size) 0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -159,6 +175,8 @@ const config = {
         "cursorAnimate-one": "cursorAnimate-one 6s linear infinite",
         "cursorAnimate-two": "cursorAnimate-two 10s linear infinite",
         "bg-position": "bg-position 10s linear infinite",
+        meteor: "meteor 5s linear infinite",
+        "gradient-button": "gradient-button 8s linear infinite",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
