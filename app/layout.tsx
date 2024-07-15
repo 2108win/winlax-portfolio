@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import { DM_Sans as FontSans } from "next/font/google";
-import "./globals.css";
-import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/theme-provider";
-import localFont from "next/font/local";
-import { AuroraHero } from "@/components/utils/animations/bg-radiant";
 import Header from "@/components/layout/Header";
-import "core-js/full/promise/with-resolvers";
+import { ThemeProvider } from "@/components/theme-provider";
 import Meteors from "@/components/ui/meteors";
+import { AuroraHero } from "@/components/utils/animations/bg-radiant";
+import { cn } from "@/lib/utils";
+import "core-js/full/promise/with-resolvers";
+import type { Metadata } from "next";
+import { Nunito as FontSans } from "next/font/google";
+import localFont from "next/font/local";
+import "./globals.css";
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",

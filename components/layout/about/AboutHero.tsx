@@ -1,11 +1,12 @@
 "use client";
-import React, { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import Image from "next/image";
+import SparklesText from "@/components/ui/sparkles-text";
 import { BorderShadowGradient } from "@/components/utils/animations/border-shadow-gradient";
 import { HoverCard3d } from "@/components/utils/animations/hover-card";
 import LinkTransition from "@/components/utils/animations/link-transition";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import Image from "next/image";
+import { useRef } from "react";
 
 export default function AboutHero() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -95,7 +96,7 @@ export default function AboutHero() {
       className="relative flex min-h-svh flex-col items-center justify-center px-5"
     >
       <div className="relative flex h-fit flex-col items-center">
-        <div className="flex flex-col items-center font-clashDisplay text-6xl font-bold sm:text-6xl md:text-8xl lg:text-9xl">
+        <div className="z-10 flex flex-col items-center font-clashDisplay text-6xl font-bold sm:text-6xl md:text-8xl lg:text-9xl">
           <p className="hero__title--bottom flex w-min gap-1 text-center">
             {textBottom.map((letter, index) => {
               return letter === " " ? (
@@ -122,6 +123,24 @@ export default function AboutHero() {
           </p>
         </div>
         <HoverCard3d className="relative flex h-full select-none items-center justify-center py-10 transition-all duration-200 ease-linear">
+          <div className="pointer-events-none absolute inset-0 z-[-1] justify-center rounded-full">
+            <div
+              style={{
+                background:
+                  "linear-gradient(90deg,#ff873c 1.98%,#ff873c 1.99%,#900c3e 100%)",
+                filter: "blur(150px)",
+              }}
+              className="pointer-events-none absolute inset-0 animate-cursorAnimate-one rounded-full opacity-70"
+            />
+            <div
+              style={{
+                background:
+                  "linear-gradient(90deg, #c7003b 1.98%, #c7003b 1.99%, #900c3e 100%)",
+                filter: "blur(150px)",
+              }}
+              className="pointer-events-none absolute inset-0 animate-cursorAnimate-two rounded-full opacity-70"
+            />
+          </div>
           <BorderShadowGradient className="about__image w-[70%] overflow-hidden rounded-3xl shadow-xl transition-all duration-1000 ease-linear md:w-[60%] lg:w-[50%]">
             <Image
               src={"/winlax-latest-1.JPEG"}
@@ -129,16 +148,17 @@ export default function AboutHero() {
               width={500}
               height={500}
               priority
+              className="pointer-events-none"
             />
           </BorderShadowGradient>
         </HoverCard3d>
-        <LinkTransition
-          href="/cv"
-          className="text-xl font-semibold md:text-2xl"
-          classNameUnderline="md:h-[1px]"
-          isNormalLink
-        >
-          Review Resume
+        <LinkTransition href="/cv" hasAnimate={false}>
+          <SparklesText
+            text="Download Resume"
+            className="text-xl font-semibold md:text-2xl"
+            colors={{ first: "#ff873c", second: "#84CC16" }}
+            textColorClass="text-foreground"
+          />
         </LinkTransition>
       </div>
     </div>

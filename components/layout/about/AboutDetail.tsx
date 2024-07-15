@@ -1,5 +1,4 @@
 import { TextAnimate } from "@/components/utils/animations/text/text-animate";
-import React from "react";
 // const aboutDataPrimary = [
 //   {
 //     primaryText: "Name",
@@ -98,14 +97,14 @@ const AboutDetail = () => {
               <TextAnimate
                 flip
                 className="text-pretty"
-                classText="text-xl leading-normal md:text-2xl"
+                textClassName="text-xl leading-normal md:text-2xl mix-blend-multiply dark:mix-blend-difference"
               >
                 {item.secondaryText}
               </TextAnimate>
               <TextAnimate
                 className="gap-1 text-pretty text-xl leading-normal text-muted-foreground md:text-2xl"
                 split={" "}
-                classText="text-xl leading-normal md:text-2xl"
+                textClassName="text-xl leading-normal md:text-2xl mix-blend-multiply dark:mix-blend-difference"
               >
                 {item.description}
               </TextAnimate>
@@ -121,7 +120,7 @@ const AboutDetail = () => {
               key={i + "about__primaryText" + i}
               className="gap-1 text-pretty leading-normal"
               split={" "}
-              classText="text-xl md:font-normal sm:text-2xl md:text-3xl"
+              textClassName="text-xl md:font-normal sm:text-2xl md:text-3xl mix-blend-multiply dark:mix-blend-difference"
             >
               {item.description}
             </TextAnimate>

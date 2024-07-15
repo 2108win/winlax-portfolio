@@ -5,15 +5,21 @@ import { useIsomorphicLayoutEffect } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 type Props = {
   src: string;
-  classNameContainer?: string;
+  containerClassName?: string;
   className?: string;
+  nameImage?: string;
 };
 
-const ImageFadeZoom = ({ src, classNameContainer, className }: Props) => {
+const ImageFadeZoom = ({
+  src,
+  containerClassName,
+  className,
+  nameImage,
+}: Props) => {
   const imageRef = useRef<HTMLDivElement>(null);
   gsap.registerPlugin(useGSAP);
   useIsomorphicLayoutEffect(() => {
@@ -32,7 +38,7 @@ const ImageFadeZoom = ({ src, classNameContainer, className }: Props) => {
       })
       .fromTo(
         imageRef.current,
-        { scale: 0.5, opacity: 0.5 },
+        { scale: 0.7, opacity: 0.5 },
         { scale: 1, opacity: 1, duration: 0.5, ease: "power4.in" },
       )
       .fromTo(
@@ -45,13 +51,13 @@ const ImageFadeZoom = ({ src, classNameContainer, className }: Props) => {
     <div
       ref={imageRef}
       className={cn(
-        "relative flex h-auto max-h-[60vh] w-full overflow-hidden md:max-h-[80vh]",
-        classNameContainer,
+        "relative flex h-auto max-h-[60vh] w-auto overflow-hidden md:max-h-[80vh]",
+        containerClassName,
       )}
     >
       <Image
         src={src}
-        alt="winlax project detail"
+        alt={nameImage || "winlax project detail"}
         width={1920}
         height={1080}
         className={cn(

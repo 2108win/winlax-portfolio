@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { useEffect, useRef } from "react";
 
 export default function BlurryCursor({ isActive }: { isActive: boolean }) {
   const mouse = useRef({ x: 300, y: 300 });
@@ -29,8 +29,8 @@ export default function BlurryCursor({ isActive }: { isActive: boolean }) {
     };
 
     moveCircle(
-      delayedMouse.current.x - size / 2 + 100,
-      delayedMouse.current.y - size / 2 + 100,
+      delayedMouse.current.x - size / 2,
+      delayedMouse.current.y - size / 2,
     );
 
     rafId.current = window.requestAnimationFrame(animate);
@@ -60,9 +60,8 @@ export default function BlurryCursor({ isActive }: { isActive: boolean }) {
             "linear-gradient(90deg,#ff873c 1.98%,#ff873c 1.99%,#900c3e 100%)",
           width: size,
           height: size,
-          filter: "blur(150px)",
         }}
-        className="pointer-events-none absolute left-0 top-0 animate-cursorAnimate-one"
+        className="pointer-events-none absolute left-0 top-0 animate-cursorAnimate-one rounded-full opacity-70 blur-[150px]"
         ref={circle}
       />
       <div
@@ -71,10 +70,9 @@ export default function BlurryCursor({ isActive }: { isActive: boolean }) {
             "linear-gradient(90deg, #c7003b 1.98%, #c7003b 1.99%, #900c3e 100%)",
           width: size,
           height: size,
-          filter: "blur(150px)",
         }}
         ref={circle}
-        className="pointer-events-none absolute left-0 top-0 animate-cursorAnimate-two"
+        className="pointer-events-none absolute left-0 top-0 animate-cursorAnimate-two rounded-full opacity-70 blur-[150px]"
       />
     </div>
   );

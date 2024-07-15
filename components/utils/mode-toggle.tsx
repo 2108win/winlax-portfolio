@@ -1,9 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export function ModeToggle() {
@@ -45,7 +44,7 @@ export function ModeToggle() {
           damping: 15,
         }}
       >
-        <Sun className="size-5 md:size-6" />
+        <Moon className="size-5 rotate-180 md:size-6" />
       </motion.span>
       <motion.span
         className="absolute inset-0 flex items-center justify-center opacity-0"
@@ -60,7 +59,7 @@ export function ModeToggle() {
           damping: 15,
         }}
       >
-        <Moon className="size-5 rotate-180 md:size-6" />
+        <Sun className="size-5 md:size-6" />
       </motion.span>
       <span className="sr-only">Toggle theme</span>
     </motion.button>

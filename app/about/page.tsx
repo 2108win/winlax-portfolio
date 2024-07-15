@@ -12,6 +12,7 @@ export default function About() {
       <div className="mx-auto grid w-full max-w-5xl px-10">
         <LinkTransition
           href="/projects"
+          className="group"
           icon={
             <ArrowUpRight className="size-7 transition-all duration-500 group-hover:rotate-45 md:size-10" />
           }

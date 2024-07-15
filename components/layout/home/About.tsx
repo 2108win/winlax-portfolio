@@ -21,6 +21,7 @@ const About = (props: Props) => {
         </div>
         <LinkTransition
           href="/about"
+          className="group"
           icon={
             <ArrowUpRight className="size-7 transition-all duration-500 group-hover:rotate-45 md:size-10" />
           }

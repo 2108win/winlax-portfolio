@@ -1,9 +1,9 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { LinkProps } from "next/link";
+import { motion } from "framer-motion";
+import Link, { LinkProps } from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { ReactNode } from "react";
-import { motion } from "framer-motion";
 
 interface LinkTransitionProps extends LinkProps {
   children: string | ReactNode;
@@ -53,104 +53,68 @@ const LinkTransition = ({
     }
   };
   return (
-    <motion.a
-      initial="initial"
-      whileHover={hasAnimate ? "hovered" : "initial"}
-      exit="exit"
+    <Link
       onClick={handleClick}
       className={cn(
-        "group relative flex w-fit",
-        typeof children === "string" && "link__hover",
-        hasAnimate && "overflow-hidden",
-        className,
+        "relative w-fit",
+
+        hasUnderline &&
+          "transition-all after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:content-[''] hover:after:w-full",
+        {
+          "after:h-[1px]": isNormalLink,
+          "after:h-[2px]": !isNormalLink,
+        },
+        classNameUnderline,
       )}
       href={href}
+      style={{
+        transitionDuration:
+          typeof children === "string"
+            ? `${(children.length * STAGGER + DURATION) * 1000}ms`
+            : "500ms",
+        animationDuration:
+          typeof children === "string"
+            ? `${(children.length * STAGGER + DURATION) * 1000}ms`
+            : "500ms",
+      }}
       {...props}
     >
-      <div
+      <motion.div
+        initial="initial"
+        whileHover={hasAnimate ? "hovered" : "initial"}
+        exit="exit"
         className={cn(
-          "flex items-center gap-2",
-          iconLeft && "flex-row-reverse",
+          "relative flex w-fit",
+          typeof children === "string" && "link__hover",
+          hasAnimate && "overflow-hidden",
+          className,
         )}
       >
-        <div className="flex items-center">
-          {typeof children === "string" ? (
-            children.split("").map((l, i) =>
-              l === " " ? (
-                <span key={i}>&nbsp;</span>
-              ) : (
-                <motion.span
-                  variants={{
-                    initial: {
-                      y: 0,
-                    },
-                    hovered: {
-                      y: "-100%",
-                    },
-                  }}
-                  transition={{
-                    duration: DURATION,
-                    ease: "easeInOut",
-                    delay: STAGGER * i,
-                  }}
-                  className="inline-block"
-                  key={i}
-                >
-                  {l}
-                </motion.span>
-              ),
-            )
-          ) : (
-            <motion.div
-              variants={{
-                initial: {
-                  y: 0,
-                  rotate: 0,
-                },
-                hovered: {
-                  y: "-100%",
-                  rotate: 90,
-                },
-              }}
-              transition={{
-                duration: DURATION,
-                ease: "easeInOut",
-              }}
-              className="inline-block"
-            >
-              {children}
-            </motion.div>
+        <motion.div
+          className={cn(
+            "flex w-fit items-center",
+            iconLeft && "flex-row-reverse gap-2",
           )}
-        </div>
-        {icon}
-      </div>
-      {hasAnimate &&
-        (hasAnimate && typeof children === "string" ? (
-          <div
-            className={cn(
-              "absolute inset-0 flex items-center gap-2",
-              iconLeft && "flex-row-reverse",
-            )}
-          >
-            <div className="flex items-center">
-              {children.split("").map((l, i) =>
+        >
+          <div className="flex items-center">
+            {typeof children === "string" ? (
+              children.split("").map((l, i) =>
                 l === " " ? (
                   <span key={i}>&nbsp;</span>
                 ) : (
                   <motion.span
                     variants={{
                       initial: {
-                        y: "100%",
+                        y: 0,
                       },
                       hovered: {
-                        y: 0,
+                        y: "-100%",
                       },
                     }}
                     transition={{
                       duration: DURATION,
                       ease: "easeInOut",
                       delay: STAGGER * i,
-                      from: "hovered",
                     }}
                     className="inline-block"
                     key={i}
@@ -158,59 +122,114 @@ const LinkTransition = ({
                     {l}
                   </motion.span>
                 ),
-              )}
-            </div>
-            {icon}
+              )
+            ) : (
+              <motion.div
+                variants={{
+                  initial: {
+                    y: 0,
+                    rotate: 0,
+                  },
+                  hovered: {
+                    y: "-100%",
+                    rotate: 90,
+                  },
+                }}
+                transition={{
+                  duration: DURATION,
+                  ease: "easeInOut",
+                }}
+                className="inline-block"
+              >
+                {children}
+              </motion.div>
+            )}
           </div>
-        ) : (
-          <motion.div
-            variants={{
-              initial: {
-                y: "100%",
-                rotate: -270,
-              },
-              hovered: {
-                y: 0,
-                rotate: 0,
-              },
-            }}
-            transition={{
-              duration: DURATION,
-              ease: "easeInOut",
-            }}
-            className="absolute inset-0 flex items-center"
-          >
-            {children}
-          </motion.div>
-        ))}
-      {hasUnderline && (
-        <motion.div
-          variants={{
-            initial: {
-              width: 0,
-            },
-            hovered: {
-              width: "100%",
-            },
-          }}
-          transition={{
-            duration:
-              typeof children === "string"
-                ? children.length * STAGGER + DURATION
-                : 0.5,
-            ease: "easeInOut",
-          }}
+          {icon}
+        </motion.div>
+        {hasAnimate &&
+          (hasAnimate && typeof children === "string" ? (
+            <div
+              className={cn(
+                "absolute inset-0 flex items-center",
+                iconLeft && "flex-row-reverse gap-2",
+              )}
+            >
+              <div className="flex items-center">
+                {children.split("").map((l, i) =>
+                  l === " " ? (
+                    <span key={i}>&nbsp;</span>
+                  ) : (
+                    <motion.span
+                      variants={{
+                        initial: {
+                          y: "100%",
+                        },
+                        hovered: {
+                          y: 0,
+                        },
+                      }}
+                      transition={{
+                        duration: DURATION,
+                        ease: "easeInOut",
+                        delay: STAGGER * i,
+                        from: "hovered",
+                      }}
+                      className="inline-block"
+                      key={i}
+                    >
+                      {l}
+                    </motion.span>
+                  ),
+                )}
+              </div>
+              {icon}
+            </div>
+          ) : (
+            <motion.div
+              variants={{
+                initial: {
+                  y: "100%",
+                  rotate: -270,
+                },
+                hovered: {
+                  y: 0,
+                  rotate: 0,
+                },
+              }}
+              transition={{
+                duration: DURATION,
+                ease: "easeInOut",
+              }}
+              className="absolute inset-0 flex items-center"
+            >
+              {children}
+            </motion.div>
+          ))}
+      </motion.div>
+      {/* {hasUnderline && (
+        <div
           className={cn(
-            "absolute bottom-0 left-0 w-0 bg-current",
+            "absolute bottom-0 left-0 w-0 bg-current transition-all group-hover:w-full",
             {
               "h-[1px]": isNormalLink,
               "h-[2px]": !isNormalLink,
             },
             classNameUnderline,
           )}
-        ></motion.div>
-      )}
-    </motion.a>
+          style={{
+            transitionDuration:
+              typeof children === "string"
+                ? `${(children.length * STAGGER + DURATION) * 1000}ms`
+                : "500ms",
+            animationDuration:
+              typeof children === "string"
+                ? `${(children.length * STAGGER + DURATION) * 1000}ms`
+                : "500ms",
+          }}
+        ></div>
+      )} */}
+    </Link>
   );
 };
 

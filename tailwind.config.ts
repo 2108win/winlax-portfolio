@@ -114,24 +114,24 @@ const config = {
           },
           "33%": {
             transform:
-              "rotate(180deg) translate(30px) rotate(-180deg) scaleX(1.66)",
+              "rotate(180deg) translate(10px) rotate(-180deg) scaleX(1.66)",
           },
           "100%": {
             transform:
-              "rotate(360deg) translate(30px) rotate(-360deg) scale(1)",
+              "rotate(360deg) translate(10px) rotate(-360deg) scale(1)",
           },
         },
         "cursorAnimate-two": {
           "0%": {
-            transform: "rotate(0) translate(-40px) rotate(0) scale(1)",
+            transform: "rotate(0) translate(-10px) rotate(0) scale(1)",
           },
           "50%": {
             transform:
-              "rotate(-180deg) translate(-40px) rotate(-180deg) scaleY(1.33)",
+              "rotate(-180deg) translate(-10px) rotate(-180deg) scaleY(1.33)",
           },
           "100%": {
             transform:
-              "rotate(-360deg) translate(-40px) rotate(-360deg) scale(1)",
+              "rotate(-360deg) translate(-10px) rotate(-360deg) scale(1)",
           },
         },
         "reveal-up": {
@@ -172,8 +172,8 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         first: "moveVertical 30s ease infinite",
         second: "moveInCircle 20s reverse infinite",
-        "cursorAnimate-one": "cursorAnimate-one 6s linear infinite",
-        "cursorAnimate-two": "cursorAnimate-two 10s linear infinite",
+        "cursorAnimate-one": "cursorAnimate-one 16s linear infinite",
+        "cursorAnimate-two": "cursorAnimate-two 20s linear infinite",
         "bg-position": "bg-position 10s linear infinite",
         meteor: "meteor 5s linear infinite",
         "gradient-button": "gradient-button 8s linear infinite",

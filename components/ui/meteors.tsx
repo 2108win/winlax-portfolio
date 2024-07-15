@@ -1,15 +1,18 @@
 "use client";
 
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 
 interface MeteorsProps {
   number?: number;
+  colors?: { first: string; second: string };
 }
-export function Meteors({ number = 20 }: MeteorsProps) {
-  const [meteorStyles, setMeteorStyles] = useState<Array<React.CSSProperties>>(
-    [],
-  );
+
+export function Meteors({
+  number = 20,
+  colors = { first: "#FC354C", second: "#0ABFBC" },
+}: MeteorsProps) {
+  const [meteorStyles, setMeteorStyles] = useState<Array<CSSProperties>>([]);
 
   useEffect(() => {
     const styles = [...new Array(number)].map(() => ({
@@ -28,12 +31,22 @@ export function Meteors({ number = 20 }: MeteorsProps) {
         <span
           key={idx}
           className={clsx(
-            "animate-meteor pointer-events-none absolute left-1/2 top-1/2 h-0.5 w-0.5 rotate-[230deg] rounded-[9999px] bg-slate-500 shadow-[0_0_0_1px_#ffffff10]",
+            "pointer-events-none absolute left-1/2 top-1/2 h-0.5 w-0.5 rotate-[230deg] animate-meteor rounded-[9999px] bg-slate-500 shadow-[0_0_0_1px_#ffffff10]",
           )}
           style={style}
         >
           {/* Meteor Tail */}
-          <div className="pointer-events-none absolute top-1/2 -z-10 h-px w-[100px] -translate-y-1/2 bg-gradient-to-r from-slate-500 to-transparent" />
+          <div
+            className={clsx(
+              "pointer-events-none absolute top-1/2 -z-10 h-px w-[100px] -translate-y-1/2 bg-gradient-to-r from-[var(--from-meteor-tail-color-light)] to-transparent dark:from-[var(--from-meteor-tail-color-dark)]",
+            )}
+            style={
+              {
+                "--from-meteor-tail-color-dark": `${colors.first}`,
+                "--from-meteor-tail-color-light": `${colors.second}`,
+              } as CSSProperties
+            }
+          />
         </span>
       ))}
     </>

@@ -1,15 +1,15 @@
 "use client";
 import { HoverCard3d } from "@/components/utils/animations/hover-card";
+import LinkTransition from "@/components/utils/animations/link-transition";
 import { TextAnimate } from "@/components/utils/animations/text/text-animate";
 import { cn } from "@/lib/utils";
-import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
-import React, { useRef, useCallback } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useIsomorphicLayoutEffect } from "framer-motion";
-import LinkTransition from "@/components/utils/animations/link-transition";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { useRef } from "react";
 type Props = {
   link: string;
   srcImage: string;
@@ -109,7 +109,7 @@ const ProjectCard = ({ link, srcImage, title, time, isEven }: Props) => {
                 "gap-1 text-pretty font-clashDisplay",
                 isEven && "sm:justify-end",
               )}
-              classText="text-3xl font-bold sm:text-4xl"
+              textClassName="text-3xl font-bold sm:text-4xl"
               split={" "}
             >
               {title}
@@ -118,7 +118,7 @@ const ProjectCard = ({ link, srcImage, title, time, isEven }: Props) => {
               stagger={0.2}
               duration={1}
               className={cn("font-clashDisplay", isEven && "sm:justify-end")}
-              classText="sm:text-2xl text-xl font-regular"
+              textClassName="sm:text-2xl text-xl font-regular"
             >
               {time}
             </TextAnimate>

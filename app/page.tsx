@@ -7,7 +7,7 @@ export default function Home() {
     <div className="z-50 flex h-full min-h-svh w-full flex-col items-center justify-center space-y-20 overflow-hidden">
       <Hero />
       <About />
-      <ProjectFeatured hasLink numberOfProject={2} />
+      <ProjectFeatured numberOfProject={2} />
       <ConnectMe />
     </div>
   );

@@ -1,10 +1,9 @@
 "use client";
-import React from "react";
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { MoveDown } from "lucide-react";
 import SparklesText from "@/components/ui/sparkles-text";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { MoveDown } from "lucide-react";
+import { useRef } from "react";
 type Props = {};
 
 const Hero = (props: Props) => {
@@ -92,14 +91,14 @@ const Hero = (props: Props) => {
       ref={heroRef}
       className="relative flex h-full min-h-svh w-fit max-w-5xl items-center justify-center px-10 font-clashDisplay font-bold sm:w-full"
     >
-      <div className="relative flex h-fit w-fit flex-col sm:w-full">
+      <div className="relative mt-20 flex h-fit w-fit flex-col sm:w-full">
         <div
           className="hero__name mb-4 text-lg font-semibold uppercase tracking-tight text-orange-400 opacity-0 md:text-2xl"
           onMouseEnter={handleMoveDown}
         >
           <SparklesText
             className="text-3xl font-semibold uppercase tracking-tight"
-            colors={{ first: "#A07CFE", second: "#fb923c" }}
+            colors={{ first: "#0ABFBC", second: "#FC354C" }}
             text="La Mai Win"
           />
         </div>

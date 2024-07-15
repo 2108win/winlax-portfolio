@@ -1,14 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { cn } from "@/lib/utils";
-import { useAnimation } from "framer-motion";
-import React, { forwardRef, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { useRef } from "react";
 import { useInView } from "react-intersection-observer";
 type TextAnimateProps = {
   children: string;
   className?: string;
-  classText?: string;
+  textClassName?: string;
   split?: string;
   duration?: number;
   stagger?: number;
@@ -19,7 +18,7 @@ type TextAnimateProps = {
 export const TextAnimate = ({
   children,
   className,
-  classText,
+  textClassName,
   split = "",
   duration = 0.75,
   stagger = 0.075,
@@ -63,8 +62,8 @@ export const TextAnimate = ({
           initial: "initial",
           animate: inView ? "enter" : "initial",
           className: cn(
-            split === " " ? classText : "text__animation--char",
-            classText,
+            split === " " ? textClassName : "text__animation--char",
+            textClassName,
           ),
         };
         return (

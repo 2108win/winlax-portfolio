@@ -63,7 +63,7 @@ export default function CVPage() {
     setNumPages(nextNumPages);
   }
   return (
-    <div className="relative z-50 mt-32 flex h-full flex-col items-center justify-center px-5 py-10">
+    <div className="relative z-50 mt-20 flex h-full flex-col items-center justify-center px-5 py-10">
       <ButtonDownload />
       <div
         ref={setContainerRef}

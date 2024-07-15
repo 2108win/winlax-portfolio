@@ -1,13 +1,18 @@
-import Image from "next/image";
-import React from "react";
-import { ModeToggle } from "@/components/utils/mode-toggle";
 import MenuButton from "@/components/utils//menu-button";
 import LinkTransition from "@/components/utils/animations/link-transition";
+import { ModeToggle } from "@/components/utils/mode-toggle";
+import Image from "next/image";
 
 const Header = () => {
   return (
-    <div className="fixed top-0 z-[9999] flex w-full items-center justify-between bg-neutral-100/30 px-5 py-5 dark:bg-neutral-900/10 md:px-12 lg:px-14">
-      <LinkTransition href={"/"} hasAnimate={false} hasUnderline={false}>
+    <div className="fixed top-0 z-[9999] flex w-full items-center justify-between px-5 py-5 md:px-12 lg:px-14">
+      <div className="absolute inset-5 -z-20 bg-background blur-2xl"></div>
+      <LinkTransition
+        href={"/"}
+        hasAnimate={false}
+        hasUnderline={false}
+        className="z-50"
+      >
         <Image
           src={"/logo.png"}
           alt="logo"
@@ -17,8 +22,8 @@ const Header = () => {
           priority
         />
       </LinkTransition>
-      <MenuButton />
-      <div className="flex w-12 items-center justify-center md:w-16">
+      <MenuButton className="z-40" />
+      <div className="z-50 flex w-12 items-center justify-center md:w-16">
         <ModeToggle />
       </div>
     </div>

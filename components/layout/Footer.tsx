@@ -65,7 +65,6 @@ export default function Footer() {
                 href={item.url}
                 className="text-xl font-medium"
                 isNormalLink
-                classNameUnderline="h-[1px]"
               >
                 {item.display}
               </LinkTransition>
