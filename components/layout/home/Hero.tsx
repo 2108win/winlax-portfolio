@@ -1,5 +1,5 @@
 "use client";
-import SparklesText from "@/components/ui/sparkles-text";
+import SparklesText from "@/components/utils/animations/text/sparkles-text";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { MoveDown } from "lucide-react";

@@ -1,7 +1,7 @@
 import Header from "@/components/layout/Header";
 import { ThemeProvider } from "@/components/theme-provider";
-import Meteors from "@/components/ui/meteors";
 import { AuroraHero } from "@/components/utils/animations/bg-radiant";
+import Meteors from "@/components/utils/animations/meteors";
 import { cn } from "@/lib/utils";
 import "core-js/full/promise/with-resolvers";
 import type { Metadata } from "next";
@@ -89,10 +89,55 @@ const poppins = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "WinLax Portfolio",
+    default: "WinLax Portfolio - Frontend Developer",
     template: "%s | WinLax Portfolio",
   },
-  description: "Welcome to WinLax Portfolio",
+  description:
+    "Welcome to WinLax Portfolio, Explore the digital portfolio and showcase of WinLax, featuring their creative work and services.",
+  keywords: [
+    "winlax",
+    "win_lax",
+    "@win_lax",
+    "#win_lax",
+    "win lã",
+    "win lã portfolio",
+    "winlax portfolio",
+    "win_lax portfolio",
+    "winlax-portfolio",
+    "digital portfolio",
+    "creative showcase",
+    "front end developer",
+    "frontend developer",
+    "frontend web developer",
+    "web design",
+    "system design",
+    "animation website",
+    "web developer",
+    "web designer",
+    "web developer portfolio",
+    "web designer portfolio",
+    "website portfolio",
+    "winlax cv",
+    "cv winlax",
+  ],
+  icons: {
+    icon: "/favicon-32x32.png",
+    apple: "/apple-touch-icon.png",
+    shortcut: "/logo.png",
+  },
+  openGraph: {
+    images: [
+      {
+        url: "/og-main.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  other: {
+    "google-site-verification":
+      process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
+  },
 };
 
 export default function RootLayout({
@@ -101,7 +146,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={cn(
           "relative h-full min-h-svh bg-background font-sans antialiased",
@@ -116,7 +161,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-svh w-full flex-col transition-all duration-1000 bg-grid-black dark:bg-grid-white">
+          <div className="relative flex min-h-svh w-full flex-col justify-center transition-all duration-1000 bg-grid-black dark:bg-grid-white">
             {/* <FuzzyOverlay /> */}
             <div className="fixed inset-0 flex w-svw overflow-hidden">
               <Meteors number={30} />

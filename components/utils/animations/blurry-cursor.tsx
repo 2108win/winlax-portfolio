@@ -61,7 +61,7 @@ export default function BlurryCursor({ isActive }: { isActive: boolean }) {
           width: size,
           height: size,
         }}
-        className="pointer-events-none absolute left-0 top-0 animate-cursorAnimate-one rounded-full opacity-70 blur-[150px]"
+        className="pointer-events-none absolute left-0 top-0 animate-cursorAnimate-one rounded-full opacity-70 blur-[120px]"
         ref={circle}
       />
       <div
@@ -72,7 +72,7 @@ export default function BlurryCursor({ isActive }: { isActive: boolean }) {
           height: size,
         }}
         ref={circle}
-        className="pointer-events-none absolute left-0 top-0 animate-cursorAnimate-two rounded-full opacity-70 blur-[150px]"
+        className="pointer-events-none absolute left-0 top-0 animate-cursorAnimate-two rounded-full opacity-70 blur-[120px]"
       />
     </div>
   );

@@ -14,6 +14,7 @@ export async function getProjectList(numberOfProject?: number) {
       url,
       "nameImage": originalFilename
     },
+    _createdAt,
   }
   `;
   const res = await sanityFetch<Project[]>({ query: PROJECTS_QUERY });
@@ -41,7 +42,8 @@ export async function getProjectBySlug(slug: string) {
       url,
       "nameImage": originalFilename
     },
-    "slugs": *[_type == "project"] | order(time desc).slug.current
+    "slugs": *[_type == "project"] | order(time desc).slug.current,
+    _createdAt,
   }
   `;
   const res = await sanityFetch<Project>({

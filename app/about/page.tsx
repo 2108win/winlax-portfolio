@@ -1,9 +1,24 @@
-import React from "react";
 import AboutDetail from "@/components/layout/about/AboutDetail";
 import AboutHero from "@/components/layout/about/AboutHero";
 import ConnectMe from "@/components/layout/ConnectMe";
-import { ArrowUpRight } from "lucide-react";
 import LinkTransition from "@/components/utils/animations/link-transition";
+import { ArrowUpRight } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About WinLax",
+  description:
+    "About WinLax - WinLax is a Frontend developer based in Vietnam.",
+  openGraph: {
+    images: [
+      {
+        url: "/og-about.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+};
 export default function About() {
   return (
     <div className="z-50 flex h-full min-h-svh w-full flex-col space-y-20 overflow-hidden">

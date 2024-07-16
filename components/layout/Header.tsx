@@ -11,7 +11,7 @@ const Header = () => {
         href={"/"}
         hasAnimate={false}
         hasUnderline={false}
-        className="z-50"
+        className="group z-50"
       >
         <Image
           src={"/logo.png"}

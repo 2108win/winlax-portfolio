@@ -6,32 +6,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { BorderShadowGradient } from "./border-shadow-gradient";
-// import { FiMousePointer } from "react-icons/fi";
-
-export const ExampleCardHover = () => {
-  return (
-    <div className="grid min-h-svh w-full place-content-center px-4 py-12 text-slate-900">
-      <HoverCard3d>
-        <BorderShadowGradient className="overflow-hidden rounded-3xl">
-          <Image
-            style={{
-              transform: "translateZ(75px)",
-              transformStyle: "preserve-3d",
-            }}
-            src={"/winlax-latest-1.JPEG"}
-            alt={"winlax"}
-            width={500}
-            height={500}
-            priority
-          />
-        </BorderShadowGradient>
-      </HoverCard3d>
-    </div>
-  );
-};
 
 const ROTATION_RANGE = 32.5;
 const HALF_ROTATION_RANGE = 32.5 / 2;

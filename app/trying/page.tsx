@@ -1,25 +1,5 @@
-"use client";
-import Meteors from "@/components/ui/meteors";
-import BlurryCursor from "@/components/utils/animations/blurry-cursor";
-import React from "react";
-import { useState } from "react";
+import NotFound from "../not-found";
 
 export default function Scene2() {
-  const [isActive, setIsActive] = useState(false);
-
-  return (
-    <div className="mt-32 flex h-[100vh] items-center justify-center">
-      <h1
-        onMouseOver={() => {
-          setIsActive(true);
-        }}
-        onMouseLeave={() => {
-          setIsActive(false);
-        }}
-        className="max-w-[90vw] p-20 text-center text-[4.5vw] text-white"
-      >
-        The quick brown fox jumps over the lazy dog
-      </h1>
-    </div>
-  );
+  return <NotFound text="This page is still in development" />;
 }

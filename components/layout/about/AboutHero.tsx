@@ -1,8 +1,8 @@
 "use client";
-import SparklesText from "@/components/ui/sparkles-text";
 import { BorderShadowGradient } from "@/components/utils/animations/border-shadow-gradient";
 import { HoverCard3d } from "@/components/utils/animations/hover-card";
 import LinkTransition from "@/components/utils/animations/link-transition";
+import SparklesText from "@/components/utils/animations/text/sparkles-text";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";

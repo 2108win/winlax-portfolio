@@ -50,7 +50,7 @@ export default function Footer() {
         <div className="flex w-full flex-1 flex-col justify-between gap-4 sm:flex-row md:items-center md:justify-end">
           <LinkTransition
             href={mail}
-            className="text-xl font-medium"
+            className="group text-xl font-medium"
             isNormalLink
             icon={
               <ArrowUpRight className="transition-all duration-500 group-hover:rotate-45" />

@@ -21,6 +21,7 @@ export default async function ProjectFeatured({
   const countTotal: number = resProject.length;
   return (
     <div
+      id="projects-featured"
       className={cn(
         "relative z-50 mt-20 flex h-full flex-col items-center justify-center overflow-x-hidden px-5 py-10",
         className,

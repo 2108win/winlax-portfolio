@@ -1,20 +1,44 @@
+import NotFound from "@/app/not-found";
 import ImageHero from "@/components/layout/projects/ImageHero";
 import ListImage from "@/components/layout/projects/ListImage";
 import ProjectFeatured from "@/components/layout/projects/ProjectFeatured";
 import RelateLink from "@/components/layout/projects/RelateLink";
-import SparklesText from "@/components/ui/sparkles-text";
-import BlurFade from "@/components/utils/animations/blur-fade";
+import { Button, buttonVariants } from "@/components/ui/button";
 import ImageFadeZoom from "@/components/utils/animations/image-fade-zoom";
 import LinkTransition from "@/components/utils/animations/link-transition";
 import { Project } from "@/lib/interface";
+import { cn } from "@/lib/utils";
 import { getProjectBySlug, getProjectList } from "@/utils/getProjects";
 import { PortableText } from "@portabletext/react";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 type Props = {
   params: {
     slug: string;
   };
 };
+
+export async function generateMetadata({ params }: Props) {
+  const data: Project = await getProjectBySlug(params.slug);
+  const desc = `Technologies using: ${data?.technologies.map((item) => item)}`;
+  return {
+    title: {
+      absolute: data
+        ? data?.title + " | Winlax Projects"
+        : "Projects Not Found",
+    },
+    description: data && desc,
+    openGraph: {
+      images: [
+        {
+          url: data?.heroImage.url || "/og-projects.png",
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const projects: Project[] = await getProjectList();
@@ -27,8 +51,10 @@ export async function generateStaticParams() {
 export default async function ProjectDetail({ params }: Props) {
   const data: Project = await getProjectBySlug(params.slug);
   const currentIndexSlug = data && data.slugs.indexOf(params.slug);
-  const prevSlug = data && data.slugs[currentIndexSlug - 1];
-  const nextSlug = data && data.slugs[currentIndexSlug + 1];
+  const prevSlug =
+    (data && data.slugs[currentIndexSlug - 1]) ||
+    data?.slugs[data?.slugs.length - 1];
+  const nextSlug = (data && data.slugs[currentIndexSlug + 1]) || data?.slugs[0];
   return data ? (
     <div className="z-50 flex flex-col gap-10">
       <ImageHero
@@ -38,7 +64,7 @@ export default async function ProjectDetail({ params }: Props) {
       {/* information of project */}
       <div
         id="details"
-        className="mx-auto grid max-w-5xl grid-cols-subgrid gap-10 px-10 sm:grid-cols-2"
+        className="mx-auto grid w-full max-w-5xl justify-between gap-10 px-10 sm:w-fit sm:grid-cols-2"
       >
         {data.information.map((item) =>
           item.informationType === "url" ? (
@@ -103,23 +129,27 @@ export default async function ProjectDetail({ params }: Props) {
     </div>
   ) : (
     <div className="relative flex h-full w-full flex-col items-center gap-10">
-      <div className="z-[999] mt-20 flex flex-col items-center justify-center gap-5">
-        <BlurFade delay={0.5} inView>
-          <SparklesText
-            text={"404"}
-            className="font-clashDisplay text-7xl font-bold drop-shadow-2xl sm:text-6xl md:text-7xl lg:text-8xl"
-            colors={{ first: "#0ABFBC", second: "#FC354C" }}
-          />
-        </BlurFade>
-        <BlurFade delay={2} inView>
-          <SparklesText
-            className="text-3xl font-bold"
-            text="Project not found"
-            colors={{ first: "#999", second: "#000" }}
-          />
-        </BlurFade>
-      </div>
-      <ProjectFeatured className="mt-0" hasTitle={false} numberOfProject={3} />
+      <NotFound
+        text="Project not found!"
+        options={
+          <Link href="#projects-featured">
+            <Button
+              variant="gooeyRight"
+              className={cn(
+                "w-full",
+                buttonVariants({
+                  variant: "expandIcon",
+                }),
+                "hover:text-primary-foreground",
+              )}
+              type="submit"
+            >
+              <span className="px-3 font-bold">See all projects</span>
+            </Button>
+          </Link>
+        }
+      />
+      <ProjectFeatured className="mt-0" numberOfProject={3} />
     </div>
   );
 }

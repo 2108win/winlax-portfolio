@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import SparklesText from "@/components/ui/sparkles-text";
 import BlurFade from "@/components/utils/animations/blur-fade";
+import SparklesText from "@/components/utils/animations/text/sparkles-text";
 import Image from "next/image";
 type Props = {
   src: string;
@@ -20,12 +20,11 @@ const ImageHero = ({ title, src }: Props) => {
         priority
         className="-z-50 h-full w-full object-cover object-top blur-[2px]"
       />
-      <div className="absolute inset-0 z-[999] flex flex-col items-center justify-center px-10">
+      <div className="absolute inset-0 z-[999] flex flex-col items-center justify-center bg-black/50 px-10">
         <BlurFade delay={0.5} inView>
           <SparklesText
             text={title || "Winlax Project"}
-            className="font-clashDisplay text-5xl font-bold drop-shadow-2xl sm:text-6xl md:text-7xl lg:text-8xl"
-            auraPosition="left"
+            className="text-center font-clashDisplay text-5xl font-bold drop-shadow-2xl sm:text-6xl md:text-7xl lg:text-8xl"
             colors={{ first: "#0ABFBC", second: "#FC354C" }}
           />
         </BlurFade>

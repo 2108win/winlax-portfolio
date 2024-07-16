@@ -59,7 +59,7 @@ const LinkTransition = ({
         "relative w-fit",
 
         hasUnderline &&
-          "transition-all after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:content-[''] hover:after:w-full",
+          "transition-all after:absolute after:w-full after:origin-bottom-right after:scale-x-0 after:bg-current after:transition-transform after:duration-500 after:ease-in-out after:content-[''] hover:after:w-full hover:after:origin-bottom-left hover:after:scale-x-100",
         {
           "after:h-[1px]": isNormalLink,
           "after:h-[2px]": !isNormalLink,

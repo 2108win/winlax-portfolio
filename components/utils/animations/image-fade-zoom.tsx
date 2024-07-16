@@ -51,7 +51,7 @@ const ImageFadeZoom = ({
     <div
       ref={imageRef}
       className={cn(
-        "relative flex h-auto max-h-[60vh] w-auto overflow-hidden md:max-h-[80vh]",
+        "relative flex h-auto max-h-[60rem] w-auto overflow-hidden md:max-h-[80rem]",
         containerClassName,
       )}
     >
