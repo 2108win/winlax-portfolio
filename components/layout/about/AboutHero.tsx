@@ -110,7 +110,7 @@ export default function AboutHero() {
         </div>
         {/* link to cv */}
         <LinkTransition
-          underlineClassName="after:bg-primary-foreground"
+          underlineClassName="after:bg-foreground"
           href="/cv"
           hasAnimate={false}
         >
@@ -118,7 +118,7 @@ export default function AboutHero() {
             text="My Resume here!"
             className="text-xl md:text-2xl"
             colors={{ first: "#ff873c", second: "#84CC16" }}
-            textColorClass="text-primary-foreground"
+            textColorClass="text-foreground font-clashDisplay font-semibold"
           />
         </LinkTransition>
       </div>
