@@ -1,13 +1,18 @@
 "use client";
-import { BorderShadowGradient } from "@/components/utils/animations/border-shadow-gradient";
-import { HoverCard3d } from "@/components/utils/animations/hover-card";
 import LinkTransition from "@/components/utils/animations/link-transition";
 import SparklesText from "@/components/utils/animations/text/sparkles-text";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import Image from "next/image";
 import { useRef } from "react";
+import ImageSlider from "./image-slider";
 
+const slides = [
+  "/winlax-latest-1.JPEG",
+  "/winlax-1.JPEG",
+  "/winlax-2.JPEG",
+  "/winlax-3.JPEG",
+  "/winlax-4.JPEG",
+];
 export default function AboutHero() {
   const aboutRef = useRef<HTMLDivElement>(null);
   const textTop = "Win".split("");
@@ -24,65 +29,6 @@ export default function AboutHero() {
         ".hero__title--bottom--letter",
         { opacity: 0, y: 300 },
         { opacity: 1, y: 0, duration: 2, stagger: 0.1 },
-      );
-      let mb = gsap.matchMedia();
-      mb.add(
-        {
-          isDesktop: `(min-width: 640px)`,
-          isMobile: `(max-width: 639px)`,
-        },
-        (context) => {
-          let { isDesktop, isMobile }: any = context.conditions;
-          if (isDesktop) {
-            gsap
-              .timeline()
-              .to(".about__image", {
-                borderRadius: "30% 70% 53% 47% / 26% 46% 54% 74%",
-                duration: 3,
-              })
-              .to(".about__image", {
-                borderRadius: "30% 70% 70% 30% / 30% 52% 48% 70%",
-                duration: 3,
-              })
-              .to(".about__image", {
-                borderRadius: "50% 50% 20% 80% / 25% 80% 25% 75%",
-                duration: 3,
-              })
-              .to(".about__image", {
-                borderRadius: "67% 33% 47% 53% / 37% 20% 80% 63%",
-                duration: 3,
-              })
-              .to(".about__image", {
-                borderRadius: "39% 61% 82% 18% / 74% 40% 60% 26%",
-                duration: 3,
-              })
-              .to(".about__image", {
-                borderRadius: "50%",
-                duration: 3,
-              })
-              .to(".about__image", {
-                borderRadius: "50% 50% 53% 47% / 72% 69% 31% 28%",
-                duration: 3,
-              })
-              .to(".about__image", {
-                borderRadius: "50% 50% 53% 47% / 26% 22% 78% 74%",
-                duration: 3,
-              })
-              .to(".about__image", {
-                borderRadius: "50% 50% 53% 47% / 26% 69% 31% 74%",
-                duration: 3,
-              })
-              .to(".about__image", {
-                borderRadius: "20% 80% 20% 80% / 20% 80% 20% 80%",
-                duration: 3,
-              })
-              .repeat(-1);
-          } else if (isMobile) {
-            gsap.to(".about__image", {
-              borderRadius: 30,
-            });
-          }
-        },
       );
     },
     {
@@ -122,13 +68,15 @@ export default function AboutHero() {
             ))}
           </p>
         </div>
-        <HoverCard3d className="relative flex h-full select-none items-center justify-center py-10 transition-all duration-200 ease-linear">
-          <div className="pointer-events-none absolute inset-0 z-[-1] justify-center rounded-full">
+        {/* avatar */}
+        <div className="relative flex h-full select-none items-center justify-center transition-all duration-200 ease-linear">
+          <div className="pointer-events-none absolute inset-0 z-[-10] justify-center rounded-full">
             <div
               style={{
                 background:
-                  "linear-gradient(90deg,#ff873c 1.98%,#ff873c 1.99%,#900c3e 100%)",
-                filter: "blur(150px)",
+                  "conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a853ba 180deg, #e92a67 1turn)",
+                filter: "blur(75px)",
+                mixBlendMode: "normal",
               }}
               className="pointer-events-none absolute inset-0 animate-cursorAnimate-one rounded-full opacity-70"
             />
@@ -141,7 +89,12 @@ export default function AboutHero() {
               className="pointer-events-none absolute inset-0 animate-cursorAnimate-two rounded-full opacity-70"
             />
           </div>
-          <BorderShadowGradient className="about__image w-[70%] overflow-hidden rounded-3xl shadow-xl transition-all duration-1000 ease-linear md:w-[60%] lg:w-[50%]">
+          {/* <ShineBorder
+            color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+            className="z-50 w-[70%] overflow-hidden shadow-xl transition-all duration-1000 ease-linear md:w-[65%] lg:w-[70%]"
+            borderRadius={30}
+            borderWidth={3}
+          >
             <Image
               src={"/winlax-latest-1.JPEG"}
               alt={"winlax"}
@@ -150,14 +103,22 @@ export default function AboutHero() {
               priority
               className="pointer-events-none"
             />
-          </BorderShadowGradient>
-        </HoverCard3d>
-        <LinkTransition href="/cv" hasAnimate={false}>
+          </ShineBorder> */}
+          <div className="flex max-w-5xl items-center justify-center px-10">
+            <ImageSlider options={{ loop: true }} slides={slides} />
+          </div>
+        </div>
+        {/* link to cv */}
+        <LinkTransition
+          underlineClassName="after:bg-primary-foreground"
+          href="/cv"
+          hasAnimate={false}
+        >
           <SparklesText
-            text="Download Resume"
-            className="text-xl font-semibold md:text-2xl"
+            text="My Resume here!"
+            className="text-xl md:text-2xl"
             colors={{ first: "#ff873c", second: "#84CC16" }}
-            textColorClass="text-foreground"
+            textColorClass="text-primary-foreground"
           />
         </LinkTransition>
       </div>

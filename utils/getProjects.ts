@@ -1,9 +1,10 @@
-import { Project } from "@/lib/interface";
+import { Project, resProjects } from "@/lib/interface";
 import { sanityFetch } from "@/lib/sanity";
 
 export async function getProjectList(numberOfProject?: number) {
   const count = numberOfProject && numberOfProject - 1;
-  const PROJECTS_QUERY = `*[_type == "project"] | order(time desc)[${numberOfProject ? "0.." + count : ""}] {
+  const PROJECTS_QUERY = `*[_type == "project"][0] {
+  "projects": *[_type == "project"] | order(time desc)[${numberOfProject ? "0.." + count : ""}] {
     _id,
     title,
     time,
@@ -15,9 +16,11 @@ export async function getProjectList(numberOfProject?: number) {
       "nameImage": originalFilename
     },
     _createdAt,
-  }
+  },
+  "total": count(*[_type == "project"])
+}
   `;
-  const res = await sanityFetch<Project[]>({ query: PROJECTS_QUERY });
+  const res = await sanityFetch<resProjects>({ query: PROJECTS_QUERY });
   return res;
 }
 

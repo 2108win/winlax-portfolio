@@ -134,14 +134,14 @@ const SparklesText: React.FC<SparklesTextProps> = ({
         {sparkles.map((sparkle) => (
           <Sparkle key={sparkle.id} {...sparkle} />
         ))}
-        <strong
+        <span
           className={cn(
             "text-pretty bg-gradient-to-r from-[var(--sparkles-second-color)] to-[var(--sparkles-first-color)] bg-clip-text text-transparent dark:from-[var(--sparkles-first-color)] dark:to-[var(--sparkles-second-color)]",
             textColorClass,
           )}
         >
           {text}
-        </strong>
+        </span>
         {auraPosition && (
           <div className="pointer-events-none absolute inset-0 z-[-1] justify-center rounded-full">
             <div

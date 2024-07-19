@@ -1,3 +1,8 @@
+export interface resProjects {
+  projects: Project[];
+  total: number;
+}
+
 export interface Project {
   title: string;
   slug: string;

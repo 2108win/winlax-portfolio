@@ -38,7 +38,6 @@ export default function MenuButton({ className }: { className?: string }) {
 
   return (
     <motion.div className={cn("h-full w-fit", className)}>
-      <span className="sr-only">Menu</span>
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -60,6 +59,7 @@ export default function MenuButton({ className }: { className?: string }) {
           "relative z-[999] flex size-12 flex-col items-center justify-center overflow-hidden rounded-full md:size-16",
         )}
       >
+        <span className="sr-only">Menu</span>
         <motion.div
           animate={{ y: isOpen ? "100%" : 0 }}
           transition={{
@@ -71,10 +71,10 @@ export default function MenuButton({ className }: { className?: string }) {
           className="relative flex size-full flex-col items-center justify-center"
         >
           <div className="h-full w-full p-2">
-            <Menu strokeWidth={1} size={40} className="h-full w-full" />
+            <Menu strokeWidth={1.5} size={40} className="h-full w-full" />
           </div>
           <div className="absolute bottom-full p-2">
-            <X strokeWidth={1} size={40} className="h-full w-full" />
+            <X strokeWidth={1.5} size={40} className="h-full w-full" />
           </div>
         </motion.div>
       </motion.button>
@@ -97,12 +97,11 @@ export default function MenuButton({ className }: { className?: string }) {
           delay: 0.3,
           type: "tween",
         }}
-        className="absolute left-0 top-0 z-40 flex w-svw items-center justify-center overflow-hidden bg-secondary shadow-lg transition-all duration-500"
+        className="absolute left-0 top-0 z-40 flex w-svw items-center justify-center overflow-hidden bg-card shadow-[inset_0px_-5rem_10rem_-100px_hsl(var(--primary)_/_0.8_)_,_0px_50px_100px_50px_hsl(var(--background)_/_0.8_)] transition-all duration-500"
       >
         <ScrollArea
-          style={{ height: "inherit" }}
-          className="w-full pb-5 pt-20"
-          childrenClassName="max-h-max flex md:items-center items-start"
+          className="absolute top-8 w-full pb-5"
+          childrenClassName="max-h-[calc(80vh-6rem)]"
         >
           <div className="flex flex-col items-center gap-10">
             {Links.map((link, i) => (
@@ -143,13 +142,13 @@ export default function MenuButton({ className }: { className?: string }) {
                 <LinkTransition
                   href={link.href}
                   className={cn(
-                    "font-clashDisplay text-4xl text-secondary-foreground/80 sm:text-5xl",
-                    pathname === link.href && "text-orange-400",
+                    "font-clashDisplay text-4xl text-muted-foreground/50 hover:text-secondary-foreground/80 sm:text-5xl",
+                    pathname === link.href && "text-primary",
                   )}
-                  classNameUnderline={
+                  underlineClassName={
                     pathname === link.href
-                      ? "after:bg-orange-400"
-                      : "after:bg-secondary-foreground/50"
+                      ? "after:bg-primary after:scale-x-100"
+                      : "after:bg-muted-foreground/50 hover:after:bg-secondary-foreground/80"
                   }
                 >
                   {link.title}

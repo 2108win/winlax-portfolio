@@ -1,12 +1,11 @@
-import MenuButton from "@/components/utils//menu-button";
 import LinkTransition from "@/components/utils/animations/link-transition";
+import MenuButton from "@/components/utils/menu-button";
 import { ModeToggle } from "@/components/utils/mode-toggle";
 import Image from "next/image";
 
 const Header = () => {
   return (
     <div className="fixed top-0 z-[9999] flex w-full items-center justify-between px-5 py-5 md:px-12 lg:px-14">
-      <div className="absolute inset-5 -z-20 bg-background blur-2xl"></div>
       <LinkTransition
         href={"/"}
         hasAnimate={false}

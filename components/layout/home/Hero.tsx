@@ -93,11 +93,11 @@ const Hero = (props: Props) => {
     >
       <div className="relative mt-20 flex h-fit w-fit flex-col sm:w-full">
         <div
-          className="hero__name mb-4 text-lg font-semibold uppercase tracking-tight text-orange-400 opacity-0 md:text-2xl"
+          className="hero__name mb-4 opacity-0 md:text-2xl"
           onMouseEnter={handleMoveDown}
         >
           <SparklesText
-            className="text-3xl font-semibold uppercase tracking-tight"
+            className="text-3xl uppercase"
             colors={{ first: "#0ABFBC", second: "#FC354C" }}
             text="La Mai Win"
           />
@@ -127,10 +127,10 @@ const Hero = (props: Props) => {
         <div className="hero__desc flex flex-col items-end gap-1 text-right text-lg font-normal opacity-0 md:text-2xl lg:text-4xl">
           <p className="hero__desc--top relative">
             Opening for job.
-            <span className="hero__desc--underline absolute bottom-0 left-0 z-[-1] h-[2px] w-full -rotate-3 bg-orange-400 md:h-1"></span>
+            <span className="hero__desc--underline absolute bottom-0 left-0 z-[-1] h-[2px] w-full -rotate-3 bg-primary md:h-1"></span>
           </p>
           <p className="hero__desc--bottom">
-            <span className="-rotate-6 text-xl font-bold text-orange-400 md:text-3xl lg:text-5xl">
+            <span className="-rotate-6 text-xl font-bold text-primary md:text-3xl lg:text-5xl">
               over 1 year
             </span>{" "}
             experience.

@@ -1,5 +1,6 @@
 import LinkTransition from "@/components/utils/animations/link-transition";
-import { Project } from "@/lib/interface";
+import SparklesText from "@/components/utils/animations/text/sparkles-text";
+import { resProjects } from "@/lib/interface";
 import { cn } from "@/lib/utils";
 import { getProjectList } from "@/utils/getProjects";
 import { ArrowUpRight } from "lucide-react";
@@ -16,9 +17,9 @@ export default async function ProjectFeatured({
   hasTitle?: boolean;
   className?: string;
 }) {
-  const projectData: Project[] = await getProjectList(numberOfProject);
-  const resProject: Project[] = await getProjectList();
-  const countTotal: number = resProject.length;
+  const res: resProjects = await getProjectList(numberOfProject);
+  const projectData = res.projects;
+  const countTotal: number = res.total;
   return (
     <div
       id="projects-featured"
@@ -30,8 +31,8 @@ export default async function ProjectFeatured({
       <div className="flex flex-col gap-20">
         {hasTitle && (
           <div className="mx-auto flex w-[90%] flex-col sm:w-[80%]">
-            <p className="text-right text-6xl text-orange-400 sm:translate-y-10 sm:text-7xl lg:text-8xl">
-              {countTotal || 0}
+            <p className="text-right text-6xl font-bold text-primary sm:translate-y-10 sm:text-7xl lg:text-8xl">
+              {countTotal < 10 ? `0${countTotal}` : countTotal || 0}
             </p>
             <p className="text-center font-clashDisplay text-6xl font-bold sm:text-8xl lg:text-9xl">
               Featured Projects
@@ -56,14 +57,14 @@ export default async function ProjectFeatured({
                   time={new Date(item.time).getFullYear().toString()}
                 />
                 <div className="z-30 flex flex-col space-y-5">
-                  <p
+                  <SparklesText
+                    text={`${i + 1}/${countTotal}`}
+                    colors={{ first: "#FE8FB5", second: "#FB923C" }}
                     className={cn(
-                      "text-pretty font-clashDisplay text-2xl font-medium text-orange-400 sm:text-4xl",
+                      "font-clashDisplay text-2xl sm:text-4xl",
                       i % 2 === 0 && "sm:text-right",
                     )}
-                  >
-                    {i + 1}/{countTotal}
-                  </p>
+                  />
                 </div>
               </div>
             );

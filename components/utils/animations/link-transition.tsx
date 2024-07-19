@@ -11,7 +11,7 @@ interface LinkTransitionProps extends LinkProps {
   href: string;
   isNormalLink?: boolean;
   hasUnderline?: boolean;
-  classNameUnderline?: string;
+  underlineClassName?: string;
   hasAnimate?: boolean;
   icon?: ReactNode;
   DURATION?: number;
@@ -28,7 +28,7 @@ const LinkTransition = ({
   className,
   href,
   isNormalLink = false,
-  classNameUnderline,
+  underlineClassName,
   hasUnderline = true,
   hasAnimate = true,
   DURATION = 0.4,
@@ -59,12 +59,12 @@ const LinkTransition = ({
         "relative w-fit",
 
         hasUnderline &&
-          "transition-all after:absolute after:w-full after:origin-bottom-right after:scale-x-0 after:bg-current after:transition-transform after:duration-500 after:ease-in-out after:content-[''] hover:after:w-full hover:after:origin-bottom-left hover:after:scale-x-100",
-        {
+          "transition-all after:absolute after:w-full after:origin-bottom-right after:scale-x-0 after:bg-current after:transition-transform after:duration-500 after:ease-in-out after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100",
+        hasUnderline && {
           "after:h-[1px]": isNormalLink,
           "after:h-[2px]": !isNormalLink,
         },
-        classNameUnderline,
+        underlineClassName,
       )}
       href={href}
       style={{
@@ -79,6 +79,7 @@ const LinkTransition = ({
       }}
       {...props}
     >
+      <span className="sr-only">LinkTransition</span>
       <motion.div
         initial="initial"
         whileHover={hasAnimate ? "hovered" : "initial"}
@@ -215,7 +216,7 @@ const LinkTransition = ({
               "h-[1px]": isNormalLink,
               "h-[2px]": !isNormalLink,
             },
-            classNameUnderline,
+            underlineClassName,
           )}
           style={{
             transitionDuration:

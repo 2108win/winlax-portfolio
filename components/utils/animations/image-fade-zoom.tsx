@@ -60,6 +60,8 @@ const ImageFadeZoom = ({
         alt={nameImage || "winlax project detail"}
         width={1920}
         height={1080}
+        placeholder="blur"
+        blurDataURL="/image-placeholder.png"
         className={cn(
           "h-full w-full object-cover object-top transition-all duration-500",
           className,

@@ -27,7 +27,7 @@ export default function NotFound({ text, colors, options }: NotFoundProps) {
       </BlurFade>
       <BlurFade delay={2} inView>
         <SparklesText
-          className="text-3xl font-bold"
+          className="text-center text-3xl font-bold"
           text={text || "Oh no! We can't find the page you're looking for."}
           colors={colors || { first: "#5D26C1", second: "#6be585" }}
           auraPosition={"right"}

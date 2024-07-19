@@ -1,13 +1,12 @@
-import { Project } from "@/lib/interface";
+import { Project, resProjects } from "@/lib/interface";
 import { getProjectList } from "@/utils/getProjects";
 import { MetadataRoute } from "next";
 
 const baseUrl =
   process.env.NEXT_PUBLIC_BASE_URL || "https://winlax-portfolio.vercel.app";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const projects = await getProjectList();
-  console.log("🚀 ~ sitemap ~ projects:", projects);
-  const projectEntries = projects.map((project: Project) => ({
+  const res: resProjects = await getProjectList();
+  const projectEntries = res.projects.map((project: Project) => ({
     url: `${baseUrl}/projects/${project?.slug}`,
     lastModified: new Date(project?._createdAt),
     changeFrequency: "monthly",

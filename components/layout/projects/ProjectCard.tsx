@@ -79,13 +79,15 @@ const ProjectCard = ({ link, srcImage, title, time, isEven }: Props) => {
         href={link}
         className="relative flex min-h-52 items-center justify-center"
       >
-        <HoverCard3d className="aspect-[5/4] sm:aspect-[5/3]">
+        <HoverCard3d className="flex aspect-[5/4] sm:aspect-[5/3]">
           <Image
             src={srcImage}
             alt={title}
             width={500}
             height={400}
             priority
+            placeholder="blur"
+            blurDataURL="/image-placeholder.png"
             className={cn(
               "aspect-[5/4] w-full rounded-lg rounded-ss-none border-[0.5px] border-foreground/20 object-cover object-top shadow-inner transition-all duration-1000 group-hover:scale-105 group-hover:saturate-150 sm:aspect-[5/3] dark:md:saturate-50",
               !isEven && "sm:rounded-se-none sm:rounded-ss-lg",

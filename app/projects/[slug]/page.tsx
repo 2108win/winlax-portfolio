@@ -6,7 +6,7 @@ import RelateLink from "@/components/layout/projects/RelateLink";
 import { Button, buttonVariants } from "@/components/ui/button";
 import ImageFadeZoom from "@/components/utils/animations/image-fade-zoom";
 import LinkTransition from "@/components/utils/animations/link-transition";
-import { Project } from "@/lib/interface";
+import { Project, resProjects } from "@/lib/interface";
 import { cn } from "@/lib/utils";
 import { getProjectBySlug, getProjectList } from "@/utils/getProjects";
 import { PortableText } from "@portabletext/react";
@@ -41,9 +41,9 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export async function generateStaticParams() {
-  const projects: Project[] = await getProjectList();
-
-  return projects.map((project) => ({
+  const projects: resProjects = await getProjectList();
+  const data: Project[] = projects.projects;
+  return data.map((project) => ({
     slug: project.slug,
   }));
 }
@@ -69,7 +69,7 @@ export default async function ProjectDetail({ params }: Props) {
         {data.information.map((item) =>
           item.informationType === "url" ? (
             <div key={item._key} className="flex flex-col gap-2">
-              <p className="text-lg text-orange-400 md:text-xl">
+              <p className="text-lg text-primary md:text-xl">
                 {item.informationTitle}
               </p>
               <div className="flex">
@@ -87,7 +87,7 @@ export default async function ProjectDetail({ params }: Props) {
             </div>
           ) : (
             <div key={item._key} className="flex flex-col gap-2">
-              <p className="text-lg text-orange-400 md:text-xl">
+              <p className="text-lg text-primary md:text-xl">
                 {item.informationTitle}
               </p>
               <p className="flex text-xl md:text-3xl">
@@ -101,13 +101,13 @@ export default async function ProjectDetail({ params }: Props) {
       <div className="mx-auto grid h-full w-full max-w-5xl items-center gap-10 px-10 xl:max-w-[100rem] xl:grid-cols-2">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-2">
-            <p className="text-lg text-orange-400 md:text-xl">Description</p>
-            <div className="prose text-xl mix-blend-normal dark:prose-invert md:prose-lg lg:prose-xl prose-a:italic prose-strong:font-poppins prose-li:marker:text-orange-400 md:text-3xl">
+            <p className="text-lg text-primary md:text-xl">Description</p>
+            <div className="prose text-xl mix-blend-normal dark:prose-invert md:prose-lg lg:prose-xl prose-a:italic prose-strong:font-poppins prose-li:marker:text-primary md:text-3xl">
               <PortableText value={data?.description} />
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <p className="text-lg text-orange-400 md:text-xl">Technology</p>
+            <p className="text-lg text-primary md:text-xl">Technology</p>
             <p className="flex text-xl md:text-3xl">
               {data?.technologies.map((item) => item).join(", ")}.
             </p>

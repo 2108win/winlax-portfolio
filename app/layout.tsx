@@ -149,7 +149,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={cn(
-          "relative h-full min-h-svh bg-background font-sans antialiased",
+          "relative h-full min-h-svh overflow-x-hidden bg-background font-sans antialiased",
           fontSans.variable,
           clashDisplay.variable,
           poppins.variable,
@@ -167,7 +167,7 @@ export default function RootLayout({
               <Meteors number={30} />
             </div>
             <AuroraHero />
-            <div className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center bg-white transition-all duration-1000 [mask-image:radial-gradient(ellipse_at_center,transparent_15%,black)] dark:bg-black"></div>
+            <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_10%,hsl(var(--foreground)))]"></div>
             <Header />
             {children}
           </div>

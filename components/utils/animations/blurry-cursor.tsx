@@ -57,7 +57,7 @@ export default function BlurryCursor({ isActive }: { isActive: boolean }) {
       <div
         style={{
           background:
-            "linear-gradient(90deg,#ff873c 1.98%,#ff873c 1.99%,#900c3e 100%)",
+            "linear-gradient(90deg,#ff873c 1.98%,#ff873c 1.99%,#900c3e 100%), conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a853ba 180deg, #e92a67 1turn)",
           width: size,
           height: size,
         }}

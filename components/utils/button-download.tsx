@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ArrowDown, X } from "lucide-react";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
 import Image from "next/image";
-import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
 type Props = {};
 
@@ -19,7 +19,7 @@ const menu = {
 
   closed: {
     width: "200px",
-    height: "52px",
+    height: "48px",
     top: "0px",
     right: "0px",
     transition: {
@@ -45,22 +45,19 @@ function ButtonDownload({}: Props) {
       link.href = linkDownloadFull;
       link.download = "CV-La-Mai-Win-Frontend-Developer-main";
       link.click();
-      setTimeout(() => {
-        setIsActive(false);
-        link.remove();
-      }, 10000);
+      link.remove();
     }
   };
-
+  useEffect(() => {
+    if (isActive) {
+      const defaultTimeout = setTimeout(() => {
+        setIsActive(false);
+      }, 10000);
+      return () => clearTimeout(defaultTimeout);
+    }
+  }, [isActive]);
   return (
     <div className="z-50">
-      <div
-        className={cn(
-          "fixed inset-0 z-40 bg-background/20",
-          !isActive && "hidden",
-        )}
-        onClick={() => setIsActive(!isActive)}
-      ></div>
       <motion.div
         variants={{
           open: {
@@ -72,11 +69,11 @@ function ButtonDownload({}: Props) {
         }}
         initial="closed"
         animate={isActive ? "open" : "closed"}
-        className="fixed right-4 z-50 w-fit pb-6 transition-all duration-500 md:right-10"
+        className="fixed right-4 z-50 w-fit transition-all duration-500 md:right-10"
       >
         <motion.div
           className={
-            "relative flex h-fit max-w-[calc(100svw-2rem)] flex-col items-center justify-center gap-6 rounded-lg bg-secondary shadow-2xl"
+            "relative flex h-fit max-w-[calc(100svw-2rem)] flex-col items-center justify-center gap-6 rounded-lg bg-card shadow-2xl"
           }
           variants={menu}
           animate={isActive ? "open" : "closed"}
@@ -106,20 +103,17 @@ function ButtonDownload({}: Props) {
               exit="closed"
               className="flex flex-col gap-4 px-5 transition-all"
             >
-              <label
-                htmlFor="with-cover-letter"
-                className="flex flex-col gap-4 transition-all duration-300"
-              >
-                <div className="relative w-full cursor-pointer overflow-hidden rounded-sm shadow-lg shadow-white/50 transition-all duration-300">
-                  <Image
-                    src="/cover-letter-main.png"
-                    alt="cover letter"
-                    width={200}
-                    height={200}
-                    className="w-full rounded-sm transition-all duration-300"
-                  />
-                </div>
-              </label>
+              <div className="relative w-full cursor-pointer overflow-hidden rounded-sm shadow-lg shadow-white/50 transition-all duration-300">
+                <Image
+                  src="/cover-letter-main.png"
+                  alt="cover letter"
+                  width={200}
+                  height={200}
+                  className="w-full rounded-sm transition-all duration-300"
+                  placeholder="blur"
+                  blurDataURL="/image-placeholder.png"
+                />
+              </div>
             </motion.div>
           )}
           <Link
@@ -127,9 +121,12 @@ function ButtonDownload({}: Props) {
             onClick={handleClick}
             target="_blank"
             download
-            className="flex w-[200px] cursor-pointer items-center justify-center gap-2 rounded-lg bg-orange-400 px-4 py-3 text-background shadow-lg transition-all duration-500 dark:text-foreground"
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "h-12 w-[200px] gap-2 rounded-lg px-4 py-3 text-lg shadow-lg transition-all duration-500",
+            )}
           >
-            <span className="font-clashDisplay text-lg font-medium">
+            <span className="font-clashDisplay font-medium">
               {isActive ? labelButton : "Download CV"}
             </span>
             <ArrowDown className="animate-bounce" />
@@ -140,7 +137,7 @@ function ButtonDownload({}: Props) {
           onClick={() => setIsActive(!isActive)}
           className={cn(
             buttonVariants({ variant: "ghost" }),
-            "absolute right-2 top-2 size-12 cursor-pointer rounded-full p-2",
+            "absolute right-2 top-2 size-12 cursor-pointer rounded-full p-2 text-card-foreground",
             isActive ? "block" : "hidden",
           )}
         />
