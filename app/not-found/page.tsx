@@ -4,11 +4,11 @@ import NotFound from "../not-found";
 export const metadata: Metadata = {
   title: "404 - Page Not Found",
   description:
-    "Page Not Found - Winlax - WinLax is a Frontend developer based in Vietnam.",
+    "Page Not Found - WinLax - WinLax is a Frontend developer based in Vietnam.",
   openGraph: {
     images: [
       {
-        url: "/og-404.png",
+        url: "/og/og-404.png",
         width: 1200,
         height: 630,
       },

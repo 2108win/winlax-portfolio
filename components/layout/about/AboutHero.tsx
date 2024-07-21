@@ -5,14 +5,6 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
 import ImageSlider from "./image-slider";
-
-const slides = [
-  "/winlax-latest-1.JPEG",
-  "/winlax-1.JPEG",
-  "/winlax-2.JPEG",
-  "/winlax-3.JPEG",
-  "/winlax-4.JPEG",
-];
 export default function AboutHero() {
   const aboutRef = useRef<HTMLDivElement>(null);
   const textTop = "Win".split("");
@@ -105,7 +97,7 @@ export default function AboutHero() {
             />
           </ShineBorder> */}
           <div className="flex max-w-5xl items-center justify-center px-10">
-            <ImageSlider options={{ loop: true }} slides={slides} />
+            <ImageSlider options={{ loop: true }} />
           </div>
         </div>
         {/* link to cv */}

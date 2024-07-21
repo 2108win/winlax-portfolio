@@ -6,6 +6,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import ShineBorder from "@/components/utils/animations/shine-border";
+import { sliderDataImage } from "@/utils/sliderDataImage";
 import {
   EmblaCarouselType,
   EmblaEventType,
@@ -15,14 +16,13 @@ import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 type Props = {
-  slides: string[];
   options?: EmblaOptionsType;
 };
 const TWEEN_FACTOR_BASE = 0.52;
 const numberWithinRange = (number: number, min: number, max: number): number =>
   Math.min(Math.max(number, min), max);
 const ImageSlider = (props: Props) => {
-  const { slides, options } = props;
+  const { options } = props;
   const [api, setApi] = useState<CarouselApi>();
   const tweenFactor = useRef(0);
   const tweenNodes = useRef<HTMLElement[]>([]);
@@ -104,7 +104,7 @@ const ImageSlider = (props: Props) => {
       className="m-auto max-w-md"
     >
       <CarouselContent className="py-10">
-        {slides.map((src, index) => (
+        {sliderDataImage.map((src, index) => (
           <CarouselItem
             className="basis-[70%] cursor-grab active:cursor-grabbing"
             key={index}
@@ -121,13 +121,12 @@ const ImageSlider = (props: Props) => {
               borderWidth={3}
             >
               <Image
-                src={src || "/image-placeholder.png"}
-                alt={"winlax"}
+                src={src}
+                alt={`winlax-${index}`}
                 width={500}
                 height={500}
                 priority
                 placeholder="blur"
-                blurDataURL="/image-placeholder.png"
                 className="pointer-events-none aspect-square object-cover object-center"
               />
             </ShineBorder>
