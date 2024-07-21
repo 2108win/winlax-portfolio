@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props) {
     openGraph: {
       images: [
         {
-          url: data?.heroImage.url || "/og-projects.png",
+          url: data?.heroImage.url || "/og/og-projects.png",
           width: 1200,
           height: 630,
         },

@@ -2,7 +2,7 @@
 import SparklesText from "@/components/utils/animations/text/sparkles-text";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { MoveDown } from "lucide-react";
+import { HiArrowLongDown } from "react-icons/hi2";
 import { useRef } from "react";
 type Props = {};
 
@@ -137,7 +137,11 @@ const Hero = (props: Props) => {
           </p>
         </div>
         <div className="hero__down absolute -bottom-1/3 -left-5 flex items-center overflow-hidden font-light opacity-0 sm:bottom-0">
-          <MoveDown strokeWidth={0.5} size={35} className="hero__down--icon" />
+          <HiArrowLongDown
+            strokeWidth={0.5}
+            size={35}
+            className="hero__down--icon"
+          />
           <span>
             Keep <br /> scrolling
           </span>

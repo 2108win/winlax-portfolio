@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CV - Frontend Developer - Winlax",
+  title: "CV WinLax - Frontend Developer",
   description:
-    "CV - Frontend Developer - Winlax - WinLax is a Frontend developer based in Vietnam.",
+    "CV WinLax - Frontend Developer -  WinLax is a Frontend developer based in Vietnam.",
   openGraph: {
     images: [
       {
-        url: "/og-cv.png",
+        url: "/og/og-cv.png",
         width: 1200,
         height: 630,
       },

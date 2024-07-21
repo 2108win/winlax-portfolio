@@ -1,9 +1,7 @@
 import Header from "@/components/layout/Header";
 import { ThemeProvider } from "@/components/theme-provider";
-import { AuroraHero } from "@/components/utils/animations/bg-radiant";
 import Meteors from "@/components/utils/animations/meteors";
 import { cn } from "@/lib/utils";
-import "core-js/full/promise/with-resolvers";
 import type { Metadata } from "next";
 import { Nunito as FontSans } from "next/font/google";
 import localFont from "next/font/local";
@@ -88,8 +86,11 @@ const poppins = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL || "https://winlax-portfolio.vercel.app",
+  ),
   title: {
-    default: "WinLax Portfolio - Frontend Developer",
+    default: "WinLax Portfolio - Frontend Developer Portfolio",
     template: "%s | WinLax Portfolio",
   },
   description:
@@ -128,7 +129,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "/og-main.png",
+        url: "/og/og-main.png",
         width: 1200,
         height: 630,
       },
@@ -162,11 +163,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="relative flex min-h-svh w-full flex-col justify-center transition-all duration-1000 bg-grid-black dark:bg-grid-white">
-            {/* <FuzzyOverlay /> */}
             <div className="fixed inset-0 flex w-svw overflow-hidden">
               <Meteors number={30} />
             </div>
-            <AuroraHero />
             <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_10%,hsl(var(--foreground)))]"></div>
             <Header />
             {children}

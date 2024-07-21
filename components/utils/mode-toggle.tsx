@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-
+import { BsMoonStars, BsSun } from "react-icons/bs";
 export function ModeToggle() {
   const { setTheme, theme } = useTheme();
   const [isDark, setIsDark] = useState(false);
@@ -44,7 +43,7 @@ export function ModeToggle() {
           damping: 15,
         }}
       >
-        <Moon className="size-5 rotate-180 md:size-6" />
+        <BsMoonStars className="size-4 rotate-180 md:size-5" />
       </motion.span>
       <motion.span
         className="absolute inset-0 flex items-center justify-center opacity-0"
@@ -59,7 +58,7 @@ export function ModeToggle() {
           damping: 15,
         }}
       >
-        <Sun className="size-5 md:size-6" />
+        <BsSun className="size-4 md:size-5" />
       </motion.span>
       <span className="sr-only">Toggle theme</span>
     </motion.button>

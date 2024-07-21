@@ -1,6 +1,5 @@
 import ProjectFeatured from "@/components/layout/projects/ProjectFeatured";
 import { Metadata } from "next";
-import React from "react";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -8,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "/og-projects.png",
+        url: "/og/og-projects.png",
         width: 1200,
         height: 630,
       },
