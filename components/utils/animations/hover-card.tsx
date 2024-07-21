@@ -1,12 +1,12 @@
 "use client";
-import React, { useRef } from "react";
+import { cn } from "@/lib/utils";
 import {
   motion,
   useMotionTemplate,
   useMotionValue,
   useSpring,
 } from "framer-motion";
-import { cn } from "@/lib/utils";
+import React, { useRef } from "react";
 
 const ROTATION_RANGE = 32.5;
 const HALF_ROTATION_RANGE = 32.5 / 2;

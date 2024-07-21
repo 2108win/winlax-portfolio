@@ -1,11 +1,12 @@
 "use client";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import coverLetterMain from "@/public/cover-letter-main.png";
 import { motion } from "framer-motion";
-import { ArrowDown, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { FiDownload, FiXCircle } from "react-icons/fi";
 
 type Props = {};
 
@@ -74,7 +75,7 @@ function ButtonDownload({}: Props) {
       >
         <motion.div
           className={
-            "relative flex h-fit max-w-[calc(100svw-2rem)] flex-col items-center justify-center gap-6 rounded-lg bg-card shadow-2xl"
+            "group relative flex h-fit max-w-[calc(100svw-2rem)] flex-col items-center justify-center gap-6 rounded-lg bg-card shadow-2xl"
           }
           variants={menu}
           animate={isActive ? "open" : "closed"}
@@ -104,15 +105,14 @@ function ButtonDownload({}: Props) {
               exit="closed"
               className="flex flex-col gap-4 px-5 transition-all"
             >
-              <div className="relative w-full cursor-pointer overflow-hidden rounded-sm shadow-lg shadow-white/50 transition-all duration-300">
+              <div className="relative w-full overflow-hidden rounded-sm shadow-lg shadow-white/50 transition-all duration-300">
                 <Image
-                  src="/cover-letter-main.png"
+                  src={coverLetterMain}
                   alt="cover letter"
                   width={200}
                   height={200}
                   className="w-full rounded-sm transition-all duration-300"
                   placeholder="blur"
-                  blurDataURL="/image-placeholder.png"
                 />
               </div>
             </motion.div>
@@ -130,10 +130,10 @@ function ButtonDownload({}: Props) {
             <span className="font-clashDisplay font-medium">
               {isActive ? labelButton : "Download CV"}
             </span>
-            <ArrowDown className="animate-bounce" />
+            <FiDownload className="group-hover:animate-bounce" />
           </Link>
         </motion.div>
-        <X
+        <FiXCircle
           strokeWidth={1}
           onClick={() => setIsActive(!isActive)}
           className={cn(

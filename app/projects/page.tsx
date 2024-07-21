@@ -1,6 +1,5 @@
 import ProjectFeatured from "@/components/layout/projects/ProjectFeatured";
 import { Metadata } from "next";
-import React from "react";
 
 export const metadata: Metadata = {
   title: "Projects",
