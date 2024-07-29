@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { BsMoonStars, BsSun } from "react-icons/bs";
+import { PiMoonStarsBold, PiSunBold } from "react-icons/pi";
 export function ModeToggle() {
   const { setTheme, theme } = useTheme();
   const [isDark, setIsDark] = useState(false);
@@ -43,7 +43,7 @@ export function ModeToggle() {
           damping: 15,
         }}
       >
-        <BsMoonStars className="size-4 rotate-180 md:size-5" />
+        <PiMoonStarsBold className="size-5 rotate-180 md:size-6" />
       </motion.span>
       <motion.span
         className="absolute inset-0 flex items-center justify-center opacity-0"
@@ -58,7 +58,7 @@ export function ModeToggle() {
           damping: 15,
         }}
       >
-        <BsSun className="size-4 md:size-5" />
+        <PiSunBold className="size-5 md:size-6" />
       </motion.span>
       <span className="sr-only">Toggle theme</span>
     </motion.button>

@@ -4,8 +4,11 @@ import {
   CarouselApi,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import ShineBorder from "@/components/utils/animations/shine-border";
+import { cn } from "@/lib/utils";
 import { sliderDataImage } from "@/utils/sliderDataImage";
 import {
   EmblaCarouselType,
@@ -17,12 +20,13 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 type Props = {
   options?: EmblaOptionsType;
+  className?: string;
+  itemClassName?: string;
 };
-const TWEEN_FACTOR_BASE = 0.52;
+const TWEEN_FACTOR_BASE = 0.42;
 const numberWithinRange = (number: number, min: number, max: number): number =>
   Math.min(Math.max(number, min), max);
-const ImageSlider = (props: Props) => {
-  const { options } = props;
+const ImageSlider = ({ options, className, itemClassName }: Props) => {
   const [api, setApi] = useState<CarouselApi>();
   const tweenFactor = useRef(0);
   const tweenNodes = useRef<HTMLElement[]>([]);
@@ -97,28 +101,27 @@ const ImageSlider = (props: Props) => {
       opts={options}
       plugins={[
         Autoplay({
-          delay: 5000,
+          delay: 7000,
+          stopOnInteraction: false,
         }),
       ]}
       setApi={setApi}
-      className="m-auto max-w-md"
+      className={cn("group/carousel m-auto max-w-md", className)}
     >
       <CarouselContent className="py-10">
         {sliderDataImage.map((src, index) => (
           <CarouselItem
-            className="basis-[70%] cursor-grab active:cursor-grabbing"
+            className={cn(
+              "basis-[70%] cursor-grab active:cursor-grabbing",
+              itemClassName,
+            )}
             key={index}
           >
-            {/* <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card> */}
             <ShineBorder
               color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-              className="item__image__slide z-50 m-1 overflow-hidden shadow-xl transition-all duration-1000 ease-linear"
+              className="item__image__slide z-50 m-1 overflow-hidden shadow-xl transition-all duration-500 ease-linear"
               borderRadius={30}
-              borderWidth={3}
+              borderWidth={5}
             >
               <Image
                 src={src}
@@ -133,6 +136,8 @@ const ImageSlider = (props: Props) => {
           </CarouselItem>
         ))}
       </CarouselContent>
+      <CarouselPrevious className="transition-all duration-500 group-hover/carousel:visible group-hover/carousel:scale-100 group-hover/carousel:opacity-100 sm:invisible sm:scale-50 sm:opacity-0" />
+      <CarouselNext className="transition-all duration-500 group-hover/carousel:visible group-hover/carousel:scale-100 group-hover/carousel:opacity-100 sm:invisible sm:scale-50 sm:opacity-0" />
     </Carousel>
   );
 };

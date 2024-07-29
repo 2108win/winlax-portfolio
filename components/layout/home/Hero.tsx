@@ -2,8 +2,8 @@
 import SparklesText from "@/components/utils/animations/text/sparkles-text";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { HiArrowLongDown } from "react-icons/hi2";
 import { useRef } from "react";
+import { HiOutlineArrowLongDown } from "react-icons/hi2";
 type Props = {};
 
 const Hero = (props: Props) => {
@@ -136,8 +136,8 @@ const Hero = (props: Props) => {
             experience.
           </p>
         </div>
-        <div className="hero__down absolute -bottom-1/3 -left-5 flex items-center overflow-hidden font-light opacity-0 sm:bottom-0">
-          <HiArrowLongDown
+        <div className="hero__down absolute -bottom-1/3 -left-5 flex items-center overflow-hidden font-normal opacity-0 sm:bottom-0">
+          <HiOutlineArrowLongDown
             strokeWidth={0.5}
             size={35}
             className="hero__down--icon"

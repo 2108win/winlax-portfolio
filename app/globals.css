@@ -65,4 +65,16 @@
   .page-transition {
     @apply translate-y-10 !bg-primary !opacity-0 blur-xl delay-150;
   }
+  .dot {
+    @apply size-6 min-w-6 rounded-full border border-primary bg-gradient-to-b from-white to-muted bg-no-repeat bg-blend-normal shadow-md transition-all duration-500;
+  }
+  .timeline:hover > .dot {
+    @apply from-primary to-white;
+  }
+  .timeline:hover > .timeline-time {
+    @apply text-primary;
+  }
+  .timelines {
+    @apply after:absolute after:left-[97px] after:top-0 after:z-[1] after:h-full after:w-[5px] after:bg-gradient-to-t after:from-primary after:to-muted/30 after:content-[''];
+  }
 }

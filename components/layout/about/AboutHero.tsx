@@ -3,7 +3,9 @@ import LinkTransition from "@/components/utils/animations/link-transition";
 import SparklesText from "@/components/utils/animations/text/sparkles-text";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Link from "next/link";
 import { useRef } from "react";
+import { PiCaretCircleDoubleDownFill } from "react-icons/pi";
 import ImageSlider from "./image-slider";
 export default function AboutHero() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -34,7 +36,7 @@ export default function AboutHero() {
       className="relative flex min-h-svh flex-col items-center justify-center px-5"
     >
       <div className="relative flex h-fit flex-col items-center">
-        <div className="z-10 flex flex-col items-center font-clashDisplay text-6xl font-bold sm:text-6xl md:text-8xl lg:text-9xl">
+        <div className="z-10 flex flex-col items-center font-clashDisplay text-6xl font-bold md:text-8xl lg:text-9xl">
           <p className="hero__title--bottom flex w-min gap-1 text-center">
             {textBottom.map((letter, index) => {
               return letter === " " ? (
@@ -81,22 +83,8 @@ export default function AboutHero() {
               className="pointer-events-none absolute inset-0 animate-cursorAnimate-two rounded-full opacity-70"
             />
           </div>
-          {/* <ShineBorder
-            color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-            className="z-50 w-[70%] overflow-hidden shadow-xl transition-all duration-1000 ease-linear md:w-[65%] lg:w-[70%]"
-            borderRadius={30}
-            borderWidth={3}
-          >
-            <Image
-              src={"/winlax-latest-1.JPEG"}
-              alt={"winlax"}
-              width={500}
-              height={500}
-              priority
-              className="pointer-events-none"
-            />
-          </ShineBorder> */}
-          <div className="flex max-w-5xl items-center justify-center px-10">
+
+          <div className="flex max-w-5xl items-center justify-center px-5">
             <ImageSlider options={{ loop: true }} />
           </div>
         </div>
@@ -114,6 +102,13 @@ export default function AboutHero() {
           />
         </LinkTransition>
       </div>
+      <Link
+        href={"#journey"}
+        id="journey"
+        className="absolute bottom-1 cursor-pointer outline-none"
+      >
+        <PiCaretCircleDoubleDownFill className="h-10 w-10 animate-bounce text-muted-foreground" />
+      </Link>
     </div>
   );
 }
