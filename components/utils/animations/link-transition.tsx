@@ -17,6 +17,7 @@ interface LinkTransitionProps extends LinkProps {
   DURATION?: number;
   STAGGER?: number;
   iconLeft?: boolean;
+  blank?: boolean;
 }
 
 function sleep(ms: number) {
@@ -35,6 +36,7 @@ const LinkTransition = ({
   STAGGER = 0.02,
   icon,
   iconLeft = false,
+  blank = false,
   ...props
 }: LinkTransitionProps) => {
   const router = useRouter();
@@ -54,6 +56,7 @@ const LinkTransition = ({
   };
   return (
     <Link
+      target={blank ? "_blank" : "_self"}
       onClick={handleClick}
       className={cn(
         "relative w-fit",

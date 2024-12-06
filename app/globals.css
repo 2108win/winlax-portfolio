@@ -75,6 +75,6 @@
     @apply text-primary;
   }
   .timelines {
-    @apply after:absolute after:left-[97px] after:top-0 after:z-[1] after:h-full after:w-[5px] after:bg-gradient-to-t after:from-primary after:to-muted/30 after:content-[''];
+    @apply after:absolute after:left-[9px] after:top-0 after:z-[1] after:h-full after:w-[5px] after:bg-gradient-to-t after:from-primary after:to-muted/30 after:content-[''] after:sm:left-[97px];
   }
 }

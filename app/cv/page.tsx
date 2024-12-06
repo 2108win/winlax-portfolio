@@ -1,8 +1,6 @@
 import { buttonVariants } from "@/components/ui/button";
 import ButtonDownload from "@/components/utils/button-download";
 import { cn } from "@/lib/utils";
-import CoverLetterDark from "@/public/cover-letter-dark.png";
-import CoverLetterLight from "@/public/cover-letter-light.png";
 import CVWinlaxFrontendDeveloperDark from "@/public/cv-winlax-frontend-developer-dark.png";
 import CVWinlaxFrontendDeveloperLight from "@/public/cv-winlax-frontend-developer-light.png";
 import Image from "next/image";
@@ -12,7 +10,7 @@ export default function CVPage() {
     <div className="relative z-50 mt-20 flex h-full flex-col items-center justify-center px-5 py-10">
       <ButtonDownload />
       <div className="group w-full max-w-5xl space-y-10">
-        <div className="relative">
+        {/* <div className="relative">
           <Link
             target="_blank"
             href={"/cover-letter-light.pdf"}
@@ -24,7 +22,7 @@ export default function CVPage() {
           >
             cover-letter.pdf
           </Link>
-          {/* image cover-letter-light */}
+          image cover-letter-light
           <Image
             placeholder="blur"
             src={CoverLetterLight}
@@ -33,7 +31,7 @@ export default function CVPage() {
             height={710}
             className="w-full overflow-hidden rounded-lg border-[0.5px] border-foreground/20 shadow-lg transition-all dark:invisible"
           />
-          {/* image cover-letter-dark */}
+          image cover-letter-dark
           <Image
             placeholder="blur"
             src={CoverLetterDark}
@@ -42,7 +40,7 @@ export default function CVPage() {
             height={710}
             className="invisible absolute inset-0 left-0 top-0 w-full overflow-hidden rounded-lg border-[0.5px] border-foreground/20 shadow-lg transition-all dark:visible"
           />
-        </div>
+        </div> */}
         <div className="relative">
           <Link
             target="_blank"

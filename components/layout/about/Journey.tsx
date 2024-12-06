@@ -54,11 +54,14 @@ const Journey = () => {
           return (
             <>
               <div key={index} className="timeline flex items-start gap-2">
-                <span className="timeline-time min-w-[80px] text-center text-lg leading-none transition-all duration-300 md:text-xl">
+                <span className="timeline-time hidden text-center text-lg font-bold transition-all duration-300 sm:inline sm:min-w-[80px] md:text-xl">
                   {item.time}
                 </span>
                 <div className="dot z-10 shrink-0"></div>
-                <ul className="ml-4 space-y-2 text-left text-lg md:text-xl">
+                <ul className="ml-4 text-left text-lg md:text-xl">
+                  <span className="timeline-time min-w-[80px] text-center text-lg font-bold transition-all duration-300 sm:hidden md:text-xl">
+                    {item.time}
+                  </span>
                   {item.title &&
                     item.title.map((item, index) => (
                       <li key={index} className="list list-inside font-bold">
@@ -69,10 +72,10 @@ const Journey = () => {
                     item.description.map((item, index) => (
                       <li
                         key={index}
-                        className="ml-4 flex list-inside items-center gap-2 text-muted-foreground"
+                        className="ml-4 flex list-inside gap-2 text-muted-foreground"
                       >
-                        <PiArrowBendDownRightBold />
-                        <TextAnimate stagger={0.05} flip>
+                        <PiArrowBendDownRightBold className="!size-5" />
+                        <TextAnimate className="flex-1" stagger={0.05} flip>
                           {item}
                         </TextAnimate>
                       </li>
@@ -82,7 +85,7 @@ const Journey = () => {
             </>
           );
         })}
-        <div className="flex items-end gap-2">
+        <div className="flex flex-row-reverse items-end gap-2 sm:flex-row">
           <span className="min-w-20 text-center text-lg leading-none text-primary md:text-xl">
             Now
           </span>
