@@ -60,7 +60,7 @@ export default function CVPage() {
             src={CVWinlaxFrontendDeveloperLight}
             alt="cv-winlax-frontend-developer-light"
             width={1224}
-            height={1584}
+            height={2254}
             className="w-full overflow-hidden rounded-lg border-[0.5px] border-foreground/20 !bg-background shadow-lg transition-all dark:invisible"
           />
           {/* image cv-winlax-frontend-developer-dark */}
@@ -69,7 +69,7 @@ export default function CVPage() {
             src={CVWinlaxFrontendDeveloperDark}
             alt="cv-winlax-frontend-developer-dark"
             width={1224}
-            height={1584}
+            height={2254}
             className="invisible absolute inset-0 left-0 top-0 overflow-hidden rounded-lg border-[0.5px] border-foreground/20 !bg-background shadow-lg transition-all dark:visible"
           />
         </div>

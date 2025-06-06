@@ -34,14 +34,12 @@ const ProjectCard = ({ link, srcImage, title, time, isEven }: Props) => {
         isMobile: `(max-width: 639px)`,
       },
       (context) => {
-        let { isDesktop, isMobile }: any = context.conditions;
+        let { isDesktop }: any = context.conditions;
         gsap
           .timeline({
             scrollTrigger: {
               trigger: containerRef.current,
-              toggleActions: isDesktop
-                ? "restart reverse restart reverse"
-                : "play none none none",
+              toggleActions: "play none none none",
               start: "top bottom",
               end: "bottom top",
             },
